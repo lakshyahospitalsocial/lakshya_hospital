@@ -59,7 +59,7 @@ export default function Doctors() {
 
         <div className="grid lg:grid-cols-3 gap-6 mb-10">
           {doctors.map((doctor, idx) => (
-            <div key={idx} className="group bg-white rounded-3xl border border-gray-100 overflow-hidden shadow-sm hover:shadow-2xl hover:-translate-y-1 transition-all duration-300">
+            <div key={idx} className={`group bg-white rounded-3xl border border-gray-100 overflow-hidden shadow-sm hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 ${idx >= 2 ? "hidden md:block" : ""}`}>
               {/* Doctor Image */}
               <div className="relative h-56 bg-gray-100 overflow-hidden">
                 {doctor.img ? (

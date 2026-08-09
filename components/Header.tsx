@@ -41,7 +41,7 @@ export default function Header() {
               />
               <div className="flex flex-col">
                 <span className="text-xl sm:text-2xl font-bold text-primary leading-tight tracking-tight">Lakshya</span>
-                <div className="flex items-center -mt-0.5">
+                <div className="flex items-center -mt-0.2">
                   <div className="h-[1px] bg-secondary/50 w-3 rounded-full mr-1.5" />
                   <p className="text-[9px] sm:text-[10px] font-extrabold text-secondary tracking-[0.25em] leading-none uppercase">HOSPITAL</p>
                   <div className="h-[1px] bg-secondary/50 w-3 rounded-full ml-1.5" />
@@ -139,8 +139,8 @@ export default function Header() {
                       <Link
                         href={item.href}
                         className={`flex items-center gap-3 px-4 py-3 rounded-xl font-semibold text-sm transition-all ${isActive
-                            ? 'bg-primary text-white'
-                            : 'text-gray-700 hover:bg-gray-50 hover:text-primary'
+                          ? 'bg-primary text-white'
+                          : 'text-gray-700 hover:bg-gray-50 hover:text-primary'
                           }`}
                       >
                         {item.name}

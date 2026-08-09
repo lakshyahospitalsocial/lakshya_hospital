@@ -705,7 +705,7 @@ export default function ArticlesPage() {
         </div>
 
         {/* ── FILTER & SEARCH BAR ─────────────────────────────── */}
-        <div className="sticky top-[80px] z-40 bg-white/95 backdrop-blur-md border-b border-gray-100 shadow-sm">
+        <div className="relative z-40 bg-white/95 backdrop-blur-md border-b border-gray-100 shadow-sm">
           <div className="max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-8 py-3">
             <div className="flex flex-col sm:flex-row gap-3 sm:items-center sm:justify-between">
               <div className="flex gap-2 flex-wrap">
@@ -737,7 +737,7 @@ export default function ArticlesPage() {
         </div>
 
         {/* ── CONTENT AREA ────────────────────────────────────── */}
-        <div className="bg-gray-50/60 min-h-screen">
+            <div className="bg-gray-50/60 min-h-screen">
           <div className="max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-8 py-12">
             <div className="flex items-center justify-end mb-7">
               {(activeCategory !== "All" || search) && (

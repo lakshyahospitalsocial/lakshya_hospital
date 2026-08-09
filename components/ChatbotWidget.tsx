@@ -442,7 +442,7 @@ export default function ChatbotWidget() {
 
       {/* ── Chat window ── */}
       {isOpen && (
-        <div className="fixed bottom-24 right-6 z-50 w-[92vw] max-w-[380px] h-[500px] bg-white/95 backdrop-blur-md rounded-3xl border border-slate-100 shadow-2xl overflow-hidden flex flex-col animate-in slide-in-from-bottom-12 fade-in duration-300">
+        <div className="fixed bottom-24 right-4 z-50 w-[92vw] max-w-[380px] h-[500px] bg-white/95 backdrop-blur-md rounded-3xl border border-slate-100 shadow-2xl overflow-hidden flex flex-col animate-in slide-in-from-bottom-12 fade-in duration-300">
 
           {/* Header */}
           <div className="bg-gradient-to-r from-slate-950 to-indigo-950 p-4 border-b border-indigo-900/40 flex items-center gap-3">

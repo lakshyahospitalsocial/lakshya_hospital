@@ -651,7 +651,7 @@ export default function BookAppointmentPage() {
                   )}
 
                   <div className="flex gap-3">
-                    <button type="button" onClick={() => window.history.back()} className="px-6 py-4 rounded-2xl border border-slate-200 font-bold text-xs uppercase tracking-wider text-slate-600 hover:bg-slate-50 transition-all">Back</button>
+                    <button type="button" onClick={() => window.history.back()} className="hidden sm:inline-flex px-6 py-4 rounded-2xl border border-slate-200 font-bold text-xs uppercase tracking-wider text-slate-600 hover:bg-slate-50 transition-all">Back</button>
                     <button
                       type="submit"
                       className="flex-1 bg-primary hover:bg-primary-hover text-white py-4 rounded-2xl font-bold text-xs uppercase tracking-wider shadow-lg shadow-primary/25 hover:-translate-y-0.5 transition-all flex items-center justify-center gap-2 cursor-pointer"

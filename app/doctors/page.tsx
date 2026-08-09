@@ -56,7 +56,7 @@ const doctorsList: Doctor[] = [
     color: "from-blue-500 to-blue-700",
     light: "bg-blue-50 text-blue-700 border-blue-100",
     availToday: true,
-    img: "/rohit_agrawal_director.png"
+    img: "/dr_rohit_lakshya_director.png"
   },
   {
     name: "Dr. Tripti Mishra",
@@ -80,7 +80,7 @@ const doctorsList: Doctor[] = [
     color: "from-pink-500 to-rose-600",
     light: "bg-pink-50 text-pink-700 border-pink-100",
     availToday: true,
-    img: "/tripti_mishra.png"
+    img: "/dr_tripti_founder.png"
   },
   {
     name: "Dr. Ashish Dwivedi",

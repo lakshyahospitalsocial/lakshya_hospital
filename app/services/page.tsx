@@ -776,12 +776,12 @@ function ServicesFAQ() {
               <h3 className="font-bold text-slate-800 text-lg mb-1 leading-snug">Still have questions about a specific treatment?</h3>
               <p className="text-slate-500 text-xs sm:text-sm font-medium">Speak directly with one of our specialists — we are available around the clock.</p>
             </div>
-            <div className="flex flex-wrap gap-3 shrink-0">
-              <a href="tel:+919335605848" className="px-6 py-3.5 rounded-2xl border-2 border-primary text-primary font-bold text-xs uppercase tracking-wider hover:bg-primary hover:text-white transition-all duration-300">
-                📞 Call +91 93356 05848
+            <div className="flex gap-3 w-full sm:w-auto shrink-0 justify-center">
+              <a href="tel:+919335605848" className="flex-1 sm:flex-initial text-center px-3 sm:px-6 py-3.5 rounded-2xl border-2 border-primary text-primary font-bold text-[10px] sm:text-xs uppercase tracking-wider hover:bg-primary hover:text-white transition-all duration-300 whitespace-nowrap">
+                📞 Call<span className="hidden sm:inline"> +91 93356 05848</span><span className="sm:hidden"> Now</span>
               </a>
-              <Link href="/book-appointment" className="px-6 py-3.5 rounded-2xl bg-primary hover:bg-primary-hover text-white font-bold text-xs uppercase tracking-wider shadow-md shadow-primary/25 transition-all hover:-translate-y-0.5">
-                Book Consultation
+              <Link href="/book-appointment" className="flex-1 sm:flex-initial text-center px-3 sm:px-6 py-3.5 rounded-2xl bg-primary hover:bg-primary-hover text-white font-bold text-[10px] sm:text-xs uppercase tracking-wider shadow-md shadow-primary/25 transition-all hover:-translate-y-0.5 whitespace-nowrap">
+                Book <span className="hidden sm:inline">Consultation</span><span className="sm:hidden">Consult</span>
               </Link>
             </div>
           </div>

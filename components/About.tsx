@@ -81,7 +81,6 @@ export default function About() {
               className="w-full h-full object-cover"
               src="/Lakshya_Website_Intro.mp4"
               controls
-              preload="none"
               onPlay={() => setIsPlaying(true)}
               onPause={() => setIsPlaying(false)}
               onEnded={() => setIsPlaying(false)}
@@ -153,7 +152,7 @@ export default function About() {
 
         {/* Why Trust Us Banner */}
         <div className="mt-14 bg-[#f4fbf8] rounded-[32px] p-8 lg:p-12 flex flex-col md:flex-row items-center justify-between gap-8 shadow-sm border border-green-50">
-          <div className="md:w-1/2">
+          <div className="w-full md:w-1/2">
             <h3 className="text-3xl font-bold text-gray-900 mb-6">Why Patients Trust Us</h3>
             <div className="space-y-3">
               {[
@@ -171,7 +170,7 @@ export default function About() {
               ))}
             </div>
           </div>
-          <div className="md:w-1/2 flex justify-center">
+          <div className="w-full md:w-1/2 flex justify-center">
             <div className="w-full max-w-md h-64 bg-white/60 border-4 border-white rounded-3xl overflow-hidden shadow-sm relative group select-none">
 
               {/* Slides */}

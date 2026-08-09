@@ -8,7 +8,7 @@ import {
 
 const FacebookIcon = ({ className = 'w-4 h-4' }: { className?: string }) => (
   <svg viewBox="0 0 24 24" className={className} fill="currentColor">
-    <path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"/>
+    <path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z" />
   </svg>
 );
 
@@ -22,18 +22,18 @@ const InstagramIcon = ({ className = 'w-4 h-4' }: { className?: string }) => (
 
 const YoutubeIcon = ({ className = 'w-4 h-4' }: { className?: string }) => (
   <svg viewBox="0 0 24 24" className={className} fill="currentColor">
-    <path d="M23.498 6.163a3.003 3.003 0 0 0-2.11-2.108C19.52 3.5 12 3.5 12 3.5s-7.52 0-9.388.555A3.002 3.002 0 0 0 .502 6.163C0 8.07 0 12 0 12s0 3.93.502 5.837a3.002 3.002 0 0 0 2.11 2.108C4.48 20.5 12 20.5 12 20.5s7.52 0 9.388-.555a3.002 3.002 0 0 0 2.11-2.108C24 15.93 24 12 24 12s0-3.93-.502-5.837zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+    <path d="M23.498 6.163a3.003 3.003 0 0 0-2.11-2.108C19.52 3.5 12 3.5 12 3.5s-7.52 0-9.388.555A3.002 3.002 0 0 0 .502 6.163C0 8.07 0 12 0 12s0 3.93.502 5.837a3.002 3.002 0 0 0 2.11 2.108C4.48 20.5 12 20.5 12 20.5s7.52 0 9.388-.555a3.002 3.002 0 0 0 2.11-2.108C24 15.93 24 12 24 12s0-3.93-.502-5.837zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
   </svg>
 );
 
 const QUICK_LINKS = [
-  { name: 'Home',             href: '/' },
-  { name: 'About Us',         href: '/about' },
-  { name: 'Our Services',     href: '/services' },
-  { name: 'Our Doctors',      href: '/doctors' },
-  { name: 'Health Articles',  href: '/articles' },
+  { name: 'Home', href: '/' },
+  { name: 'About Us', href: '/about' },
+  { name: 'Our Services', href: '/services' },
+  { name: 'Our Doctors', href: '/doctors' },
+  { name: 'Health Articles', href: '/articles' },
   { name: 'Book Appointment', href: '/book-appointment' },
-  { name: 'Contact Us',       href: '/contact' },
+  { name: 'Contact Us', href: '/contact' },
 ];
 
 const SERVICES = [
@@ -86,9 +86,9 @@ export default function Footer() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
 
           {/* ── Column 1: Brand ── */}
-          <div className="sm:col-span-2 lg:col-span-1">
+          <div className="sm:col-span-2 lg:col-span-1 text-center md:text-left">
             {/* Logo row */}
-            <div className="flex items-center mb-4">
+            <div className="flex items-center justify-center md:justify-start mb-4">
               <img
                 src="/logo.png"
                 alt="Lakshya Hospital Logo"
@@ -96,7 +96,7 @@ export default function Footer() {
               />
               <div className="flex flex-col">
                 <span className="text-2xl font-bold text-primary leading-tight tracking-tight">Lakshya</span>
-                <div className="flex items-center -mt-0.5">
+                <div className="flex items-center -mt-0.2">
                   <div className="h-[1px] bg-secondary/50 w-3 rounded-full mr-1.5" />
                   <span className="text-[10px] font-extrabold text-secondary tracking-[0.25em] leading-none uppercase">HOSPITAL</span>
                   <div className="h-[1px] bg-secondary/50 w-3 rounded-full ml-1.5" />
@@ -109,7 +109,7 @@ export default function Footer() {
             </p>
 
             {/* Trust badges */}
-            <div className="flex flex-wrap gap-2 mb-5">
+            <div className="flex flex-wrap gap-2 mb-5 justify-center md:justify-start">
               <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-primary/8 border border-primary/15 text-xs text-primary font-semibold">
                 <Shield className="w-3 h-3" /> Ayushman Bharat
               </span>
@@ -119,11 +119,11 @@ export default function Footer() {
             </div>
 
             {/* Social icons */}
-            <div className="flex gap-2">
+            <div className="flex gap-2 justify-center md:justify-start">
               {[
-                { icon: FacebookIcon,  title: 'Facebook',  href: 'https://www.facebook.com/lakshyahospitalkanpur',   color: 'hover:bg-blue-600 hover:border-blue-600 hover:text-white' },
+                { icon: FacebookIcon, title: 'Facebook', href: 'https://www.facebook.com/lakshyahospitalkanpur', color: 'hover:bg-blue-600 hover:border-blue-600 hover:text-white' },
                 { icon: InstagramIcon, title: 'Instagram', href: 'https://www.instagram.com/lakshyahospitalkanpur/', color: 'hover:bg-pink-500 hover:border-pink-500 hover:text-white' },
-                { icon: YoutubeIcon,   title: 'YouTube',    href: 'https://www.youtube.com/@LakshyaHospital_Kanpur',  color: 'hover:bg-red-500 hover:border-red-500 hover:text-white' },
+                { icon: YoutubeIcon, title: 'YouTube', href: 'https://www.youtube.com/@LakshyaHospital_Kanpur', color: 'hover:bg-red-500 hover:border-red-500 hover:text-white' },
               ].map(({ icon: Icon, title, href, color }) => (
                 <a
                   key={title}
@@ -140,16 +140,16 @@ export default function Footer() {
           </div>
 
           {/* ── Column 2: Quick Links ── */}
-          <div>
+          <div className="text-center md:text-left">
             <h4 className="text-xs font-bold text-gray-400 mb-5 uppercase tracking-widest">Quick Links</h4>
-            <ul className="space-y-2.5">
+            <ul className="grid grid-cols-2 gap-x-4 gap-y-2.5 md:grid-cols-1">
               {QUICK_LINKS.map(link => (
                 <li key={link.name}>
                   <Link
                     href={link.href}
-                    className="group flex items-center gap-1.5 text-sm text-gray-600 hover:text-primary transition-colors font-medium"
+                    className="group flex items-center justify-center md:justify-start gap-1.5 text-sm text-gray-600 hover:text-primary transition-colors font-medium"
                   >
-                    <ChevronRight className="w-3 h-3 text-primary opacity-0 group-hover:opacity-100 transition-all -ml-1" />
+                    <ChevronRight className="w-3 h-3 text-primary opacity-0 group-hover:opacity-100 transition-all -ml-1 hidden md:block" />
                     {link.name}
                   </Link>
                 </li>
@@ -157,8 +157,8 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* ── Column 3: Services ── */}
-          <div>
+          {/* ── Column 3: Services (hidden on mobile) ── */}
+          <div className="hidden md:block">
             <h4 className="text-xs font-bold text-gray-400 mb-5 uppercase tracking-widest">Our Specialities</h4>
             <ul className="space-y-2.5">
               {SERVICES.map(name => (
@@ -176,29 +176,29 @@ export default function Footer() {
           </div>
 
           {/* ── Column 4: Contact ── */}
-          <div>
+          <div className="text-center md:text-left">
             <h4 className="text-xs font-bold text-gray-400 mb-5 uppercase tracking-widest">Contact Us</h4>
             <ul className="space-y-4">
 
               <li>
                 <a href="https://maps.google.com/?q=Lakshya+Hospital+Kanpur" target="_blank" rel="noreferrer"
-                  className="flex items-start gap-3 group"
+                  className="flex items-start gap-3 group justify-center md:justify-start"
                 >
                   <div className="w-8 h-8 rounded-lg bg-primary/10 border border-primary/20 flex items-center justify-center shrink-0 mt-0.5 group-hover:bg-primary transition-colors">
                     <MapPin className="w-4 h-4 text-primary group-hover:text-white transition-colors" />
                   </div>
-                  <span className="text-sm text-gray-500 group-hover:text-primary transition-colors leading-relaxed">
+                  <span className="text-sm text-gray-500 group-hover:text-primary transition-colors leading-relaxed text-left">
                     128/1006, Y Block, Kidwai Nagar,<br />Kanpur, UP – 208011
                   </span>
                 </a>
               </li>
 
               <li>
-                <a href="tel:+919335605848" className="flex items-center gap-3 group">
+                <a href="tel:+919335605848" className="flex items-center gap-3 group justify-center md:justify-start">
                   <div className="w-8 h-8 rounded-lg bg-green-50 border border-green-200 flex items-center justify-center shrink-0 group-hover:bg-green-500 transition-colors">
                     <Phone className="w-4 h-4 text-green-600 group-hover:text-white transition-colors" />
                   </div>
-                  <div>
+                  <div className="text-left">
                     <p className="text-sm text-gray-700 group-hover:text-primary font-semibold transition-colors">+91 93356 05848</p>
                     <p className="text-xs text-gray-400">0512 263 4916 (Landline)</p>
                   </div>
@@ -206,7 +206,7 @@ export default function Footer() {
               </li>
 
               <li>
-                <a href="mailto:info@lakshyahospital.com" className="flex items-center gap-3 group">
+                <a href="mailto:info@lakshyahospital.com" className="flex items-center gap-3 group justify-center md:justify-start">
                   <div className="w-8 h-8 rounded-lg bg-blue-50 border border-blue-200 flex items-center justify-center shrink-0 group-hover:bg-blue-500 transition-colors">
                     <Mail className="w-4 h-4 text-blue-500 group-hover:text-white transition-colors" />
                   </div>
@@ -216,11 +216,11 @@ export default function Footer() {
                 </a>
               </li>
 
-              <li className="flex items-center gap-3">
+              <li className="flex items-center gap-3 justify-center md:justify-start">
                 <div className="w-8 h-8 rounded-lg bg-orange-50 border border-orange-200 flex items-center justify-center shrink-0">
                   <Clock className="w-4 h-4 text-orange-500" />
                 </div>
-                <div>
+                <div className="text-left">
                   <p className="text-sm text-gray-700 font-semibold">Open 24 / 7</p>
                   <p className="text-xs text-gray-400">Emergency always available</p>
                 </div>

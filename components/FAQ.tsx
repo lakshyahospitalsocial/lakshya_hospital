@@ -213,16 +213,16 @@ export default function FAQ() {
                 Our patient care team is available around the clock to help you.
               </p>
             </div>
-            <div className="flex flex-wrap gap-3 shrink-0">
+            <div className="flex gap-3 w-full sm:w-auto shrink-0 justify-center">
               <a
                 href="tel:+919335605848"
-                className="px-6 py-3 rounded-full border-2 border-primary text-primary font-semibold text-sm hover:bg-primary hover:text-white transition-all duration-300"
+                className="flex-1 sm:flex-initial text-center px-4 sm:px-6 py-3 rounded-full border-2 border-primary text-primary font-semibold text-sm hover:bg-primary hover:text-white transition-all duration-300 whitespace-nowrap"
               >
                 📞 Call Us Now
               </a>
               <a
                 href="/contact"
-                className="px-6 py-3 rounded-full bg-primary hover:bg-primary-hover text-white font-semibold text-sm shadow-md shadow-primary/25 transition-all hover:-translate-y-0.5"
+                className="flex-1 sm:flex-initial text-center px-4 sm:px-6 py-3 rounded-full bg-primary hover:bg-primary-hover text-white font-semibold text-sm shadow-md shadow-primary/25 transition-all hover:-translate-y-0.5 whitespace-nowrap"
               >
                 Send a Message
               </a>

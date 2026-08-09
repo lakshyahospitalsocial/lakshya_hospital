@@ -305,7 +305,6 @@ export default function AboutPage() {
                   className="w-full h-full object-cover"
                   src="/Lakshya_Website_Intro.mp4"
                   controls
-                  preload="none"
                   onPlay={() => setIsPlaying(true)}
                   onPause={() => setIsPlaying(false)}
                   onEnded={() => setIsPlaying(false)}
@@ -313,8 +312,8 @@ export default function AboutPage() {
 
                 <div
                   className={`absolute inset-0 flex items-center justify-center bg-black/20 transition-opacity duration-300 ${isPlaying
-                      ? 'opacity-0 group-hover:opacity-100 pointer-events-none group-hover:pointer-events-auto'
-                      : 'opacity-100 pointer-events-auto'
+                    ? 'opacity-0 group-hover:opacity-100 pointer-events-none group-hover:pointer-events-auto'
+                    : 'opacity-100 pointer-events-auto'
                     }`}
                 >
                   <button
