@@ -2,10 +2,10 @@
 import React, { useState, useMemo } from 'react';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
-import { 
-  CalendarHeart, Clock, Award, Phone, Search, X, Check, Globe, 
-  MapPin, Grid, List, AlertCircle, Heart, User, ShieldCheck, Star, 
-  SlidersHorizontal, ChevronRight, CheckCircle2 
+import {
+  CalendarHeart, Clock, Award, Phone, Search, X, Check, Globe,
+  MapPin, Grid, List, AlertCircle, Heart, User, ShieldCheck, Star,
+  SlidersHorizontal, ChevronRight, CheckCircle2
 } from 'lucide-react';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -100,7 +100,8 @@ const doctorsList: Doctor[] = [
     avail: ["Mon–Sat: 6:00 PM – 7:00 PM"],
     color: "from-teal-500 to-emerald-600",
     light: "bg-teal-50 text-teal-700 border-teal-100",
-    availToday: true
+    availToday: true,
+    img: "/dr_ashish_lakshya.png"
   },
   {
     name: "Dr. NS Chauhan",
@@ -120,7 +121,8 @@ const doctorsList: Doctor[] = [
     avail: ["Mon & Sun: 12:00 PM – 1:00 PM"],
     color: "from-indigo-500 to-indigo-700",
     light: "bg-indigo-50 text-indigo-700 border-indigo-100",
-    availToday: false
+    availToday: false,
+    img: "/dr-ns_chauhan_laskshya.png"
   },
   {
     name: "Dr. Kuldeep",
@@ -140,10 +142,11 @@ const doctorsList: Doctor[] = [
     avail: ["Mon–Sat: 1:00 PM – 2:00 PM"],
     color: "from-violet-500 to-violet-700",
     light: "bg-violet-50 text-violet-700 border-violet-100",
-    availToday: true
+    availToday: true,
+    img: "/dr_kuldeep_lakshya.png"
   },
   {
-    name: "Dr. Vishal Setia",
+    name: "Dr. Vishal Sethiya",
     initials: "VS",
     role: "Orthopedic Surgeon",
     department: "Orthopedics",
@@ -160,7 +163,8 @@ const doctorsList: Doctor[] = [
     avail: ["Mon–Sat: 1:00 PM – 2:00 PM"],
     color: "from-orange-500 to-amber-600",
     light: "bg-orange-50 text-orange-700 border-orange-100",
-    availToday: true
+    availToday: true,
+    img: "/dr_vishal_sethiya_lakshya.png"
   },
   {
     name: "Dr. Tripti Sengar",
@@ -180,7 +184,8 @@ const doctorsList: Doctor[] = [
     avail: ["Mon–Sat: 12:00 PM – 1:00 PM"],
     color: "from-cyan-500 to-sky-600",
     light: "bg-cyan-50 text-cyan-700 border-cyan-100",
-    availToday: true
+    availToday: true,
+    img: "/dr_tripti_sengar_lakshya.png"
   },
   {
     name: "Dr. SG Verma",
@@ -200,7 +205,8 @@ const doctorsList: Doctor[] = [
     avail: ["By Appointment / On Call"],
     color: "from-purple-500 to-purple-700",
     light: "bg-purple-50 text-purple-700 border-purple-100",
-    availToday: false
+    availToday: false,
+    img: "/dr_sg_lakshya.png"
   },
   {
     name: "Dr. Manish Kumar",
@@ -220,7 +226,8 @@ const doctorsList: Doctor[] = [
     avail: ["By Appointment / On Call"],
     color: "from-sky-500 to-blue-600",
     light: "bg-sky-50 text-sky-700 border-sky-100",
-    availToday: false
+    availToday: false,
+    img: "/dr_manish_lakshya.png"
   },
   {
     name: "Dr. Shushant Luthra",
@@ -240,7 +247,8 @@ const doctorsList: Doctor[] = [
     avail: ["By Appointment / On Call"],
     color: "from-rose-500 to-pink-600",
     light: "bg-rose-50 text-rose-700 border-rose-100",
-    availToday: false
+    availToday: false,
+    img: "/dr_sushant_lakshya.png"
   },
   {
     name: "Dr. Rakesh Tripathi",
@@ -260,31 +268,33 @@ const doctorsList: Doctor[] = [
     avail: ["By Appointment / On Call"],
     color: "from-green-500 to-emerald-600",
     light: "bg-green-50 text-green-700 border-green-100",
-    availToday: false
+    availToday: false,
+    img: "/dr_rakesh_lakshya.png"
+
   }
 ];
 
 const departments = [
-  "All", 
-  "Pediatrics", 
-  "Obstetrics & Gynecology", 
-  "General Medicine", 
-  "General Surgery", 
-  "Orthopedics", 
-  "ENT Care", 
-  "Neuro + Spine Surgery", 
-  "Urosurgery", 
-  "Plastic Surgery", 
+  "All",
+  "Pediatrics",
+  "Obstetrics & Gynecology",
+  "General Medicine",
+  "General Surgery",
+  "Orthopedics",
+  "ENT Care",
+  "Neuro + Spine Surgery",
+  "Urosurgery",
+  "Plastic Surgery",
   "Pediatric Surgery"
 ];
 
 // Interactive and error-resilient Doctor Hero Image component
 function DoctorHeroImage() {
-  const [imgSrc, setImgSrc] = useState("/doctors_hero.png");
+  const [imgSrc, setImgSrc] = useState("/founder_lakshya.png");
   const [hasError, setHasError] = useState(false);
 
   const handleError = () => {
-    if (imgSrc === "/doctors_hero.png") {
+    if (imgSrc === "/founder_lakshya.png") {
       setImgSrc("/doctors.hero.png");
     } else {
       setHasError(true);
@@ -304,9 +314,9 @@ function DoctorHeroImage() {
   }
 
   return (
-    <img 
-      src={imgSrc} 
-      alt="Lakshya Hospital Doctors Team" 
+    <img
+      src={imgSrc}
+      alt="Lakshya Hospital Doctors Team"
       className="w-full h-full object-cover object-center transition-all duration-700 hover:scale-105"
       onError={handleError}
     />
@@ -315,8 +325,6 @@ function DoctorHeroImage() {
 
 export default function FindDoctorPage() {
   const [searchQuery, setSearchQuery] = useState("");
-  const [activeDept, setActiveDept] = useState("All");
-  const [genderFilter, setGenderFilter] = useState<"All" | "Male" | "Female">("All");
   const [availableOnly, setAvailableOnly] = useState(false);
   const [viewLayout, setViewLayout] = useState<"grid" | "list">("grid");
   const [selectedDoctor, setSelectedDoctor] = useState<Doctor | null>(null);
@@ -324,8 +332,6 @@ export default function FindDoctorPage() {
   // Clear all active filters
   const resetFilters = () => {
     setSearchQuery("");
-    setActiveDept("All");
-    setGenderFilter("All");
     setAvailableOnly(false);
   };
 
@@ -340,31 +346,20 @@ export default function FindDoctorPage() {
         const matchesQual = doctor.qual.toLowerCase().includes(query);
         const matchesEdu = doctor.education.toLowerCase().includes(query);
         const matchesFocus = doctor.clinicalFocus.some(focus => focus.toLowerCase().includes(query));
-        
+
         if (!matchesName && !matchesDept && !matchesQual && !matchesEdu && !matchesFocus) {
           return false;
         }
       }
 
-      // 2. Department Category Filter
-      if (activeDept !== "All" && doctor.department !== activeDept) {
-        return false;
-      }
-
-      // 3. Gender Filter
-      if (genderFilter !== "All") {
-        if (genderFilter === "Male" && doctor.gender !== "male") return false;
-        if (genderFilter === "Female" && doctor.gender !== "female") return false;
-      }
-
-      // 4. Availability Filter
+      // 2. Availability Filter
       if (availableOnly && !doctor.availToday) {
         return false;
       }
 
       return true;
     });
-  }, [searchQuery, activeDept, genderFilter, availableOnly]);
+  }, [searchQuery, availableOnly]);
 
   return (
     <main className="flex min-h-screen flex-col bg-slate-50/50">
@@ -377,7 +372,7 @@ export default function FindDoctorPage() {
           <div className="absolute bottom-0 right-0 w-[450px] h-[450px] bg-secondary/5 rounded-full blur-3xl translate-x-1/3 translate-y-1/3" />
         </div>
 
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="relative z-10 max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-12 gap-12 lg:gap-8 items-center">
             {/* Left Column: Text & Information */}
             <div className="lg:col-span-7 flex flex-col items-start text-left">
@@ -407,12 +402,12 @@ export default function FindDoctorPage() {
               <div className="relative w-72 h-72 sm:w-80 sm:h-80 md:w-96 md:h-96 lg:w-[400px] lg:h-[400px] flex items-center justify-center">
                 {/* Glowing Aura Effect */}
                 <div className="absolute inset-0 bg-primary/10 rounded-full blur-3xl animate-pulse" />
-                
+
                 {/* Outer concentric rings */}
                 <div className="absolute inset-2 rounded-full border border-dashed border-white/10 animate-[spin_120s_linear_infinite]" />
                 <div className="absolute inset-6 rounded-full border border-white/5" />
                 <div className="absolute inset-10 rounded-full border border-primary/20" />
-                
+
                 {/* Main Circular Frame with a nice dark glass container */}
                 <div className="absolute inset-14 rounded-full overflow-hidden border-4 border-slate-800/80 bg-slate-900/80 shadow-2xl flex items-center justify-center">
                   <DoctorHeroImage />
@@ -446,7 +441,7 @@ export default function FindDoctorPage() {
       </section>
 
       {/* Main Interactive Controls & Results */}
-      <section className="py-12 -mt-10 relative z-20 max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8">
+      <section className="py-12 -mt-10 relative z-20 max-w-[90rem] mx-auto w-full px-4 sm:px-6 lg:px-8">
         {/* Search Bar Block */}
         <div className="bg-white rounded-3xl p-5 md:p-6 shadow-xl border border-slate-100 mb-8">
           <div className="relative flex flex-col md:flex-row items-center gap-4">
@@ -468,22 +463,21 @@ export default function FindDoctorPage() {
                 </button>
               )}
             </div>
-            
+
             {/* Real-time stats or primary actions */}
             <div className="w-full md:w-auto shrink-0 flex items-stretch gap-2.5">
               <button
                 onClick={() => setAvailableOnly(!availableOnly)}
-                className={`flex-1 md:flex-initial flex items-center justify-center gap-2 px-5 py-4.5 rounded-2xl text-sm font-bold border transition-all cursor-pointer whitespace-nowrap ${
-                  availableOnly
-                    ? "bg-secondary/15 border-secondary text-secondary-hover shadow-sm"
-                    : "bg-white border-slate-200 text-slate-700 hover:bg-slate-50"
-                }`}
+                className={`flex-1 md:flex-initial flex items-center justify-center gap-2 px-5 py-4.5 rounded-2xl text-sm font-bold border transition-all cursor-pointer whitespace-nowrap ${availableOnly
+                  ? "bg-secondary/15 border-secondary text-secondary-hover shadow-sm"
+                  : "bg-white border-slate-200 text-slate-700 hover:bg-slate-50"
+                  }`}
               >
                 <Clock className="w-4 h-4" />
                 Available Today
               </button>
-              
-              {(searchQuery || activeDept !== "All" || genderFilter !== "All" || availableOnly) && (
+
+              {(searchQuery || availableOnly) && (
                 <button
                   onClick={resetFilters}
                   className="px-5 py-4.5 bg-slate-100 hover:bg-slate-200 text-slate-600 rounded-2xl text-sm font-bold transition-colors cursor-pointer"
@@ -515,77 +509,25 @@ export default function FindDoctorPage() {
           </div>
         </div>
 
-        {/* Filter Categories Bar (Horizontal Pills) */}
-        <div className="mb-6">
-          <p className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-3">Filter by Department</p>
-          <div className="overflow-x-auto pb-2 scrollbar-none flex gap-2">
-            {departments.map((dept) => (
-              <button
-                key={dept}
-                onClick={() => setActiveDept(dept)}
-                className={`px-4.5 py-2.5 rounded-full text-xs font-bold transition-all whitespace-nowrap cursor-pointer ${
-                  activeDept === dept
-                    ? "bg-primary text-white shadow-md shadow-primary/25 border border-primary"
-                    : "bg-white border border-slate-200 text-slate-600 hover:bg-slate-50"
-                }`}
-              >
-                {dept}
-              </button>
-            ))}
-          </div>
-        </div>
-
         {/* Refined Filters Row */}
-        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border-b border-slate-200/80 pb-5 mb-8">
-          {/* Quick Filters Group */}
-          <div className="flex items-center gap-4 flex-wrap">
-            <div className="flex items-center gap-2">
-              <span className="text-xs font-bold text-slate-400 uppercase tracking-wider">Gender:</span>
-              <div className="inline-flex rounded-xl bg-white border border-slate-200 p-1">
-                {(["All", "Male", "Female"] as const).map((gender) => (
-                  <button
-                    key={gender}
-                    onClick={() => setGenderFilter(gender)}
-                    className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer ${
-                      genderFilter === gender
-                        ? "bg-primary text-white"
-                        : "text-slate-500 hover:text-slate-800"
-                    }`}
-                  >
-                    {gender}
-                  </button>
-                ))}
-              </div>
-            </div>
-          </div>
-
-          {/* Results Summary and View Switcher */}
-          <div className="flex items-center justify-between sm:justify-end gap-5 w-full sm:w-auto">
-            <p className="text-slate-500 text-sm font-semibold">
-              Showing <span className="text-primary font-bold">{filteredDoctors.length}</span> specialist{filteredDoctors.length !== 1 ? 's' : ''}
-              {activeDept !== "All" && <> in <span className="text-primary font-bold">{activeDept}</span></>}
-            </p>
-
-            <div className="flex items-center border border-slate-200 rounded-xl bg-white p-1">
-              <button
-                onClick={() => setViewLayout("grid")}
-                className={`p-1.5 rounded-lg transition-colors cursor-pointer ${
-                  viewLayout === "grid" ? "bg-slate-100 text-primary" : "text-slate-400 hover:text-slate-600"
+        <div className="flex items-center justify-end border-b border-slate-200/80 pb-5 mb-8">
+          <div className="flex items-center border border-slate-200 rounded-xl bg-white p-1">
+            <button
+              onClick={() => setViewLayout("grid")}
+              className={`p-1.5 rounded-lg transition-colors cursor-pointer ${viewLayout === "grid" ? "bg-slate-100 text-primary" : "text-slate-400 hover:text-slate-600"
                 }`}
-                title="Grid View"
-              >
-                <Grid className="w-4 h-4" />
-              </button>
-              <button
-                onClick={() => setViewLayout("list")}
-                className={`p-1.5 rounded-lg transition-colors cursor-pointer ${
-                  viewLayout === "list" ? "bg-slate-100 text-primary" : "text-slate-400 hover:text-slate-600"
+              title="Grid View"
+            >
+              <Grid className="w-4 h-4" />
+            </button>
+            <button
+              onClick={() => setViewLayout("list")}
+              className={`p-1.5 rounded-lg transition-colors cursor-pointer ${viewLayout === "list" ? "bg-slate-100 text-primary" : "text-slate-400 hover:text-slate-600"
                 }`}
-                title="List View"
-              >
-                <List className="w-4 h-4" />
-              </button>
-            </div>
+              title="List View"
+            >
+              <List className="w-4 h-4" />
+            </button>
           </div>
         </div>
 
@@ -593,10 +535,15 @@ export default function FindDoctorPage() {
         {filteredDoctors.length > 0 ? (
           viewLayout === "grid" ? (
             /* GRID VIEW */
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6.5">
+            <motion.div
+              key="grid-layout"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.18 }}
+              className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6.5"
+            >
               {filteredDoctors.map((doctor, index) => (
                 <motion.div
-                  layout
                   initial={{ opacity: 0, y: 15 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.3, delay: Math.min(index * 0.05, 0.4) }}
@@ -606,7 +553,7 @@ export default function FindDoctorPage() {
                   {/* Top card block with visual representation */}
                   <div className={`bg-gradient-to-br ${doctor.color} p-6 pb-8 relative overflow-hidden`}>
                     <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -translate-y-1/2 translate-x-1/2 blur-lg" />
-                    
+
                     {/* Stars / Rating top badge */}
                     <div className="absolute top-4 right-4 bg-white/15 backdrop-blur-md border border-white/20 px-2.5 py-1 rounded-full text-white text-xs font-bold flex items-center gap-1.5">
                       <Star className="w-3 h-3 text-amber-300 fill-amber-300 shrink-0" />
@@ -617,8 +564,8 @@ export default function FindDoctorPage() {
                       {/* Avatar container */}
                       <div className="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center shrink-0 border border-white/30 text-white font-bold text-xl relative overflow-hidden group-hover:scale-105 transition-transform duration-300">
                         {doctor.img ? (
-                          <img 
-                            src={doctor.img} 
+                          <img
+                            src={doctor.img}
                             alt={doctor.name}
                             className="w-full h-full object-cover object-top"
                             onError={(e) => {
@@ -703,31 +650,47 @@ export default function FindDoctorPage() {
                     </div>
 
                     {/* Bottom Actions */}
-                    <div className="flex gap-2.5 pt-5 mt-auto">
+                    <div className="flex gap-2 pt-5 mt-auto">
                       <button
                         onClick={() => setSelectedDoctor(doctor)}
-                        className="flex-1 flex items-center justify-center bg-slate-100 hover:bg-slate-200 text-slate-700 py-3 rounded-xl text-xs font-bold transition-colors cursor-pointer border border-slate-200/50"
+                        className="flex-1 flex items-center justify-center bg-slate-100 hover:bg-slate-200 text-slate-700 py-3 rounded-xl text-xs font-bold transition-colors cursor-pointer border border-slate-200/50 shrink-0"
                       >
                         View Profile
                       </button>
                       <Link
                         href="/book-appointment"
-                        className="flex-1 flex items-center justify-center gap-1.5 bg-primary hover:bg-primary-hover text-white py-3 rounded-xl text-xs font-bold transition-all shadow-md shadow-primary/15 hover:shadow-lg hover:shadow-primary/20 cursor-pointer"
+                        className="flex-[1.5] flex items-center justify-center gap-1 bg-primary hover:bg-primary-hover text-white py-3 rounded-xl text-xs font-bold transition-all shadow-md shadow-primary/15 hover:shadow-lg hover:shadow-primary/20 cursor-pointer"
                       >
-                        <CalendarHeart className="w-3.5 h-3.5" />
-                        Book Now
+                        <CalendarHeart className="w-3.5 h-3.5 shrink-0" />
+                        Book Online
                       </Link>
+                      <a
+                        href={`https://wa.me/919335605848?text=Hello%20Lakshya%20Hospital,%20I%20would%20like%20to%20book%20an%20appointment%20with%20${encodeURIComponent(doctor.name)}.`}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="w-10 h-10 rounded-xl bg-emerald-500 hover:bg-emerald-600 text-white flex items-center justify-center shadow-md transition-colors cursor-pointer shrink-0"
+                        title={`Book with ${doctor.name} via WhatsApp`}
+                      >
+                        <svg viewBox="0 0 24 24" className="w-4.5 h-4.5" fill="currentColor">
+                          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.335-1.662c1.746.953 3.71 1.458 5.704 1.459h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
+                        </svg>
+                      </a>
                     </div>
                   </div>
                 </motion.div>
               ))}
-            </div>
+            </motion.div>
           ) : (
             /* LIST VIEW */
-            <div className="space-y-4">
+            <motion.div
+              key="list-layout"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.18 }}
+              className="space-y-4"
+            >
               {filteredDoctors.map((doctor, index) => (
                 <motion.div
-                  layout
                   initial={{ opacity: 0, y: 15 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.3, delay: Math.min(index * 0.05, 0.4) }}
@@ -738,8 +701,8 @@ export default function FindDoctorPage() {
                     {/* Visual representation / Avatar */}
                     <div className={`w-20 h-20 bg-gradient-to-br ${doctor.color} rounded-2xl flex items-center justify-center shrink-0 border border-slate-100 text-white font-bold text-2xl relative overflow-hidden shadow-sm`}>
                       {doctor.img ? (
-                        <img 
-                          src={doctor.img} 
+                        <img
+                          src={doctor.img}
                           alt={doctor.name}
                           className="w-full h-full object-cover object-top"
                           onError={(e) => {
@@ -749,7 +712,7 @@ export default function FindDoctorPage() {
                       ) : (
                         <span>{doctor.initials}</span>
                       )}
-                      
+
                       {/* Sub-badge for Rating */}
                       <div className="absolute bottom-1 right-1 bg-white/95 rounded-md px-1 py-0.5 text-[9px] text-slate-800 font-extrabold flex items-center gap-0.5 shadow-sm">
                         <Star className="w-2.5 h-2.5 text-amber-500 fill-amber-500 shrink-0" />
@@ -812,10 +775,10 @@ export default function FindDoctorPage() {
                       </p>
                     </div>
 
-                    <div className="flex gap-2.5 w-auto">
+                    <div className="flex gap-2 w-auto">
                       <button
                         onClick={() => setSelectedDoctor(doctor)}
-                        className="bg-slate-100 hover:bg-slate-200 text-slate-700 px-4 py-2.5 rounded-xl text-xs font-bold transition-colors cursor-pointer border border-slate-200/50"
+                        className="bg-slate-100 hover:bg-slate-200 text-slate-700 px-4 py-2.5 rounded-xl text-xs font-bold transition-colors cursor-pointer border border-slate-200/50 shrink-0"
                       >
                         Profile Details
                       </button>
@@ -823,14 +786,25 @@ export default function FindDoctorPage() {
                         href="/book-appointment"
                         className="flex items-center gap-1.5 bg-primary hover:bg-primary-hover text-white px-4 py-2.5 rounded-xl text-xs font-bold transition-all shadow-md shadow-primary/10 cursor-pointer"
                       >
-                        <CalendarHeart className="w-3.5 h-3.5" />
-                        Book Now
+                        <CalendarHeart className="w-3.5 h-3.5 shrink-0" />
+                        Book Online
                       </Link>
+                      <a
+                        href={`https://wa.me/919335605848?text=Hello%20Lakshya%20Hospital,%20I%20would%2520like%2520to%2520book%2520an%2520appointment%2520with%2520${encodeURIComponent(doctor.name)}.`}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="w-10 h-10 rounded-xl bg-emerald-500 hover:bg-emerald-600 text-white flex items-center justify-center shadow-md transition-colors cursor-pointer shrink-0"
+                        title={`Book with ${doctor.name} via WhatsApp`}
+                      >
+                        <svg viewBox="0 0 24 24" className="w-4.5 h-4.5" fill="currentColor">
+                          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.335-1.662c1.746.953 3.71 1.458 5.704 1.459h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
+                        </svg>
+                      </a>
                     </div>
                   </div>
                 </motion.div>
               ))}
-            </div>
+            </motion.div>
           )
         ) : (
           /* NO RESULTS STATE */
@@ -842,7 +816,7 @@ export default function FindDoctorPage() {
             <div className="w-16 h-16 bg-red-50 border border-red-100 rounded-2xl flex items-center justify-center mx-auto mb-6">
               <AlertCircle className="w-8 h-8 text-red-500" />
             </div>
-            
+
             <h3 className="text-2xl font-bold text-slate-900 mb-3">No Specialists Found</h3>
             <p className="text-slate-500 text-base mb-8 max-w-md mx-auto leading-relaxed">
               We couldn't find a doctor matching your exact search terms or active filters. Lakshya Hospital features 11 core clinical consultants.
@@ -855,7 +829,7 @@ export default function FindDoctorPage() {
               >
                 Clear Search & Filters
               </button>
-              
+
               <a
                 href="tel:+919335605848"
                 className="inline-flex items-center justify-center gap-2 bg-primary hover:bg-primary-hover text-white px-6 py-3.5 rounded-xl text-sm font-bold shadow-md shadow-primary/15 transition-all cursor-pointer"
@@ -882,7 +856,7 @@ export default function FindDoctorPage() {
 
       {/* Trust & Accreditations Banner */}
       <section className="bg-slate-100/60 border-t border-b border-slate-200/50 py-12">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div className="max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <p className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-6">Government Schemes & Cashless Insurance Accepted</p>
           <div className="flex flex-wrap justify-center items-center gap-8 opacity-75 grayscale hover:grayscale-0 transition-all duration-300">
             <div className="bg-white border border-slate-200 rounded-xl px-5 py-3 shadow-xs">
@@ -970,8 +944,8 @@ export default function FindDoctorPage() {
                 <div className="flex items-start gap-4 pb-6 border-b border-slate-100">
                   <div className={`w-20 h-20 bg-gradient-to-br ${selectedDoctor.color} rounded-2xl flex items-center justify-center shrink-0 border border-slate-100 text-white font-bold text-2xl relative overflow-hidden shadow-sm`}>
                     {selectedDoctor.img ? (
-                      <img 
-                        src={selectedDoctor.img} 
+                      <img
+                        src={selectedDoctor.img}
                         alt={selectedDoctor.name}
                         className="w-full h-full object-cover object-top"
                         onError={(e) => {
@@ -986,7 +960,7 @@ export default function FindDoctorPage() {
                     <h3 className="text-xl font-bold text-slate-900 leading-snug">{selectedDoctor.name}</h3>
                     <p className="text-sm font-semibold text-primary mt-0.5">{selectedDoctor.role}</p>
                     <p className="text-xs text-slate-400 font-medium mt-1">Experience: {selectedDoctor.exp}</p>
-                    
+
                     {/* Star Rating Info */}
                     <div className="flex items-center gap-1.5 mt-2 bg-amber-50 text-amber-800 px-2 py-0.5 rounded-md w-max border border-amber-100 text-xs font-bold">
                       <Star className="w-3.5 h-3.5 text-amber-500 fill-amber-500" />

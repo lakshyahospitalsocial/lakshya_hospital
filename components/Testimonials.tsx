@@ -4,12 +4,39 @@ import { Star, ChevronLeft, ChevronRight, Heart, Quote, PlayCircle, X } from 'lu
 
 const reviews = [
   {
-    name: "Sunita Gupta",
-    tag: "Mother of a Pediatric Patient",
-    review: "Dr. Rohit Agrawal and his team are exceptional. My son was treated with such care and expertise. The facilities are clean and modern. We trust Lakshya Hospital completely for our family's health.",
+    name: "Bilal & Family",
+    tag: "Maternity Patient",
+    review: "Recovering after delivery doesn't always have to take weeks. With the right medical care and support under Dr. Tripti Mishra at Lakshya Hospital, my wife was able to recover comfortably within just 4 days after delivery.",
     rating: 5,
-    // Add your real YouTube Video IDs or full links here! 
-    youtubeId: "https://youtube.com/shorts/P9Xh_qSBaGI?feature=share", // Example placeholder ID
+    youtubeId: "https://www.youtube.com/shorts/o7EKg3FCwos",
+  },
+  {
+    name: "Manisha Shakya",
+    tag: "Gynaecology & General Surgery Patient",
+    review: "I was in a terrifying situation facing two operations due to irregular periods, gallbladder stones, and an ovarian condition. Dr. Tripti Mishra treated my problems and I am completely fine now with no more pain or irregular periods.",
+    rating: 5,
+    youtubeId: "https://youtube.com/shorts/P9Xh_qSBaGI?feature=share",
+  },
+  {
+    name: "Komal Devi",
+    tag: "Maternity Patient",
+    review: "I experienced an abnormal pregnancy with no pain even when my water broke. Dr. Tripti Mishra handled the situation exceptionally well and delivered my baby safely, changing my life forever.",
+    rating: 5,
+    youtubeId: "https://www.youtube.com/shorts/MM02P3yeYrE",
+  },
+  {
+    name: "Thriving Child's Family",
+    tag: "Critical Pediatric Patient Family",
+    review: "After multiple hospitals gave up on our critically ill child, we found a savior in Dr. Rohit Agarwal. Thanks to his dedication and a grueling yet successful two-month admission, our child made a full recovery. We express our profound gratitude to the medical team.",
+    rating: 5,
+    youtubeId: "https://youtube.com/shorts/xM3IZgiABW8?feature=share",
+  },
+  {
+    name: "Devansh Sahu",
+    tag: "Pediatric Spine Surgery Family",
+    review: "My newborn brother had a critical knot in his spine discovered post-delivery. The experienced surgical team at Lakshya Hospital performed a flawless spine operation to prevent future paralysis. We are extremely thankful for their transparent communication, professionalism, and affordable care.",
+    rating: 5,
+    youtubeId: "https://youtube.com/shorts/B4AmH_vmGs4?feature=share",
   },
   {
     name: "Ramesh Sharma",
@@ -19,25 +46,11 @@ const reviews = [
     youtubeId: "", // Empty means it will just show as a text testimonial
   },
   {
-    name: "Anjali Mishra",
-    tag: "Maternity Patient",
-    review: "Dr. Tripti Mishra handled my delivery with utmost professionalism. I felt safe and cared for throughout. The NICU facility gave us confidence during a critical time.",
-    rating: 5,
-    youtubeId: "https://youtube.com/shorts/xM3IZgiABW8?feature=share", // Example placeholder ID
-  },
-  {
     name: "Vikram Singh",
     tag: "Orthopedic Patient",
-    review: "Came to Dr. Vishal Setia with a severe fracture. He explained everything clearly and the treatment was spot-on. Recovered faster than expected.",
+    review: "Came to Dr. Vishal Sethiya with a severe fracture. He explained everything clearly and the treatment was spot-on. Recovered faster than expected.",
     rating: 5,
     youtubeId: "",
-  },
-  {
-    name: "Pooja Agarwal",
-    tag: "Patient via Ayushman Bharat Scheme",
-    review: "I am very thankful that Lakshya Hospital accepts Ayushman Bharat cards. Quality treatment at no cost — this is truly a hospital that cares about all sections of society.",
-    rating: 5,
-    youtubeId: "https://youtube.com/shorts/B4AmH_vmGs4?feature=share",
   },
 ];
 

@@ -1,10 +1,11 @@
-import React from 'react';
+"use client";
+import React, { useState } from 'react';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import {
   MapPin, Phone, Mail, Clock, Send, MessageSquare,
   Users, Shield, Headphones, Calendar, CheckCircle2,
-  ArrowRight, HelpCircle, ChevronRight
+  ArrowRight, HelpCircle, ChevronRight, X
 } from 'lucide-react';
 
 // High-fidelity WhatsApp SVG Icon
@@ -15,6 +16,108 @@ const WhatsAppIcon = ({ className = 'w-5 h-5' }: { className?: string }) => (
 );
 
 export default function ContactPage() {
+  const [formData, setFormData] = useState({ name: '', phone: '', email: '', message: '' });
+  const [errors, setErrors] = useState<{ name?: string; phone?: string; email?: string; message?: string }>({});
+  const [touched, setTouched] = useState<{ name?: boolean; phone?: boolean; email?: boolean; message?: boolean }>({});
+  const [status, setStatus] = useState<{ type: 'success' | 'error' | null; message: string }>({ type: null, message: '' });
+  const [loading, setLoading] = useState(false);
+  const [isSuccessModalOpen, setIsSuccessModalOpen] = useState(false);
+
+  const validateField = (name: string, value: string) => {
+    let errorMsg = '';
+    if (!value.trim()) {
+      if (name === 'name') errorMsg = 'Full name is required.';
+      if (name === 'phone') errorMsg = 'Phone number is required.';
+      if (name === 'email') errorMsg = 'Email address is required.';
+      if (name === 'message') errorMsg = 'Inquiry details are required.';
+    } else {
+      if (name === 'phone') {
+        const strippedPhone = value.replace(/[\s\-\+\(\)]/g, "").replace(/^91/, "").replace(/^0/, "");
+        const phoneRegex = /^[6-9]\d{9}$/;
+        if (!phoneRegex.test(strippedPhone)) {
+          errorMsg = 'Please enter a valid 10-digit mobile number (starts with 6-9).';
+        }
+      }
+      if (name === 'email') {
+        const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+        if (!emailRegex.test(value)) {
+          errorMsg = 'Please enter a valid email address.';
+        }
+      }
+    }
+    setErrors(prev => ({ ...prev, [name]: errorMsg }));
+    return errorMsg;
+  };
+
+  const handleChange = (field: 'name' | 'phone' | 'email' | 'message', value: string) => {
+    let sanitizedValue = value;
+    if (field === 'phone') {
+      // Restrict input to digits only (cannot type letters/text)
+      sanitizedValue = value.replace(/[^0-9]/g, "");
+    }
+    setFormData(prev => ({ ...prev, [field]: sanitizedValue }));
+    if (touched[field]) {
+      validateField(field, sanitizedValue);
+    }
+  };
+
+  const handleBlur = (field: 'name' | 'phone' | 'email' | 'message') => {
+    setTouched(prev => ({ ...prev, [field]: true }));
+    validateField(field, formData[field]);
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    // Validate all fields immediately on submit
+    const nameErr = validateField('name', formData.name);
+    const phoneErr = validateField('phone', formData.phone);
+    const emailErr = validateField('email', formData.email);
+    const messageErr = validateField('message', formData.message);
+
+    // Mark all as touched
+    setTouched({ name: true, phone: true, email: true, message: true });
+
+    if (nameErr || phoneErr || emailErr || messageErr) {
+      setStatus({ type: 'error', message: 'Please correct the highlighted errors before submitting.' });
+      return;
+    }
+
+    setLoading(true);
+    setStatus({ type: null, message: '' });
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      });
+      const data = await res.json();
+      if (res.ok) {
+        setFormData({ name: '', phone: '', email: '', message: '' });
+        setTouched({});
+        setErrors({});
+        setStatus({ type: null, message: '' });
+        setIsSuccessModalOpen(true);
+      } else {
+        if (res.status === 400) {
+          setStatus({ type: 'error', message: data.error || 'Invalid details provided.' });
+        } else {
+          setStatus({
+            type: 'error',
+            message: 'Unable to send message due to a mail server configuration issue. Please contact us directly at info@lakshyahospital.com or call +91 93356 05848.'
+          });
+        }
+      }
+    } catch (err) {
+      console.error(err);
+      setStatus({
+        type: 'error',
+        message: 'A network error occurred. Please check your internet connection and try again, or contact us at info@lakshyahospital.com.'
+      });
+    } finally {
+      setLoading(false);
+    }
+  };
   return (
     <main className="flex min-h-screen flex-col bg-slate-50/50">
       <Header />
@@ -28,7 +131,7 @@ export default function ContactPage() {
           <div className="absolute inset-0 bg-[radial-gradient(#e2e8f0_1px,transparent_1px)] [background-size:24px_24px] opacity-40" />
         </div>
 
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="relative z-10 max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
 
             {/* ── Left: Heading + Three Feature Cards ── */}
@@ -52,40 +155,34 @@ export default function ContactPage() {
                 Reach out to Lakshya Hospital for appointments, general inquiries, or any clinical assistance. Our team is ready to help you every step of the way.
               </p>
 
-              {/* Three feature cards – same horizontal row */}
-              <div className="grid grid-cols-3 gap-4 w-full pt-2">
+              {/* Three feature cards – minimal layout */}
+              <div className="grid grid-cols-3 gap-6 w-full pt-4">
                 {/* Quick Response */}
-                <div className="group bg-white/70 backdrop-blur-sm border border-slate-100 p-5 rounded-2xl flex flex-col items-start text-left shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
-                  <div className="w-10 h-10 rounded-xl bg-emerald-50 border border-emerald-100 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform duration-300">
-                    <MessageSquare className="w-5 h-5 text-emerald-500" />
-                  </div>
-                  <h4 className="text-xs font-bold text-slate-800 leading-snug">Quick Response</h4>
-                  <p className="text-[10px] text-slate-400 mt-1 leading-normal">Active desks reply as soon as possible.</p>
+                <div className="flex flex-col items-start text-left">
+                  <MessageSquare className="w-4 h-4 text-emerald-500 mb-2.5" />
+                  <h4 className="text-[11px] font-bold text-slate-800 uppercase tracking-wider">Quick Response</h4>
+                  <p className="text-[10px] text-slate-450 mt-1 leading-relaxed">Replies within minutes.</p>
                 </div>
 
                 {/* Expert Support */}
-                <div className="group bg-white/70 backdrop-blur-sm border border-slate-100 p-5 rounded-2xl flex flex-col items-start text-left shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
-                  <div className="w-10 h-10 rounded-xl bg-blue-50 border border-blue-100 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform duration-300">
-                    <Users className="w-5 h-5 text-blue-500" />
-                  </div>
-                  <h4 className="text-xs font-bold text-slate-800 leading-snug">Expert Support</h4>
-                  <p className="text-[10px] text-slate-400 mt-1 leading-normal">Our staff is always ready to assist you.</p>
+                <div className="flex flex-col items-start text-left">
+                  <Users className="w-4 h-4 text-blue-500 mb-2.5" />
+                  <h4 className="text-[11px] font-bold text-slate-800 uppercase tracking-wider">Expert Support</h4>
+                  <p className="text-[10px] text-slate-450 mt-1 leading-relaxed">24/7 clinical care desk.</p>
                 </div>
 
                 {/* Trusted Care */}
-                <div className="group bg-white/70 backdrop-blur-sm border border-slate-100 p-5 rounded-2xl flex flex-col items-start text-left shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
-                  <div className="w-10 h-10 rounded-xl bg-purple-50 border border-purple-100 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform duration-300">
-                    <Shield className="w-5 h-5 text-purple-500" />
-                  </div>
-                  <h4 className="text-xs font-bold text-slate-800 leading-snug">Trusted Care</h4>
-                  <p className="text-[10px] text-slate-400 mt-1 leading-normal">Your health &amp; privacy, our top priority.</p>
+                <div className="flex flex-col items-start text-left">
+                  <Shield className="w-4 h-4 text-purple-500 mb-2.5" />
+                  <h4 className="text-[11px] font-bold text-slate-800 uppercase tracking-wider">Trusted Care</h4>
+                  <p className="text-[10px] text-slate-450 mt-1 leading-relaxed">100% patient privacy.</p>
                 </div>
               </div>
             </div>
 
             {/* ── Right: 3-D headset illustration with floating pills ── */}
             <div className="flex justify-center lg:justify-end w-full">
-              <div className="relative w-80 h-80 sm:w-96 sm:h-96 flex items-center justify-center">
+              <div className="relative w-80 h-80 sm:w-96 sm:h-96 flex items-center justify-center lg:-translate-x-10">
 
                 {/* Glow blob */}
                 <div className="absolute inset-0 bg-primary/10 rounded-full blur-3xl animate-pulse" />
@@ -110,30 +207,49 @@ export default function ContactPage() {
                 </div>
 
                 {/* ── Floating Icon Pills ── */}
-                {/* Phone – top-left */}
-                <div className="contact-float-1 absolute top-7 left-7 bg-white p-3 rounded-2xl shadow-lg border border-slate-100 text-blue-500 hover:scale-110 hover:rotate-6 transition-all duration-300 cursor-pointer">
+                 {/* Phone – top-left */}
+                <a
+                  href="tel:+919335605848"
+                  className="contact-float-1 absolute top-7 left-7 bg-white p-3 rounded-2xl shadow-lg border border-slate-100 text-blue-500 hover:scale-110 hover:rotate-6 transition-all duration-300 cursor-pointer"
+                >
                   <Phone className="w-5 h-5" />
-                </div>
+                </a>
 
                 {/* WhatsApp – top-right, green brand bg */}
-                <div className="contact-float-2 absolute top-12 right-7 bg-emerald-500 p-3 rounded-2xl shadow-lg border border-emerald-400 text-white hover:scale-110 hover:-rotate-6 transition-all duration-300 cursor-pointer">
+                <a
+                  href="https://wa.me/919335605848"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="contact-float-2 absolute top-12 right-7 bg-emerald-500 p-3 rounded-2xl shadow-lg border border-emerald-400 text-white hover:scale-110 hover:-rotate-6 transition-all duration-300 cursor-pointer"
+                >
                   <WhatsAppIcon className="w-5 h-5" />
-                </div>
+                </a>
 
                 {/* Mail – middle-left */}
-                <div className="contact-float-3 absolute left-1 top-1/2 -translate-y-1/2 bg-white p-3 rounded-2xl shadow-lg border border-slate-100 text-purple-500 hover:scale-110 hover:rotate-12 transition-all duration-300 cursor-pointer">
+                <a
+                  href="mailto:info@lakshyahospital.com"
+                  className="contact-float-3 absolute left-1 top-1/2 -translate-y-1/2 bg-white p-3 rounded-2xl shadow-lg border border-slate-100 text-purple-500 hover:scale-110 hover:rotate-12 transition-all duration-300 cursor-pointer"
+                >
                   <Mail className="w-5 h-5" />
-                </div>
+                </a>
 
                 {/* MapPin – middle-right */}
-                <div className="contact-float-1 absolute right-1 top-1/2 -translate-y-1/2 bg-white p-3 rounded-2xl shadow-lg border border-slate-100 text-orange-500 hover:scale-110 hover:-rotate-12 transition-all duration-300 cursor-pointer">
+                <a
+                  href="https://maps.google.com/?q=Lakshya+Hospital+Kidwai+Nagar+Kanpur"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="contact-float-1 absolute right-1 top-1/2 -translate-y-1/2 bg-white p-3 rounded-2xl shadow-lg border border-slate-100 text-orange-500 hover:scale-110 hover:-rotate-12 transition-all duration-300 cursor-pointer"
+                >
                   <MapPin className="w-5 h-5" />
-                </div>
+                </a>
 
                 {/* Calendar – bottom-right */}
-                <div className="contact-float-2 absolute bottom-14 right-7 bg-white p-3 rounded-2xl shadow-lg border border-slate-100 text-indigo-600 hover:scale-110 hover:rotate-6 transition-all duration-300 cursor-pointer">
+                <a
+                  href="/book-appointment"
+                  className="contact-float-2 absolute bottom-14 right-7 bg-white p-3 rounded-2xl shadow-lg border border-slate-100 text-indigo-600 hover:scale-110 hover:rotate-6 transition-all duration-300 cursor-pointer"
+                >
                   <Calendar className="w-5 h-5" />
-                </div>
+                </a>
 
                 {/* "We're Available" floating status card */}
                 <div className="contact-float-3 absolute bottom-3 left-5 bg-white/95 backdrop-blur-md border border-slate-100 p-3.5 pr-5 rounded-2xl shadow-xl flex items-center gap-3">
@@ -156,7 +272,7 @@ export default function ContactPage() {
       </section>
 
       {/* ── Contact Quick-Action Bar ── */}
-      <section className="relative z-20 max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 -mt-10 mb-14">
+      <section className="relative z-20 max-w-[90rem] mx-auto w-full px-4 sm:px-6 lg:px-8 -mt-10 mb-14">
         <div className="bg-white rounded-3xl p-6 shadow-xl border border-slate-100 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 divide-y sm:divide-y-0 sm:divide-x divide-slate-100 gap-0">
 
           {/* Call Us */}
@@ -220,7 +336,7 @@ export default function ContactPage() {
 
       {/* ── Contact Form + Map ── */}
       <section className="pb-16 pt-2">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-12 gap-10 items-stretch">
 
             {/* Form */}
@@ -229,31 +345,117 @@ export default function ContactPage() {
               <h3 className="text-2xl font-bold text-slate-900 mb-1 font-display relative z-10">Send a Message</h3>
               <p className="text-slate-400 text-sm mb-8 relative z-10">Fill out the form and our team will reach out to you shortly.</p>
 
-              <form className="space-y-5 relative z-10 text-left flex-1">
+              <form onSubmit={handleSubmit} noValidate className="space-y-5 relative z-10 text-left flex-1 flex flex-col">
+                {/* Loader Overlay */}
+                {loading && (
+                  <div className="fixed inset-0 bg-slate-950/95 backdrop-blur-md z-[9999] flex flex-col items-center justify-center animate-in fade-in duration-200">
+                    <div className="w-48 h-48 rounded-2xl overflow-hidden flex items-center justify-center bg-slate-900 border border-white/5 shadow-2xl">
+                      <video
+                        src="/Lakshya_Hospital_logo_reveal.mp4"
+                        autoPlay
+                        muted
+                        loop
+                        playsInline
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                    <p className="text-xs font-bold text-white mt-5 tracking-widest uppercase animate-pulse">Sending Inquiry...</p>
+                    <p className="text-[10px] text-slate-400 mt-1">Connecting to clinical coordination desk...</p>
+                  </div>
+                )}
+
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                   <div className="space-y-1.5">
                     <label className="text-xs font-bold text-slate-600">Full Name</label>
-                    <input type="text" placeholder="John Doe" className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/30 transition-all text-sm placeholder:text-slate-300" />
+                    <input
+                      type="text"
+                      placeholder="John Doe"
+                      value={formData.name}
+                      onChange={(e) => handleChange('name', e.target.value)}
+                      onBlur={() => handleBlur('name')}
+                      className={`w-full px-4 py-3 rounded-xl border bg-slate-50 focus:bg-white focus:outline-none focus:ring-1 transition-all text-sm placeholder:text-slate-300 ${
+                        touched.name && errors.name
+                          ? 'border-red-500 focus:border-red-500 focus:ring-red-500/20'
+                          : 'border-slate-200 focus:border-primary focus:ring-primary/30'
+                      }`}
+                    />
+                    {touched.name && errors.name && (
+                      <p className="text-[10px] font-bold text-red-500 mt-1">{errors.name}</p>
+                    )}
                   </div>
                   <div className="space-y-1.5">
                     <label className="text-xs font-bold text-slate-600">Phone Number</label>
-                    <input type="tel" placeholder="+91 90000 00000" className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/30 transition-all text-sm placeholder:text-slate-300" />
+                    <input
+                      type="tel"
+                      placeholder="+91 90000 00000"
+                      value={formData.phone}
+                      onChange={(e) => handleChange('phone', e.target.value)}
+                      onBlur={() => handleBlur('phone')}
+                      className={`w-full px-4 py-3 rounded-xl border bg-slate-50 focus:bg-white focus:outline-none focus:ring-1 transition-all text-sm placeholder:text-slate-300 ${
+                        touched.phone && errors.phone
+                          ? 'border-red-500 focus:border-red-500 focus:ring-red-500/20'
+                          : 'border-slate-200 focus:border-primary focus:ring-primary/30'
+                      }`}
+                    />
+                    {touched.phone && errors.phone && (
+                      <p className="text-[10px] font-bold text-red-500 mt-1">{errors.phone}</p>
+                    )}
                   </div>
                 </div>
 
                 <div className="space-y-1.5">
                   <label className="text-xs font-bold text-slate-600">Email Address</label>
-                  <input type="email" placeholder="john@example.com" className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/30 transition-all text-sm placeholder:text-slate-300" />
+                  <input
+                    type="email"
+                    placeholder="john@example.com"
+                    value={formData.email}
+                    onChange={(e) => handleChange('email', e.target.value)}
+                    onBlur={() => handleBlur('email')}
+                    className={`w-full px-4 py-3 rounded-xl border bg-slate-50 focus:bg-white focus:outline-none focus:ring-1 transition-all text-sm placeholder:text-slate-300 ${
+                      touched.email && errors.email
+                        ? 'border-red-500 focus:border-red-500 focus:ring-red-500/20'
+                        : 'border-slate-200 focus:border-primary focus:ring-primary/30'
+                    }`}
+                  />
+                  {touched.email && errors.email && (
+                    <p className="text-[10px] font-bold text-red-500 mt-1">{errors.email}</p>
+                  )}
                 </div>
 
                 <div className="space-y-1.5">
                   <label className="text-xs font-bold text-slate-600">How can we help?</label>
-                  <textarea rows={4} placeholder="Describe your inquiry…" className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/30 transition-all resize-none text-sm placeholder:text-slate-300" />
+                  <textarea
+                    rows={4}
+                    placeholder="Describe your inquiry…"
+                    value={formData.message}
+                    onChange={(e) => handleChange('message', e.target.value)}
+                    onBlur={() => handleBlur('message')}
+                    className={`w-full px-4 py-3 rounded-xl border bg-slate-50 focus:bg-white focus:outline-none focus:ring-1 transition-all resize-none text-sm placeholder:text-slate-300 ${
+                      touched.message && errors.message
+                        ? 'border-red-500 focus:border-red-500 focus:ring-red-500/20'
+                        : 'border-slate-200 focus:border-primary focus:ring-primary/30'
+                    }`}
+                  />
+                  {touched.message && errors.message && (
+                    <p className="text-[10px] font-bold text-red-500 mt-1">{errors.message}</p>
+                  )}
                 </div>
 
-                <button type="button" className="w-full bg-primary hover:bg-primary-hover text-white px-8 py-4 rounded-xl font-bold shadow-lg shadow-primary/25 transition-all hover:-translate-y-0.5 flex items-center justify-center gap-2 cursor-pointer text-sm mt-auto">
+                {status.type && (
+                  <div className={`p-4 rounded-xl text-xs font-semibold relative z-10 transition-all duration-200 ${
+                    status.type === 'success' ? 'bg-green-50 text-green-700 border border-green-200' : 'bg-red-50 text-red-700 border border-red-200'
+                  }`}>
+                    {status.message}
+                  </div>
+                )}
+
+                <button
+                  type="submit"
+                  disabled={loading}
+                  className="w-full bg-primary hover:bg-primary-hover disabled:bg-slate-300 text-white px-8 py-4 rounded-xl font-bold shadow-lg shadow-primary/25 transition-all hover:-translate-y-0.5 flex items-center justify-center gap-2 cursor-pointer text-sm mt-auto"
+                >
                   <Send className="w-4 h-4" />
-                  Send Message
+                  {loading ? 'Sending Request...' : 'Send Message'}
                 </button>
               </form>
             </div>
@@ -357,6 +559,41 @@ export default function ContactPage() {
       </section>
 
       <Footer />
+
+      {/* ── Success Modal ── */}
+      {isSuccessModalOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-md">
+          <div className="relative bg-white w-full max-w-md rounded-[32px] p-8 text-center shadow-2xl border border-slate-100 animate-in fade-in zoom-in-95 duration-200">
+            {/* Close button cross */}
+            <button
+              onClick={() => setIsSuccessModalOpen(false)}
+              className="absolute top-6 right-6 text-slate-400 hover:text-slate-600 hover:bg-slate-100 p-1.5 rounded-full transition-colors cursor-pointer"
+              aria-label="Close modal"
+            >
+              <X className="w-5 h-5" />
+            </button>
+
+            {/* Checkmark Icon */}
+            <div className="w-16 h-16 bg-emerald-50 text-emerald-500 rounded-full flex items-center justify-center mx-auto mb-5 border border-emerald-100">
+              <CheckCircle2 className="w-8 h-8" />
+            </div>
+
+            {/* Title & Description */}
+            <h4 className="text-xl font-bold text-slate-900 font-display">Inquiry Sent Successfully!</h4>
+            <p className="text-sm text-slate-500 mt-2.5 leading-relaxed">
+              Thank you for reaching out to Lakshya Hospital. Our clinical care desk has received your request and will contact you shortly.
+            </p>
+
+            {/* Confirmation Button */}
+            <button
+              onClick={() => setIsSuccessModalOpen(false)}
+              className="mt-6 w-full bg-primary hover:bg-primary-hover text-white py-3.5 rounded-xl font-bold text-xs uppercase tracking-wider shadow-lg shadow-primary/25 hover:-translate-y-0.5 transition-all cursor-pointer"
+            >
+              Okay, Great
+            </button>
+          </div>
+        </div>
+      )}
     </main>
   );
 }

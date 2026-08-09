@@ -6,45 +6,45 @@ import { Plus, Minus, HelpCircle, Heart } from "lucide-react";
 /* ─── FAQ DATA ──────────────────────────────────────────────── */
 const FAQS = [
   {
-    q: "What are Lakshya Hospital's working hours?",
-    a: "Lakshya Hospital is open 24 hours a day, 7 days a week, 365 days a year. Our Emergency & Trauma department, ICU, and NICU never close. OPD timings are Monday to Saturday, 8:00 AM to 8:00 PM. You can walk in any time for emergency care.",
+    q: "Where is Lakshya Hospital located and is it accessible from Naubasta and Barra?",
+    a: "Lakshya Hospital is located at 128/1006, Y Block, Kidwai Nagar, Kanpur, Uttar Pradesh – 208011. As a premier healthcare provider in South Kanpur, our facility is easily accessible to patients visiting from Naubasta, Barra, Yashoda Nagar, and across Kanpur. We offer free on-site parking and 24/7 access.",
   },
   {
-    q: "How do I book an appointment with a specialist doctor?",
-    a: "You can book an appointment in three easy ways: (1) Call us at +91 93356 05848, (2) Visit our Contact page and fill out the appointment form, or (3) Walk into the hospital reception directly. We typically confirm appointments within 2 hours during business hours.",
+    q: "Why is Lakshya Hospital known as the best multi-speciality hospital in South Kanpur?",
+    a: "Lakshya Hospital is a leading multi-speciality hospital in Kanpur, featuring 12+ advanced departments under one roof. We offer comprehensive medical care including General Medicine, General Surgery, Obstetrics & Gynaecology (Gynae), Paediatrics (Child Care), Orthopaedics, Neuro & Spine Surgery, Urology, Plastic Surgery, Pediatric Surgery, and 24/7 Critical Care (ICU/NICU).",
   },
   {
-    q: "Does Lakshya Hospital accept Ayushman Bharat and government health schemes?",
-    a: "Yes. Lakshya Hospital is empanelled under the Ayushman Bharat – Pradhan Mantri Jan Arogya Yojana (PM-JAY) and the DDUS scheme. Eligible patients can receive cashless treatment across a wide range of procedures. Please bring your Ayushman card to the billing counter for verification.",
+    q: "Who is the best pediatrician for child care and newborn treatment in Kidwai Nagar, Kanpur?",
+    a: "Our Pediatrics & Child Care department is led by Dr. Rohit Agrawal, a highly experienced pediatrician and newborn specialist in Kidwai Nagar, South Kanpur. We provide round-the-clock emergency child care, child vaccinations, growth monitoring, and advanced neonatal care in our state-of-the-art Neonatal Intensive Care Unit (NICU).",
   },
   {
-    q: "What specialities and departments does Lakshya Hospital offer?",
-    a: "Lakshya Hospital is a multi-super-speciality facility covering 12+ departments including General Medicine, General Surgery, Obstetrics & Gynaecology, Paediatrics & Neonatology, Orthopaedics, ENT, Neurology & Spine, Critical Care (ICU/NICU), Ophthalmology, Oncology, Pathology, and Radiology (Ultrasound & X-Ray).",
+    q: "Which doctor is recommended for pregnancy delivery and gynae surgeries near Barra and Naubasta?",
+    a: "Dr. Tripti Mishra, our co-founder and Senior Obstetrician & Gynecologist, is highly recommended for pregnancy delivery and gynae care near Barra and Naubasta. Our department is fully equipped for normal delivery, painless delivery, C-section delivery, laparoscopic gynae surgeries, and manages high-risk pregnancies with an adjacent NICU.",
   },
   {
-    q: "Is there an emergency ambulance service available?",
-    a: "Yes. Lakshya Hospital provides 24/7 ambulance services equipped with Advanced Life Support (ALS) equipment and trained paramedics. Call our emergency helpline at +91 93356 05848 immediately for ambulance dispatch. Response times within Kanpur city are typically under 15 minutes.",
+    q: "Does Lakshya Hospital accept Ayushman Bharat for cashless treatment in Kanpur?",
+    a: "Yes. Lakshya Hospital is empanelled under the Ayushman Bharat – PM-JAY and the DDUS scheme. Patients from Kidwai Nagar, Barra, Naubasta, and Kanpur can receive cashless treatment for eligible surgeries and medical procedures. Please visit our billing counter with your golden card for pre-authorization details.",
   },
   {
-    q: "Does the hospital have an ICU and NICU facility?",
-    a: "Yes. We have a fully equipped adult ICU with round-the-clock intensivist supervision and a dedicated NICU (Neonatal Intensive Care Unit) for premature and critically ill newborns. Both units are staffed 24/7 by experienced specialists and trained nursing staff.",
+    q: "Is there a 24/7 emergency ICU and NICU facility at Lakshya Hospital in South Kanpur?",
+    a: "Yes. Our multi-speciality hospital features a fully equipped 24/7 adult Intensive Care Unit (ICU) and a dedicated Neonatal Intensive Care Unit (NICU) in Kidwai Nagar, South Kanpur. Both units are monitored round-the-clock by senior intensivists, pediatricians, and specialized nursing teams for emergency care.",
   },
   {
-    q: "What diagnostic facilities are available on-site?",
-    a: "Lakshya Hospital has a fully equipped in-house diagnostic centre offering pathology & laboratory services, digital X-ray, ultrasound (USG), ECG, echocardiography, and other specialised tests — all available around the clock. Most routine reports are delivered within 4–6 hours.",
+    q: "Does Lakshya Hospital provide emergency ambulance services in Naubasta and Barra?",
+    a: "Yes. Lakshya Hospital offers a 24/7 emergency ambulance service across Kanpur, including Kidwai Nagar, Naubasta, Barra, and South Kanpur. Our ambulances are equipped with Advanced Life Support (ALS) systems and trained paramedics. Call +91 93356 05848 for immediate dispatch.",
   },
   {
-    q: "Where is Lakshya Hospital located and is parking available?",
-    a: "Lakshya Hospital is located at 128/1006, Y Block, Kidwai Nagar, Kanpur, Uttar Pradesh – 208011. Free parking is available on the hospital premises for patients and visitors. The hospital is easily accessible by auto, cab, and public transport from all major areas of Kanpur.",
+    q: "What diagnostic and imaging services are available at your Kidwai Nagar hospital?",
+    a: "Our diagnostic center in Kidwai Nagar, Kanpur operates 24/7, providing full-range pathology laboratory tests, high-resolution ultrasound (USG) scans, digital X-rays, ECGs, and echocardiography on-site. This ensures fast, accurate reports to aid critical treatments in our multi-speciality hospital.",
   },
   {
-    q: "Does Lakshya Hospital handle high-risk pregnancies and C-section deliveries?",
-    a: "Absolutely. Our Obstetrics & Gynaecology department, led by experienced obstetricians, handles all categories of pregnancies including high-risk cases. We are fully equipped for normal deliveries, C-sections, laparoscopic surgeries, and neonatal emergencies — with a dedicated NICU immediately adjacent to the labour room.",
+    q: "What surgical treatments are offered by the super-specialists at Lakshya Hospital?",
+    a: "As a premier multi-speciality hospital in Kanpur, we house super-specialists for: General Surgery (laparoscopic appendix/hernia/gallbladder by Dr. NS Chauhan & Dr. Kuldeep), Orthopedics (fractures & joint replacement by Dr. Vishal Sethiya), Neuro & Spine surgery (Dr. SG Verma), Urosurgery (kidney stones by Dr. Manish Kumar), Plastic Surgery (Dr. Shushant Luthra), and Pediatric Surgery (Dr. Rakesh Tripathi).",
   },
   {
-    q: "How experienced are the doctors at Lakshya Hospital?",
-    a: "Lakshya Hospital has a team of 11 super-specialists spanning 12 departments, with a combined clinical experience of over 100 years. All our doctors are qualified from leading medical institutions across India and are registered with the Medical Council of India (MCI). Many hold post-graduate degrees (MD/MS/MCh/DM) from premier institutes like AIIMS, CMC Vellore, and JIPMER.",
-  },
+    q: "How can I book an appointment with a pediatrician or gynecologist at Lakshya Hospital?",
+    a: "You can book an appointment with our child care specialists, gynae experts, or other specialists in three easy ways: (1) Call us directly at +91 93356 05848, (2) Fill out the online appointment form on our website's Contact page, or (3) Walk into our hospital in Kidwai Nagar, South Kanpur.",
+  }
 ];
 
 /* ─── JSON-LD SCHEMA DATA ───────────────────────────────────── */
@@ -75,11 +75,10 @@ function FAQItem({
 }) {
   return (
     <div
-      className={`rounded-2xl border transition-all duration-300 overflow-hidden ${
-        isOpen
+      className={`rounded-2xl border transition-all duration-300 overflow-hidden ${isOpen
           ? "border-primary/30 bg-white shadow-md shadow-primary/8"
           : "border-gray-100 bg-white hover:border-gray-200 hover:shadow-sm"
-      }`}
+        }`}
     >
       <button
         onClick={onToggle}
@@ -89,18 +88,16 @@ function FAQItem({
         <div className="flex items-center gap-4">
           {/* Number badge */}
           <span
-            className={`shrink-0 w-7 h-7 rounded-full text-xs font-bold flex items-center justify-center transition-colors ${
-              isOpen
+            className={`shrink-0 w-7 h-7 rounded-full text-xs font-bold flex items-center justify-center transition-colors ${isOpen
                 ? "bg-primary text-white"
                 : "bg-gray-100 text-gray-500 group-hover:bg-primary/10 group-hover:text-primary"
-            }`}
+              }`}
           >
             {String(index + 1).padStart(2, "0")}
           </span>
           <span
-            className={`font-semibold text-sm sm:text-base leading-snug transition-colors ${
-              isOpen ? "text-primary" : "text-gray-800 group-hover:text-primary"
-            }`}
+            className={`font-semibold text-sm sm:text-base leading-snug transition-colors ${isOpen ? "text-primary" : "text-gray-800 group-hover:text-primary"
+              }`}
           >
             {faq.q}
           </span>
@@ -108,11 +105,10 @@ function FAQItem({
 
         {/* Icon */}
         <span
-          className={`shrink-0 w-7 h-7 rounded-full border flex items-center justify-center transition-all ${
-            isOpen
+          className={`shrink-0 w-7 h-7 rounded-full border flex items-center justify-center transition-all ${isOpen
               ? "bg-primary border-primary text-white rotate-0"
               : "bg-white border-gray-200 text-gray-400 group-hover:border-primary/40 group-hover:text-primary"
-          }`}
+            }`}
         >
           {isOpen ? <Minus size={13} /> : <Plus size={13} />}
         </span>
@@ -120,9 +116,8 @@ function FAQItem({
 
       {/* Answer — animated expand */}
       <div
-        className={`grid transition-all duration-300 ease-in-out ${
-          isOpen ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
-        }`}
+        className={`grid transition-all duration-300 ease-in-out ${isOpen ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
+          }`}
       >
         <div className="overflow-hidden">
           <p className="px-5 sm:px-6 pb-5 sm:pb-6 text-gray-500 text-sm leading-relaxed pl-[4.25rem]">

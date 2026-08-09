@@ -18,18 +18,18 @@ export default function Header() {
   }, [menuOpen]);
 
   const navLinks = [
-    { name: 'Home',       href: '/' },
-    { name: 'About Us',   href: '/about' },
-    { name: 'Services',   href: '/services' },
-    { name: 'Doctors',    href: '/doctors' },
-    { name: 'Articles',   href: '/articles' },
-    { name: 'Contact',    href: '/contact' },
+    { name: 'Home', href: '/' },
+    { name: 'About Us', href: '/about' },
+    { name: 'Services', href: '/services' },
+    { name: 'Doctors', href: '/doctors' },
+    { name: 'Articles', href: '/articles' },
+    { name: 'Contact', href: '/contact' },
   ];
 
   return (
     <>
       <header className="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-gray-100 shadow-sm transition-all">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-4">
+        <div className="max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16 sm:h-20">
 
             {/* Logo */}
@@ -37,14 +37,14 @@ export default function Header() {
               <img
                 src="/logo.png"
                 alt="Lakshya Hospital Logo"
-                className="h-14 sm:h-20 w-auto object-contain object-left -ml-3 -mr-2"
+                className="h-14 sm:h-16 w-auto object-contain -ml-4 -mr-3"
               />
-              <div className="flex flex-col pt-1">
-                <span className="text-2xl sm:text-3xl font-bold text-primary leading-none tracking-tight">Lakshya</span>
-                <div className="flex items-center mt-1.5">
-                  <div className="h-[1.5px] bg-secondary/50 flex-1 rounded-full" />
-                  <p className="text-[10px] sm:text-[11px] font-bold text-secondary tracking-[0.3em] px-2 leading-none uppercase">HOSPITAL</p>
-                  <div className="h-[1.5px] bg-secondary/50 flex-1 rounded-full" />
+              <div className="flex flex-col">
+                <span className="text-xl sm:text-2xl font-bold text-primary leading-tight tracking-tight">Lakshya</span>
+                <div className="flex items-center -mt-0.5">
+                  <div className="h-[1px] bg-secondary/50 w-3 rounded-full mr-1.5" />
+                  <p className="text-[9px] sm:text-[10px] font-extrabold text-secondary tracking-[0.25em] leading-none uppercase">HOSPITAL</p>
+                  <div className="h-[1px] bg-secondary/50 w-3 rounded-full ml-1.5" />
                 </div>
               </div>
             </Link>
@@ -138,11 +138,10 @@ export default function Header() {
                     <li key={item.name}>
                       <Link
                         href={item.href}
-                        className={`flex items-center gap-3 px-4 py-3 rounded-xl font-semibold text-sm transition-all ${
-                          isActive
+                        className={`flex items-center gap-3 px-4 py-3 rounded-xl font-semibold text-sm transition-all ${isActive
                             ? 'bg-primary text-white'
                             : 'text-gray-700 hover:bg-gray-50 hover:text-primary'
-                        }`}
+                          }`}
                       >
                         {item.name}
                       </Link>

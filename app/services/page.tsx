@@ -67,7 +67,7 @@ const services = [
     light: "bg-orange-50",
     iconColor: "text-orange-600",
     border: "border-orange-100",
-    doctor: "Dr. Vishal Setia",
+    doctor: "Dr. Vishal Sethiya",
     highlights: ["Fracture Care", "Joint Replacement", "Sports Injuries", "Spine Disorders"]
   },
   {
@@ -192,7 +192,10 @@ export default function ServicesPage() {
           <div className="absolute bottom-0 right-0 w-[450px] h-[450px] bg-secondary/5 rounded-full blur-3xl translate-x-1/3 translate-y-1/3" />
         </div>
 
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Dotted Grid Pattern for Premium Aesthetic */}
+        <div className="absolute inset-0 opacity-[0.3] pointer-events-none bg-[radial-gradient(#e2e8f0_1.5px,transparent_1.5px)] [background-size:24px_24px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)]" />
+
+        <div className="relative z-10 max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
 
             {/* Left Content Column */}
@@ -241,7 +244,7 @@ export default function ServicesPage() {
 
               {/* 1. Surgeons Diamond (Main Center) */}
               <div
-                className="absolute left-[38%] top-[50%] -translate-x-1/2 -translate-y-1/2 w-48 h-48 sm:w-56 sm:h-56 shadow-xl border-4 border-white bg-slate-50 overflow-hidden z-15 group cursor-pointer"
+                className="absolute left-[38%] top-[50%] -translate-x-1/2 -translate-y-1/2 w-48 h-48 sm:w-56 sm:h-56 shadow-xl border-4 border-white bg-slate-50 overflow-hidden z-15 group cursor-pointer hover:scale-105 hover:z-30 hover:shadow-2xl transition-all duration-300 ease-out"
                 style={{ clipPath: 'polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%)' }}
               >
                 <DiamondCollageImage
@@ -254,7 +257,7 @@ export default function ServicesPage() {
 
               {/* 2. Beds Diamond (Top Right) */}
               <div
-                className="absolute left-[78%] top-[30%] -translate-x-1/2 -translate-y-1/2 w-36 h-36 sm:w-42 sm:h-42 shadow-lg border-4 border-white bg-slate-50 overflow-hidden z-10 group cursor-pointer"
+                className="absolute left-[78%] top-[30%] -translate-x-1/2 -translate-y-1/2 w-36 h-36 sm:w-42 sm:h-42 shadow-lg border-4 border-white bg-slate-50 overflow-hidden z-10 group cursor-pointer hover:scale-105 hover:z-30 hover:shadow-2xl transition-all duration-300 ease-out"
                 style={{ clipPath: 'polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%)' }}
               >
                 <DiamondCollageImage
@@ -267,7 +270,7 @@ export default function ServicesPage() {
 
               {/* 3. NICU Baby Diamond (Middle Right) */}
               <div
-                className="absolute left-[92%] top-[65%] -translate-x-1/2 -translate-y-1/2 w-32 h-32 sm:w-36 sm:h-36 shadow-md border-4 border-white bg-slate-50 overflow-hidden z-10 group cursor-pointer"
+                className="absolute left-[92%] top-[65%] -translate-x-1/2 -translate-y-1/2 w-32 h-32 sm:w-36 sm:h-36 shadow-md border-4 border-white bg-slate-50 overflow-hidden z-10 group cursor-pointer hover:scale-105 hover:z-30 hover:shadow-2xl transition-all duration-300 ease-out"
                 style={{ clipPath: 'polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%)' }}
               >
                 <DiamondCollageImage
@@ -280,7 +283,7 @@ export default function ServicesPage() {
 
               {/* 4. Doctor Consultation Diamond (Bottom Center/Right) */}
               <div
-                className="absolute left-[64%] top-[72%] -translate-x-1/2 -translate-y-1/2 w-36 h-36 sm:w-40 sm:h-40 shadow-lg border-4 border-white bg-slate-50 overflow-hidden z-20 group cursor-pointer"
+                className="absolute left-[64%] top-[72%] -translate-x-1/2 -translate-y-1/2 w-36 h-36 sm:w-40 sm:h-40 shadow-lg border-4 border-white bg-slate-50 overflow-hidden z-20 group cursor-pointer hover:scale-105 hover:z-30 hover:shadow-2xl transition-all duration-300 ease-out"
                 style={{ clipPath: 'polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%)' }}
               >
                 <DiamondCollageImage
@@ -293,7 +296,7 @@ export default function ServicesPage() {
 
               {/* Compassionate Care Badge (Rhombus/Diamond Style Overlay) */}
               <div
-                className="absolute left-[12%] top-[65%] -translate-x-1/2 -translate-y-1/2 w-20 h-20 sm:w-24 sm:h-24 bg-primary rounded-2xl shadow-xl z-25 flex items-center justify-center rotate-45 border border-white/20 hover:scale-105 transition-all duration-300 cursor-pointer"
+                className="absolute left-[12%] top-[65%] -translate-x-1/2 -translate-y-1/2 w-20 h-20 sm:w-24 sm:h-24 bg-primary rounded-2xl shadow-xl z-25 flex items-center justify-center rotate-45 border border-white/20 hover:scale-105 hover:shadow-primary/30 transition-all duration-300 cursor-pointer"
                 title="Compassionate Patient Care"
               >
                 <div className="-rotate-45 text-white text-center p-1.5 space-y-1">
@@ -304,7 +307,7 @@ export default function ServicesPage() {
 
               {/* Advanced Technology Badge (Rhombus/Diamond Style Overlay) */}
               <div
-                className="absolute left-[54%] top-[22%] -translate-x-1/2 -translate-y-1/2 w-20 h-20 sm:w-24 sm:h-24 bg-secondary rounded-2xl shadow-xl z-25 flex items-center justify-center rotate-45 border border-white/20 hover:scale-105 transition-all duration-300 cursor-pointer"
+                className="absolute left-[54%] top-[22%] -translate-x-1/2 -translate-y-1/2 w-20 h-20 sm:w-24 sm:h-24 bg-secondary rounded-2xl shadow-xl z-25 flex items-center justify-center rotate-45 border border-white/20 hover:scale-105 hover:shadow-secondary/30 transition-all duration-300 cursor-pointer"
                 title="Advanced Medical Technology"
               >
                 <div className="-rotate-45 text-white text-center p-1.5 space-y-1">
@@ -314,8 +317,8 @@ export default function ServicesPage() {
               </div>
 
               {/* Solid Accent Diamonds */}
-              <div className="absolute left-[68%] top-[94%] w-6 h-6 bg-blue-500 rotate-45 rounded shadow-sm z-25 pointer-events-none" />
-              <div className="absolute left-[95%] top-[45%] w-6 h-6 bg-green-500 rotate-45 rounded shadow-sm z-25 pointer-events-none" />
+              <div className="absolute left-[68%] top-[94%] w-6 h-6 bg-blue-500 rotate-45 rounded shadow-sm z-25 pointer-events-none animate-bounce" style={{ animationDuration: '3s' }} />
+              <div className="absolute left-[95%] top-[45%] w-6 h-6 bg-green-500 rotate-45 rounded shadow-sm z-25 pointer-events-none animate-bounce" style={{ animationDuration: '4s' }} />
 
             </div>
           </div>
@@ -348,7 +351,7 @@ export default function ServicesPage() {
       </section>
 
       {/* Dark Blue Specialty Quick Panel (Layout matching mockup) */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-10 mb-20">
+      <section className="max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-8 mt-10 mb-20">
         <div className="bg-gradient-to-r from-blue-700 to-primary rounded-[32px] p-8 text-center text-white shadow-xl shadow-blue-700/10">
           <p className="text-[10px] font-bold text-secondary tracking-[0.3em] uppercase mb-6">Our Speciality Departments</p>
 
@@ -386,7 +389,7 @@ export default function ServicesPage() {
 
       {/* Critical Care Emergency Infrastructure (NEW Improvement) */}
       <section className="py-20 bg-white border-t border-slate-100">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-12 gap-12 items-center">
 
             {/* Left Content info */}
@@ -465,7 +468,7 @@ export default function ServicesPage() {
 
       {/* Services Grid Section */}
       <section id="services-grid" className="py-20 bg-slate-50/50 scroll-mt-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-14">
             <span className="text-xs font-bold text-secondary tracking-widest uppercase">What We Offer</span>
             <h2 className="text-3xl font-extrabold text-slate-900 mt-2 font-display">Our Speciality Clinical Services</h2>
@@ -528,7 +531,7 @@ export default function ServicesPage() {
 
       {/* Facilities & Diagnostic Infrastructures Section */}
       <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-14">
             <span className="text-xs font-bold text-primary tracking-widest uppercase">Diagnostics &amp; Labs</span>
             <h2 className="text-3xl font-extrabold text-slate-900 mt-2 font-display">On-Site Support Wards</h2>
@@ -593,7 +596,7 @@ export default function ServicesPage() {
         <div className="absolute inset-0 pointer-events-none">
           <div className="absolute top-0 right-0 w-72 h-72 bg-white/5 rounded-full blur-3xl translate-x-1/2 -translate-y-1/2" />
         </div>
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="flex flex-col md:flex-row items-center justify-between gap-8 text-white">
             <div>
               <h2 className="text-2xl md:text-3xl font-bold font-display mb-3">Cashless Hospitalisation Available</h2>
@@ -625,45 +628,45 @@ export default function ServicesPage() {
 /* ─── FAQ DATA (services-specific) ─────────────────────────── */
 const SERVICE_FAQS = [
   {
-    q: "What speciality departments are available at Lakshya Hospital?",
-    a: "Lakshya Hospital has 12 super-speciality departments: General Medicine, General Surgery, Obstetrics & Gynaecology, Paediatrics & Neonatology, Orthopaedics, ENT, Neuro & Spine Surgery, Urosurgery, Plastic Surgery, Paediatric Surgery, Critical Care (ICU/NICU), and Pathology & Radiology.",
+    q: "What makes Lakshya Hospital the best multi-speciality hospital in Kanpur?",
+    a: "Lakshya Hospital offers comprehensive medical and surgical care across 12+ super-speciality departments under one roof. Centered in South Kanpur, we provide General Medicine, General Surgery, Obstetrics & Gynaecology, Paediatrics (Child Care), Orthopaedics, Neuro & Spine surgery, Urosurgery, Plastic Surgery, Pediatric Surgery, and 24/7 ICU & NICU facilities.",
   },
   {
-    q: "How do I book an appointment with a specific doctor or specialist?",
-    a: "You can book an appointment by calling +91 93356 05848, visiting our Contact page online, or walking directly into the hospital reception. Our team will match you with the right specialist based on your condition and schedule the earliest available slot.",
+    q: "Who is the senior pediatrician and child care expert at your Kidwai Nagar hospital?",
+    a: "Dr. Rohit Agrawal leads our Paediatrics & Neonatology department in Kidwai Nagar, South Kanpur. Renowned for child care, pediatric treatments, and newborn emergencies, his clinic is supported by our 24/7 Neonatal Intensive Care Unit (NICU), making it highly accessible for families in Barra and Naubasta.",
   },
   {
-    q: "Does Lakshya Hospital offer laparoscopic (keyhole) surgeries?",
-    a: "Yes. We offer advanced laparoscopic procedures across multiple departments including General Surgery (appendectomy, hernia repair, cholecystectomy), Gynaecology (hysterectomy, fibroid removal, endometriosis treatment), and Urosurgery. Minimally invasive techniques mean faster recovery and less post-operative pain.",
+    q: "Does Lakshya Hospital specialize in pregnancy delivery and advanced gynae care near Barra?",
+    a: "Yes. Our Obstetrics & Gynaecology department is led by co-founder Dr. Tripti Mishra, a premier gynecologist (gynae specialist) near Barra and Naubasta. We provide painless normal deliveries, Caesarean deliveries (C-section), high-risk pregnancy support, and laparoscopic gynae surgery in our state-of-the-art labor rooms.",
   },
   {
-    q: "Is there a NICU for premature or critically ill newborns?",
-    a: "Yes. Lakshya Hospital has a fully equipped Neonatal Intensive Care Unit (NICU) staffed 24/7 by trained neonatologists and nursing staff. Our NICU handles premature births, low birth weight babies, respiratory distress, neonatal jaundice, and other critical newborn conditions.",
+    q: "What types of orthopaedic and spine treatments are available in South Kanpur?",
+    a: "Super-specialist Dr. Vishal Sethiya leads our Orthopaedics department in South Kanpur, treating fractures, joint pain, sports injuries, and spine disorders. We offer joint replacements (knee/hip), fracture fixations, and physical rehabilitation, serving patients across Naubasta, Barra, and Kidwai Nagar.",
   },
   {
-    q: "What types of orthopaedic conditions and surgeries are treated?",
-    a: "Our Orthopaedics department (Dr. Vishal Setia) treats fractures, joint disorders, sports injuries, and spine conditions. Procedures include joint replacement (knee & hip), arthroscopy, spinal fusion, fracture fixation (ORIF), and physiotherapy-based rehabilitation programmes.",
+    q: "Can patients get cashless treatment under Ayushman Bharat and DDUS health schemes?",
+    a: "Yes. Lakshya Hospital is empanelled under the Ayushman Bharat – PM-JAY and the Deen Dayal Upadhyay Swasthya Seva Yojana (DDUS) schemes. Beneficiaries from Kanpur, Barra, and Naubasta can receive cashless treatments across multiple general surgery, orthopaedic, and pediatric surgery categories.",
   },
   {
-    q: "Does the hospital perform high-risk pregnancy management and C-sections?",
-    a: "Absolutely. Dr. Tripti Mishra and our Obstetrics team are experienced in managing all categories of pregnancies, including high-risk cases involving hypertension, diabetes, twin pregnancies, and placenta previa. We perform both normal deliveries and Caesarean sections in a fully equipped operation theatre adjacent to the NICU.",
+    q: "Does the hospital perform advanced laparoscopic (minimally invasive) surgeries?",
+    a: "Yes, we specialize in advanced laparoscopic surgeries in Kidwai Nagar, South Kanpur. Dr. NS Chauhan and Dr. Kuldeep perform minimally invasive procedures for appendix, hernia, and gallbladder stones. This results in faster recovery, smaller incisions, and less discomfort for patients.",
   },
   {
-    q: "What diagnostic and imaging services are available on-site?",
-    a: "Lakshya Hospital has a full in-house diagnostic centre offering: pathology & blood tests (routine and specialised), digital X-ray, ultrasound (obstetric, abdominal, pelvic), ECG, and echocardiography. Most routine lab reports are available within 4–6 hours.",
+    q: "What critical care services are provided in your emergency ICU and NICU?",
+    a: "As a leading multi-speciality hospital, we provide a 24/7 Intensive Care Unit (ICU) for adult emergencies and a Neonatal Intensive Care Unit (NICU) for critically ill newborns. Both units are located in Kidwai Nagar, Kanpur, serving residents of South Kanpur, Barra, and Naubasta with round-the-clock intensivist support.",
   },
   {
-    q: "Are services available under the Ayushman Bharat scheme?",
-    a: "Yes. We are empanelled under Ayushman Bharat – PM-JAY (via TPA) and the DDUS Scheme, enabling eligible patients to receive cashless treatment across a wide range of surgical and medical procedures. Please bring your Ayushman card to the billing desk for pre-authorisation.",
+    q: "Are diagnostic services like pathology, USG, and digital X-ray open 24/7?",
+    a: "Yes. Our diagnostic wing in Kidwai Nagar, Kanpur operates 24/7. It is equipped with a pathology lab, digital X-ray, ECG, and high-resolution ultrasound (USG) imaging. This ensures that emergency patients from Barra, Naubasta, and South Kanpur receive accurate diagnostic reports without delay.",
   },
   {
-    q: "What is the ICU capacity and what conditions are managed there?",
-    a: "Our ICU is equipped with advanced life support equipment and is supervised by a dedicated team of intensivists and nurses 24/7. Conditions managed include post-operative care, multi-organ failure, sepsis, respiratory failure (with ventilator support), stroke, and polytrauma.",
+    q: "What specialized super-specialities are covered in your surgical wing?",
+    a: "Lakshya Hospital features super-specialists in: Urosurgery (PCNL/URS stone removal by Dr. Manish Kumar), Neuro & Spine surgery (brain tumor & spine fusion by Dr. SG Verma), Plastic & Reconstructive Surgery (Dr. Shushant Luthra), and Pediatric Surgery (congenital defects by Dr. Rakesh Tripathi).",
   },
   {
-    q: "Can I get a second opinion or consultation before surgery?",
-    a: "Yes, absolutely. We encourage patients to seek all the information they need before making any surgical decision. Our specialists are happy to provide detailed consultations, review prior reports, and discuss all available treatment options — surgical and non-surgical — so you can make a fully informed choice.",
-  },
+    q: "How do I book an OPD consultation with a pediatrician or gynecologist?",
+    a: "You can schedule a consultation with our child care specialists, gynae experts, or surgeons by calling our South Kanpur helpline at +91 93356 05848 or walking directly into our hospital at 128/1006, Y Block, Kidwai Nagar, Kanpur."
+  }
 ];
 
 const SERVICES_FAQ_SCHEMA = {
@@ -732,7 +735,7 @@ function ServicesFAQ() {
       />
 
       <section id="services-faq" className="py-16 bg-slate-50/50 border-t border-slate-100">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-8">
 
           {/* Header */}
           <div className="text-center mb-12">

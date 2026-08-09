@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     default: 'Lakshya Hospital | Multi Super-Speciality Hospital in Kanpur',
     template: '%s | Lakshya Hospital Kanpur',
   },
-  description: 'Lakshya Hospital, Kanpur — a 30-bed multi super-speciality hospital offering General Surgery, Obstetrics & Gynecology, Pediatrics, Orthopedics, Neuro & Spine Surgery, ENT, Urosurgery, Plastic Surgery and Critical Care (ICU/NICU). Empanelled under Ayushman Bharat.',
+  description: 'Founded in 2013 by Dr. Rohit Agarwal, a renowned pediatrician, Lakshya Hospital is one of Kanpur’s leading healthcare facilities. Over 13 years, it has grown into a 30-bed multi-speciality facility offering advanced tertiary and quaternary care in South Kanpur.',
   keywords: [
     'Lakshya Hospital Kanpur',
     'best hospital in Kanpur',
@@ -61,6 +61,8 @@ export const metadata: Metadata = {
   },
 };
 
+import ChatbotWidget from "../components/ChatbotWidget";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -70,6 +72,7 @@ export default function RootLayout({
     <html lang="en" className={`${dmSans.variable} ${playfair.variable} h-full antialiased`}>
       <body className="min-h-full flex flex-col font-sans text-foreground bg-background">
         {children}
+        <ChatbotWidget />
       </body>
     </html>
   );

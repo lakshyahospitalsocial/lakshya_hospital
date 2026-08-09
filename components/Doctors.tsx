@@ -14,7 +14,7 @@ export default function Doctors() {
       color: "from-blue-500 to-blue-700",
       light: "bg-blue-50",
       dept: "Pediatrics",
-      img: "/rohit_agrawal_director.png"
+      img: "/dr_rohit_lakshya_director.png"
     },
     {
       name: "Dr. Tripti Mishra",
@@ -26,10 +26,10 @@ export default function Doctors() {
       color: "from-pink-500 to-rose-600",
       light: "bg-pink-50",
       dept: "Obstetrics & Gynecology",
-      img: "/tripti_mishra.png"
+      img: "/dr_tripti_founder.png"
     },
     {
-      name: "Dr. Vishal Setia",
+      name: "Dr. Vishal Sethiya",
       role: "Senior Orthopedic Surgeon",
       qual: "MBBS, D-Ortho",
       exp: "16+ Years",
@@ -38,7 +38,7 @@ export default function Doctors() {
       color: "from-orange-500 to-amber-600",
       light: "bg-orange-50",
       dept: "Orthopedics",
-      img: null
+      img: "/dr_vishal_sethiya_lakshya.png"
     }
   ];
 

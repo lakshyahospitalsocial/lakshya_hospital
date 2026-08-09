@@ -3,40 +3,71 @@ import React, { useState } from "react";
 import Link from "next/link";
 import {
   X, Clock, User, ArrowRight, BookOpen, Heart, Brain,
-  Baby, ChevronRight, PlayCircle
+  Baby, ChevronRight, PlayCircle, Bone, Stethoscope, Play
 } from "lucide-react";
 
-/* ─── PREVIEW ARTICLE ─────────────────────────────── */
-const PREVIEW_ARTICLE = {
-  id: 1,
-  category: "Cardiology",
-  catColor: "text-red-600",
-  catBg: "bg-red-50",
-  catBorder: "border-red-100",
-  Icon: Heart,
-  title: "Understanding Heart Disease: Early Warning Signs You Shouldn't Ignore",
-  excerpt: "Cardiovascular disease is the world's leading cause of death. Knowing the subtle warning signs can save your life.",
-  author: "Dr. Rajesh Sharma",
-  authorRole: "Senior Cardiologist",
-  date: "June 15, 2026",
-  readTime: "6 min read",
-  tag: "Must Read",
-  image: "https://images.unsplash.com/photo-1628348068343-c6a848d2b6dd?w=900&q=80",
-  content: `
-    <h2>What is Heart Disease?</h2>
-    <p>Heart disease describes a range of conditions that affect your heart — from coronary artery disease and arrhythmias to congenital defects.</p>
-    <h2>Early Warning Signs</h2>
-    <ul>
-      <li><strong>Chest discomfort:</strong> Persistent pressure, squeezing, or pain in the centre of the chest.</li>
-      <li><strong>Shortness of breath:</strong> Occurring with or without chest discomfort.</li>
-      <li><strong>Pain radiating to arms, back, neck, or jaw.</strong></li>
-      <li><strong>Cold sweats, nausea, or lightheadedness.</strong></li>
-      <li><strong>Unusual fatigue,</strong> especially in women.</li>
-    </ul>
-    <h2>Prevention</h2>
-    <p>Heart disease can often be prevented with lifestyle choices: a heart-healthy diet, regular physical activity, maintaining a healthy weight, quality sleep, and regular health screenings.</p>
-  `,
-};
+/* ─── PREVIEW ARTICLES ─────────────────────────────── */
+const PREVIEW_ARTICLES = [
+  {
+    id: 1,
+    category: "Orthopaedics",
+    catColor: "text-orange-600",
+    catBg: "bg-orange-50",
+    catBorder: "border-orange-100",
+    Icon: Bone,
+    title: "Advanced Joint & Spine Care: Restoring Mobility in South Kanpur",
+    excerpt: "From joint replacements to advanced spine surgery, learn how our specialized orthopedic wing treats joint pain, fractures, and spinal disorders near Barra and Naubasta.",
+    author: "Dr. Vishal Sethiya",
+    authorRole: "Orthopedic Surgeon",
+    date: "June 15, 2026",
+    readTime: "6 min read",
+    tag: "Must Read",
+    image: "/ortho-article.png",
+    content: `
+      <h2>Orthopedic & Spine Excellence</h2>
+      <p>Spinal disorders, fractures, and severe arthritis can significantly restrict your daily mobility. At Lakshya Hospital, Kanpur's leading healthcare facility, we provide super-specialist orthopedic care focusing on both conservative therapies and advanced surgical interventions.</p>
+      <h2>Comprehensive Orthopedic Services</h2>
+      <ul>
+        <li><strong>Spine & Joint Surgery:</strong> Advanced spine surgery, disc therapy, and knee/hip joint replacements.</li>
+        <li><strong>Trauma & Fracture Care:</strong> 24/7 emergency fracture restoration and keyhole surgical procedures.</li>
+        <li><strong>Pediatric Orthopedics:</strong> Specialist bone and joint alignment therapies for children.</li>
+      </ul>
+      <h2>Modern Facilities near You</h2>
+      <p>Equipped with state-of-the-art modular operating theatres and digital diagnostic systems, our orthopedics department provides world-class bone and joint care for residents of Kidwai Nagar, Barra, Naubasta, and South Kanpur.</p>
+    `,
+  },
+  {
+    id: 2,
+    category: "Multi-Speciality",
+    catColor: "text-blue-600",
+    catBg: "bg-blue-50",
+    catBorder: "border-blue-100",
+    Icon: Stethoscope,
+    title: "Kanpur's Healthcare Evolution: The Rise of Multi-Speciality Tertiary Care",
+    excerpt: "Discover how Lakshya Hospital grew from a child clinic into a 30-bed multi-speciality tertiary care center offering surgery, urology, gynae, and critical care.",
+    author: "Dr. Rohit Agarwal",
+    authorRole: "Founder & Director",
+    date: "June 22, 2026",
+    readTime: "5 min read",
+    tag: "Popular",
+    image: "/Lakshya_Hospital.png",
+    content: `
+      <h2>Lakshya's 13-Year Legacy</h2>
+      <p>Founded in 2013 by renowned pediatrician Dr. Rohit Agarwal, Lakshya Hospital has grown into one of Kanpur's leading healthcare facilities. Over the last 13 years, we have transitioned from a single-focus clinic into a comprehensive 30-bed multi-speciality hospital.</p>
+      <h2>12 Core Specialties Under One Roof</h2>
+      <p>Guided by our mission to deliver world-class yet affordable care, our campus is at the forefront of major medical programs:</p>
+      <ul>
+        <li>General Medicine & Critical Care (ICU/NICU)</li>
+        <li>Obstetrics & Gynecology (Dr. Tripti Mishra)</li>
+        <li>Pediatrics & Pediatric Surgery (Dr. Rohit Agarwal)</li>
+        <li>Orthopedics, Neuro Surgery, & Spine Surgery</li>
+        <li>Uro Surgery, ENT Care, and Plastic Surgery</li>
+      </ul>
+      <h2>Empanelled for Ayushman & State Schemes</h2>
+      <p>We believe in accessibility. We are fully empanelled for the Ayushman Bharat PM-JAY scheme and state government DDUP schemes, accepting cashless insurances for patients in Kidwai Nagar, Barra, Naubasta, and Kanpur.</p>
+    `
+  }
+];
 
 /* ─── PREVIEW VIDEOS ────────────────────────────────── */
 const PREVIEW_VIDEOS = [
@@ -47,7 +78,7 @@ const PREVIEW_VIDEOS = [
     catBg: "bg-green-50",
     catBorder: "border-green-100",
     title: "Newborn Sleep Tips: Establishing Healthy Habits",
-    excerpt: "Dr. Rohit Agarwal shares evidence-based newborn sleep tips drawn from years of medical experience. Learn about wake windows, the 5 S techniques, and preventing day-night confusion.",
+    excerpt: "Dr. Rohit Agarwal, premier pediatrician in Kidwai Nagar, South Kanpur, shares evidence-based newborn child care tips. Learn about wake windows and preventing day-night confusion near Barra and Naubasta.",
     author: "Dr. Rohit Agarwal",
     authorRole: "Director & Child Specialist",
     youtubeId: "https://youtu.be/yRtVL-XbWZc", // PASTE YOUR YOUTUBE URL OR ID HERE!
@@ -60,11 +91,76 @@ const PREVIEW_VIDEOS = [
     catBg: "bg-pink-50",
     catBorder: "border-pink-100",
     title: "Common Pregnancy Myths Busted",
-    excerpt: "Dr. Tripti Mishra debunks the most common myths expecting mothers hear from relatives.",
+    excerpt: "Dr. Tripti Mishra, leading gynae and pregnancy delivery specialist near Barra and Naubasta, debunks the most common myths expecting mothers hear from relatives in Kanpur.",
     author: "Dr. Tripti Mishra",
     authorRole: "Senior Gynecologist",
     youtubeId: "https://youtu.be/QNa7juOSI28", // PASTE YOUR YOUTUBE URL OR ID HERE!
     tag: "Trending",
+  },
+  {
+    id: 3,
+    category: "Paediatrics",
+    catColor: "text-green-600",
+    catBg: "bg-green-50",
+    catBorder: "border-green-100",
+    title: "5 Superfoods to Boost Brain Power in Kids",
+    excerpt: "Dr. Rohit Agarwal shares the top 5 brain-boosting foods that help improve brain development, concentration, and memory power in growing kids aged 1 to 10 years.",
+    author: "Dr. Rohit Agarwal",
+    authorRole: "Director & Child Specialist",
+    youtubeId: "https://www.youtube.com/watch?v=p2WDh4_Jt0w",
+    tag: "Child Nutrition",
+  },
+  {
+    id: 4,
+    category: "Paediatrics",
+    catColor: "text-green-600",
+    catBg: "bg-green-50",
+    catBorder: "border-green-100",
+    title: "How to Calm a Crying Baby: Baby Crying Decoded",
+    excerpt: "When a baby is crying continuously, parents start to fear for their little one. Dr. Rohit Agarwal decodes baby crying language to help you figure out what your baby is trying to say.",
+    author: "Dr. Rohit Agarwal",
+    authorRole: "Director & Child Specialist",
+    youtubeId: "https://www.youtube.com/watch?v=_dYu7rxhd3I",
+    tag: "Newborn Care",
+  },
+  {
+    id: 5,
+    category: "Gynaecology",
+    catColor: "text-pink-600",
+    catBg: "bg-pink-50",
+    catBorder: "border-pink-100",
+    title: "Cervical Cancer Screening: HPV Prevention & Treatment",
+    excerpt: "Dr. Tripti Mishra discusses cervical cancer, its connection to HPV, screening methods, symptoms, and why it is critical for women to have regular gynecologic checkups.",
+    author: "Dr. Tripti Mishra",
+    authorRole: "Senior Gynecologist",
+    youtubeId: "https://www.youtube.com/watch?v=4kAvlNpgpJA",
+    tag: "Women's Health",
+  },
+  {
+    id: 6,
+    category: "Gynaecology",
+    catColor: "text-pink-600",
+    catBg: "bg-pink-50",
+    catBorder: "border-pink-100",
+    title: "PCOS, Hormones, and Irregular Periods Explained",
+    excerpt: "Irregular periods, PCOS, hormonal imbalances, and delayed pregnancy are increasingly common. Dr. Tripti Mishra explains real causes like insulin resistance, stress, diet, and lifestyle remedies.",
+    author: "Dr. Tripti Mishra",
+    authorRole: "Senior Gynecologist",
+    youtubeId: "https://www.youtube.com/watch?v=x_A2JiAx8lc",
+    tag: "Hormonal Health",
+  },
+  {
+    id: 7,
+    category: "Paediatrics",
+    catColor: "text-green-600",
+    catBg: "bg-green-50",
+    catBorder: "border-green-100",
+    title: "Baby Care Tips, Vaccines, and Feeding Mistakes Explained",
+    excerpt: "Pediatrician Dr. Rohit Agarwal answers common newborn and child care questions about breastfeeding, formula, Cerelac, vaccinations, baby massage, and screen time.",
+    author: "Dr. Rohit Agarwal",
+    authorRole: "Director & Child Specialist",
+    youtubeId: "https://www.youtube.com/watch?v=RvkBOXafK8w",
+    tag: "Parenting Guide",
   },
 ];
 
@@ -76,7 +172,7 @@ export function extractYouTubeId(urlOrId: string) {
 }
 
 /* ─── Mini article reader modal ────────────────────────────── */
-function ArticleModal({ article, onClose }: { article: typeof PREVIEW_ARTICLE; onClose: () => void }) {
+function ArticleModal({ article, onClose }: { article: typeof PREVIEW_ARTICLES[0]; onClose: () => void }) {
   return (
     <div
       className="fixed inset-0 z-[200] bg-black/60 backdrop-blur-sm flex items-start justify-center p-4 sm:p-8 overflow-y-auto"
@@ -113,11 +209,11 @@ function ArticleModal({ article, onClose }: { article: typeof PREVIEW_ARTICLE; o
             <span>{article.date}</span>
             <span className="flex items-center gap-1"><Clock size={11} /> {article.readTime}</span>
           </div>
-          <h1 className="font-bold text-gray-900 leading-snug mb-6 text-xl sm:text-2xl" style={{ fontFamily: "var(--font-display, serif)" }}>
+          <h1 className="font-extrabold text-gray-900 leading-snug mb-6 text-2xl sm:text-3xl font-sans">
             {article.title}
           </h1>
           <div
-            className="text-gray-600 text-sm leading-relaxed space-y-3 [&_h2]:font-bold [&_h2]:text-gray-900 [&_h2]:text-base [&_h2]:mt-6 [&_h2]:mb-2 [&_ul]:ml-5 [&_ul]:list-disc [&_ul]:space-y-1.5 [&_strong]:text-primary [&_strong]:font-semibold [&_p]:mb-2"
+            className="text-slate-700 text-base md:text-md leading-relaxed space-y-4 font-sans [&_h2]:font-bold [&_h2]:text-slate-900 [&_h2]:text-lg [&_h2]:font-sans [&_h2]:mt-6 [&_h2]:mb-3 [&_ul]:ml-5 [&_ul]:list-disc [&_ul]:space-y-2 [&_strong]:text-primary [&_strong]:font-bold [&_p]:mb-4"
             dangerouslySetInnerHTML={{ __html: article.content }}
           />
           {/* Bottom CTA */}
@@ -160,7 +256,7 @@ export function VideoModal({ youtubeId, onClose }: { youtubeId: string; onClose:
 
 /* ─── HOME PAGE SECTION ─────────────────────────────────────── */
 export default function HealthLibrary() {
-  const [selectedArticle, setSelectedArticle] = useState<typeof PREVIEW_ARTICLE | null>(null);
+  const [selectedArticle, setSelectedArticle] = useState<typeof PREVIEW_ARTICLES[0] | null>(null);
   const [activeVideoId, setActiveVideoId] = useState<string | null>(null);
 
   // Render a single video card
@@ -184,17 +280,15 @@ export default function HealthLibrary() {
         <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors" />
 
         <div className="absolute inset-0 flex items-center justify-center">
-          <div className="w-14 h-14 rounded-full bg-red-600 border-[3px] border-white flex items-center justify-center group-hover:bg-red-500 transition-all shadow-lg group-hover:scale-110">
-            <PlayCircle className="w-6 h-6 text-white ml-0.5" />
+          <div className="w-11 h-11 rounded-full bg-red-600 flex items-center justify-center shadow-md shadow-red-950/30 group-hover:bg-red-500 transition-all duration-300 group-hover:scale-110 relative">
+            <span className="absolute inset-0 rounded-full bg-red-600/20 animate-ping group-hover:animate-none" />
+            <Play size={14} fill="white" className="text-white relative z-10 translate-x-0.5" />
           </div>
         </div>
 
-        <div className="absolute top-3 left-3 right-3 flex justify-between items-start">
+        <div className="absolute top-3 left-3">
           <span className={`px-2.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider border ${video.catBg} ${video.catColor} ${video.catBorder}`}>
             {video.category}
-          </span>
-          <span className="px-2.5 py-1 rounded-full text-[10px] font-bold bg-white/90 text-gray-600 shadow-sm flex items-center gap-1">
-            <PlayCircle size={10} /> Video
           </span>
         </div>
       </div>
@@ -267,42 +361,39 @@ export default function HealthLibrary() {
             </Link>
           </div>
 
-          {/* Hybrid 3-Card Grid: Left=Video, Middle=Article, Right=Video */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {/* Hybrid 4-Card Grid: Alternating Video and Article */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
 
             {/* 1. Left Video */}
             {renderVideoCard(PREVIEW_VIDEOS[0])}
 
-            {/* 2. Middle Article */}
+            {/* 2. Middle Left Article */}
             <div
-              onClick={() => setSelectedArticle(PREVIEW_ARTICLE)}
+              onClick={() => setSelectedArticle(PREVIEW_ARTICLES[0])}
               className="group bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-lg transition-all duration-300 cursor-pointer overflow-hidden flex flex-col h-full"
             >
               <div className="relative h-48 overflow-hidden">
-                <img src={PREVIEW_ARTICLE.image} alt={PREVIEW_ARTICLE.title} className="w-full h-full object-cover group-hover:scale-[1.04] transition-transform duration-500" />
-                <div className="absolute top-3 left-3 right-3 flex justify-between items-start">
-                  <span className={`px-2.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider border ${PREVIEW_ARTICLE.catBg} ${PREVIEW_ARTICLE.catColor} ${PREVIEW_ARTICLE.catBorder}`}>
-                    {PREVIEW_ARTICLE.category}
-                  </span>
-                  <span className="px-2.5 py-1 rounded-full text-[10px] font-bold bg-white/90 text-gray-600 shadow-sm">
-                    {PREVIEW_ARTICLE.tag}
+                <img src={PREVIEW_ARTICLES[0].image} alt={PREVIEW_ARTICLES[0].title} className="w-full h-full object-cover group-hover:scale-[1.04] transition-transform duration-500" />
+                <div className="absolute top-3 left-3">
+                  <span className={`px-2.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider border ${PREVIEW_ARTICLES[0].catBg} ${PREVIEW_ARTICLES[0].catColor} ${PREVIEW_ARTICLES[0].catBorder}`}>
+                    {PREVIEW_ARTICLES[0].category}
                   </span>
                 </div>
               </div>
               <div className="p-5 flex flex-col flex-grow gap-3">
                 <h3 className="font-bold text-gray-900 leading-snug text-[15px]" style={{ fontFamily: "var(--font-display, serif)" }}>
-                  {PREVIEW_ARTICLE.title}
+                  {PREVIEW_ARTICLES[0].title}
                 </h3>
                 <p className="text-gray-500 text-xs leading-relaxed flex-grow line-clamp-2">
-                  {PREVIEW_ARTICLE.excerpt}
+                  {PREVIEW_ARTICLES[0].excerpt}
                 </p>
                 <div className="flex items-center justify-between pt-3 border-t border-gray-50 mt-1">
                   <div className="text-[11px] text-gray-400">
                     <p className="font-bold text-gray-800 flex items-center gap-1 mb-0.5">
-                      <User size={10} /> {PREVIEW_ARTICLE.author}
+                      <User size={10} /> {PREVIEW_ARTICLES[0].author}
                     </p>
                     <p className="flex items-center gap-1">
-                      <Clock size={9} /> {PREVIEW_ARTICLE.readTime}
+                      <Clock size={9} /> {PREVIEW_ARTICLES[0].readTime}
                     </p>
                   </div>
                   <span className="flex items-center gap-1 text-primary text-[11px] font-bold group-hover:gap-2 transition-all">
@@ -312,8 +403,44 @@ export default function HealthLibrary() {
               </div>
             </div>
 
-            {/* 3. Right Video */}
+            {/* 3. Middle Right Video */}
             {renderVideoCard(PREVIEW_VIDEOS[1])}
+
+            {/* 4. Right Article */}
+            <div
+              onClick={() => setSelectedArticle(PREVIEW_ARTICLES[1])}
+              className="group bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-lg transition-all duration-300 cursor-pointer overflow-hidden flex flex-col h-full"
+            >
+              <div className="relative h-48 overflow-hidden">
+                <img src={PREVIEW_ARTICLES[1].image} alt={PREVIEW_ARTICLES[1].title} className="w-full h-full object-cover group-hover:scale-[1.04] transition-transform duration-500" />
+                <div className="absolute top-3 left-3">
+                  <span className={`px-2.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider border ${PREVIEW_ARTICLES[1].catBg} ${PREVIEW_ARTICLES[1].catColor} ${PREVIEW_ARTICLES[1].catBorder}`}>
+                    {PREVIEW_ARTICLES[1].category}
+                  </span>
+                </div>
+              </div>
+              <div className="p-5 flex flex-col flex-grow gap-3">
+                <h3 className="font-bold text-gray-900 leading-snug text-[15px]" style={{ fontFamily: "var(--font-display, serif)" }}>
+                  {PREVIEW_ARTICLES[1].title}
+                </h3>
+                <p className="text-gray-500 text-xs leading-relaxed flex-grow line-clamp-2">
+                  {PREVIEW_ARTICLES[1].excerpt}
+                </p>
+                <div className="flex items-center justify-between pt-3 border-t border-gray-50 mt-1">
+                  <div className="text-[11px] text-gray-400">
+                    <p className="font-bold text-gray-800 flex items-center gap-1 mb-0.5">
+                      <User size={10} /> {PREVIEW_ARTICLES[1].author}
+                    </p>
+                    <p className="flex items-center gap-1">
+                      <Clock size={9} /> {PREVIEW_ARTICLES[1].readTime}
+                    </p>
+                  </div>
+                  <span className="flex items-center gap-1 text-primary text-[11px] font-bold group-hover:gap-2 transition-all">
+                    Read Article <ArrowRight size={10} />
+                  </span>
+                </div>
+              </div>
+            </div>
 
           </div>
 

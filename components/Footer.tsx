@@ -6,6 +6,26 @@ import {
   Heart, Shield, ChevronRight,
 } from 'lucide-react';
 
+const FacebookIcon = ({ className = 'w-4 h-4' }: { className?: string }) => (
+  <svg viewBox="0 0 24 24" className={className} fill="currentColor">
+    <path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"/>
+  </svg>
+);
+
+const InstagramIcon = ({ className = 'w-4 h-4' }: { className?: string }) => (
+  <svg viewBox="0 0 24 24" className={className} fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+  </svg>
+);
+
+const YoutubeIcon = ({ className = 'w-4 h-4' }: { className?: string }) => (
+  <svg viewBox="0 0 24 24" className={className} fill="currentColor">
+    <path d="M23.498 6.163a3.003 3.003 0 0 0-2.11-2.108C19.52 3.5 12 3.5 12 3.5s-7.52 0-9.388.555A3.002 3.002 0 0 0 .502 6.163C0 8.07 0 12 0 12s0 3.93.502 5.837a3.002 3.002 0 0 0 2.11 2.108C4.48 20.5 12 20.5 12 20.5s7.52 0 9.388-.555a3.002 3.002 0 0 0 2.11-2.108C24 15.93 24 12 24 12s0-3.93-.502-5.837zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+  </svg>
+);
+
 const QUICK_LINKS = [
   { name: 'Home',             href: '/' },
   { name: 'About Us',         href: '/about' },
@@ -39,7 +59,7 @@ export default function Footer() {
           <div className="absolute top-0 right-0 w-72 h-72 bg-white/5 rounded-full blur-3xl translate-x-1/2 -translate-y-1/2" />
           <div className="absolute bottom-0 left-0 w-48 h-48 bg-white/5 rounded-full blur-2xl -translate-x-1/2 translate-y-1/2" />
         </div>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-12 relative z-10">
+        <div className="max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-12 relative z-10">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-6 text-center sm:text-left">
             <div className="flex flex-col sm:flex-row items-center gap-4">
               <div className="w-14 h-14 bg-white/15 border border-white/20 rounded-2xl flex items-center justify-center shrink-0">
@@ -61,7 +81,7 @@ export default function Footer() {
       </div>
 
       {/* ── Main Footer Body ── */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-14 pb-8">
+      <div className="max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-8 pt-14 pb-8">
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
 
@@ -72,14 +92,14 @@ export default function Footer() {
               <img
                 src="/logo.png"
                 alt="Lakshya Hospital Logo"
-                className="h-16 w-auto object-contain -ml-2 -mr-1"
+                className="h-20 w-auto object-contain -ml-5 -mr-4"
               />
-              <div className="flex flex-col pt-1">
-                <span className="text-2xl font-bold text-primary leading-none tracking-tight">Lakshya</span>
-                <div className="flex items-center mt-1.5">
-                  <div className="h-[1.5px] bg-secondary/50 flex-1 rounded-full" />
-                  <span className="text-[10px] font-bold text-secondary tracking-[0.3em] px-2 leading-none uppercase">HOSPITAL</span>
-                  <div className="h-[1.5px] bg-secondary/50 flex-1 rounded-full" />
+              <div className="flex flex-col">
+                <span className="text-2xl font-bold text-primary leading-tight tracking-tight">Lakshya</span>
+                <div className="flex items-center -mt-0.5">
+                  <div className="h-[1px] bg-secondary/50 w-3 rounded-full mr-1.5" />
+                  <span className="text-[10px] font-extrabold text-secondary tracking-[0.25em] leading-none uppercase">HOSPITAL</span>
+                  <div className="h-[1px] bg-secondary/50 w-3 rounded-full ml-1.5" />
                 </div>
               </div>
             </div>
@@ -101,20 +121,19 @@ export default function Footer() {
             {/* Social icons */}
             <div className="flex gap-2">
               {[
-                { label: 'f',  title: 'Facebook',  href: '#',                              color: 'hover:bg-blue-600 hover:border-blue-600 hover:text-white' },
-                { label: 'in', title: 'Instagram', href: '#',                              color: 'hover:bg-pink-500 hover:border-pink-500 hover:text-white' },
-                { label: '▶', title: 'YouTube',    href: '#',                              color: 'hover:bg-red-500 hover:border-red-500 hover:text-white' },
-                { label: 'w',  title: 'WhatsApp',  href: 'https://wa.me/919335605848',     color: 'hover:bg-green-500 hover:border-green-500 hover:text-white' },
-              ].map(({ label, title, href, color }) => (
+                { icon: FacebookIcon,  title: 'Facebook',  href: 'https://www.facebook.com/lakshyahospitalkanpur',   color: 'hover:bg-blue-600 hover:border-blue-600 hover:text-white' },
+                { icon: InstagramIcon, title: 'Instagram', href: 'https://www.instagram.com/lakshyahospitalkanpur/', color: 'hover:bg-pink-500 hover:border-pink-500 hover:text-white' },
+                { icon: YoutubeIcon,   title: 'YouTube',    href: 'https://www.youtube.com/@LakshyaHospital_Kanpur',  color: 'hover:bg-red-500 hover:border-red-500 hover:text-white' },
+              ].map(({ icon: Icon, title, href, color }) => (
                 <a
                   key={title}
                   href={href}
                   aria-label={title}
-                  target={href.startsWith('http') ? '_blank' : undefined}
-                  rel={href.startsWith('http') ? 'noreferrer' : undefined}
-                  className={`w-9 h-9 rounded-full bg-white border border-gray-200 flex items-center justify-center text-gray-500 transition-all text-xs font-bold shadow-sm ${color}`}
+                  target="_blank"
+                  rel="noreferrer"
+                  className={`w-9 h-9 rounded-full bg-white border border-gray-200 flex items-center justify-center text-gray-550 hover:scale-105 transition-all shadow-sm ${color}`}
                 >
-                  {label}
+                  <Icon className="w-4 h-4" />
                 </a>
               ))}
             </div>
@@ -226,13 +245,11 @@ export default function Footer() {
 
         {/* ── Bottom Bar ── */}
         <div className="pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-gray-400">
-          <p>© 2025 Lakshya Hospital, Kanpur. All Rights Reserved.</p>
+          <p>© 2026 Lakshya Hospital, Kanpur. All Rights Reserved.</p>
           <div className="flex items-center gap-4 flex-wrap justify-center">
             <Link href="/privacy-policy" className="hover:text-primary transition-colors">Privacy Policy</Link>
             <span className="text-gray-200">|</span>
             <Link href="/terms" className="hover:text-primary transition-colors">Terms & Conditions</Link>
-            <span className="text-gray-200">|</span>
-            <Link href="/sitemap.xml" className="hover:text-primary transition-colors">Sitemap</Link>
           </div>
         </div>
 

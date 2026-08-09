@@ -1,3 +1,4 @@
+"use client"
 import React from 'react';
 import { CalendarHeart, PhoneCall, ShieldCheck, Users, Activity, Stethoscope, Baby, HeartHandshake, Sparkles } from 'lucide-react';
 import Link from 'next/link';
@@ -18,7 +19,7 @@ export default function Hero() {
       </div>
 
       {/* DESKTOP LAYOUT (100% UNTOUCHED ORIGINAL FOR lg+) */}
-      <div className="hidden lg:block max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full pt-6 pb-24">
+      <div className="hidden lg:block max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full pt-6 pb-24">
         <div className="max-w-2xl bg-transparent p-0 rounded-none">
           <div className="space-y-6 sm:space-y-8">
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white shadow-sm border border-gray-100 text-primary text-xs sm:text-sm font-semibold">
@@ -49,9 +50,9 @@ export default function Hero() {
             {/* Desktop Stats */}
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-4 sm:pt-8">
               {[
-                { label: "Years of Care",     value: "13+" },
-                { label: "Happy Patients",    value: "50,000+" },
-                { label: "Emergency Care",    value: "24/7" },
+                { label: "Years of Care", value: "13+" },
+                { label: "Happy Patients", value: "50,000+" },
+                { label: "Emergency Care", value: "24/7" },
                 { label: "Super-Specialists", value: "11+" },
               ].map((stat, idx) => (
                 <div key={idx} className="space-y-1 border-l-2 border-primary/20 pl-3 sm:pl-4">
@@ -66,11 +67,11 @@ export default function Hero() {
 
 
       {/* MOBILE LAYOUT (< lg ONLY): Premium Interactive Medical Hero */}
-      <div className="block lg:hidden w-full max-w-7xl mx-auto px-4 sm:px-6 relative z-10 pt-3 pb-4">
-        
+      <div className="block lg:hidden w-full max-w-[90rem] mx-auto px-4 sm:px-6 relative z-10 pt-3 pb-4">
+
         {/* Top Text Content Area */}
         <div className="space-y-4 text-left">
-          
+
           {/* Badge */}
           <div className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white shadow-sm border border-emerald-200/80 text-emerald-700 text-xs font-semibold">
             <span className="flex h-2 w-2 relative">
@@ -103,7 +104,7 @@ export default function Hero() {
               <CalendarHeart className="w-4 h-4 shrink-0" />
               <span>Book Appointment</span>
             </Link>
-            
+
             <a
               href="tel:+919335605848"
               className="flex-1 bg-white hover:bg-slate-50 text-primary border border-primary/40 px-3.5 py-3 rounded-full font-bold shadow-sm transition-all hover:-translate-y-0.5 flex items-center justify-center gap-1.5 text-xs sm:text-sm text-center shrink-0"
@@ -128,7 +129,7 @@ export default function Hero() {
 
           {/* FLOATING ANIMATED HEALTHCARE SECTOR ICONS ON LEFT SIDE OF DOCTORS */}
           <div className="absolute top-4 left-3 z-10 flex flex-col gap-3.5 pointer-events-none">
-            
+
             {/* Animated Icon 1: 24/7 ICU & Critical Care (Blue Heartbeat) */}
             <div className="contact-float-1 flex items-center gap-2 bg-white/90 backdrop-blur-md px-2.5 py-1.5 rounded-full shadow-lg border border-white/60">
               <div className="w-6 h-6 rounded-full bg-blue-500 text-white flex items-center justify-center shrink-0">
@@ -181,7 +182,7 @@ export default function Hero() {
         {/* Mobile 4-Column Stats Banner */}
         <div className="bg-white rounded-2xl p-3 sm:p-4 shadow-sm border border-slate-100">
           <div className="grid grid-cols-4 gap-1 sm:gap-2 text-center divide-x divide-slate-100">
-            
+
             <div className="flex flex-col items-center justify-center px-0.5 py-1">
               <div className="w-8 h-8 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center mb-1">
                 <ShieldCheck className="w-4 h-4" />

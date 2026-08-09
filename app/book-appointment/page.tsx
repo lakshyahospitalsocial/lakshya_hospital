@@ -5,10 +5,9 @@ import Footer from "../../components/Footer";
 import Link from "next/link";
 import {
   CalendarHeart, User, Phone, Mail, MessageSquare,
-  CheckCircle2, ChevronRight, ChevronLeft, Clock,
-  Award, Heart, MapPin, Stethoscope, AlertCircle,
-  Baby, HeartPulse, Bone, Brain, Ear, Scissors,
-  Droplets, ShieldPlus, Activity,
+  CheckCircle2, Clock, Award, Heart, MapPin, Stethoscope,
+  AlertCircle, Baby, HeartPulse, Bone, Brain, Ear, Scissors,
+  Droplets, ShieldPlus, Activity, ArrowRight, ArrowLeft
 } from "lucide-react";
 
 /* ─── DATA ──────────────────────────────────────────────────── */
@@ -26,21 +25,21 @@ const DEPARTMENTS = [
   { id: "critical", label: "Critical Care / ICU", icon: Heart, color: "text-red-600", bg: "bg-red-50", border: "border-red-200" },
 ];
 
-const DOCTORS: Record<string, { name: string; qual: string; exp: string; avail: string[] }[]> = {
-  "gen-med": [{ name: "Dr. Ashish Dwivedi", qual: "MBBS, MD Medicine", exp: "10+ yrs", avail: ["Mon–Sat: 6:00 PM – 7:00 PM"] }],
+const DOCTORS: Record<string, { name: string; qual: string; exp: string; avail: string[]; slots: string[] }[]> = {
+  "gen-med": [{ name: "Dr. Ashish Dwivedi", qual: "MBBS, MD Medicine", exp: "10+ yrs", avail: ["Mon–Sat: 6:00 PM – 7:00 PM"], slots: ["06:00 PM", "06:30 PM", "07:00 PM"] }],
   "gen-surg": [
-    { name: "Dr. NS Chauhan", qual: "MBBS, MS Surgeon", exp: "35+ yrs", avail: ["Mon & Sun: 12:00 PM – 1:00 PM"] },
-    { name: "Dr. Kuldeep", qual: "MBBS, MS Surgeon", exp: "10+ yrs", avail: ["Mon–Sat: 1:00 PM – 2:00 PM"] },
+    { name: "Dr. NS Chauhan", qual: "MBBS, MS Surgeon", exp: "35+ yrs", avail: ["Mon & Sun: 12:00 PM – 1:00 PM"], slots: ["12:00 PM", "12:30 PM", "01:00 PM"] },
+    { name: "Dr. Kuldeep", qual: "MBBS, MS Surgeon", exp: "10+ yrs", avail: ["Mon–Sat: 1:00 PM – 2:00 PM"], slots: ["01:00 PM", "01:30 PM", "02:00 PM"] },
   ],
-  "ob-gyn": [{ name: "Dr. Tripti Mishra", qual: "MBBS, MS OB/GYN", exp: "16+ yrs", avail: ["Mon–Fri: 11:00 AM – 1:00 PM", "Mon–Fri: 6:00 PM – 7:00 PM"] }],
-  "paeds": [{ name: "Dr. Rohit Agrawal", qual: "MBBS, MD Pediatrics", exp: "16+ yrs", avail: ["Mon–Sun: 11:00 AM – 4:00 PM", "Mon–Sat: 8:00 PM – 9:00 PM"] }],
-  "ortho": [{ name: "Dr. Vishal Setia", qual: "MBBS, D-Ortho", exp: "16+ yrs", avail: ["Mon–Sat: 1:00 PM – 2:00 PM"] }],
-  "ent": [{ name: "Dr. Tripti Sengar", qual: "MBBS, DLO", exp: "16+ yrs", avail: ["Mon–Sat: 12:00 PM – 1:00 PM"] }],
-  "neuro": [{ name: "Dr. SG Verma", qual: "MBBS, MS, MCH NeuroSurgery", exp: "12+ yrs", avail: ["By Appointment / On Call"] }],
-  "uro": [{ name: "Dr. Manish Kumar", qual: "MBBS, MS, MCH Uro Surgery", exp: "14+ yrs", avail: ["By Appointment / On Call"] }],
-  "plastic": [{ name: "Dr. Shushant Luthra", qual: "MBBS, MS, MCH Plastic Surgery", exp: "18+ yrs", avail: ["By Appointment / On Call"] }],
-  "paed-surg": [{ name: "Dr. Rakesh Tripathi", qual: "MBBS, MS, MCH Pediatric Surgery", exp: "18+ yrs", avail: ["By Appointment / On Call"] }],
-  "critical": [{ name: "Dedicated ICU Team", qual: "Multi-disciplinary Intensivists", exp: "24/7", avail: ["24 hours / 7 days"] }],
+  "ob-gyn": [{ name: "Dr. Tripti Mishra", qual: "MBBS, MS OB/GYN", exp: "16+ yrs", avail: ["Mon–Fri: 11:00 AM – 1:00 PM", "Mon–Fri: 6:00 PM – 7:00 PM"], slots: ["11:00 AM", "11:30 AM", "12:00 PM", "12:30 PM", "01:00 PM", "06:00 PM", "06:30 PM", "07:00 PM"] }],
+  "paeds": [{ name: "Dr. Rohit Agrawal", qual: "MBBS, MD Pediatrics", exp: "16+ yrs", avail: ["Mon–Sun: 11:00 AM – 4:00 PM", "Mon–Sat: 8:00 PM – 9:00 PM"], slots: ["11:00 AM", "11:30 AM", "12:00 PM", "12:30 PM", "01:00 PM", "01:30 PM", "02:00 PM", "02:30 PM", "03:00 PM", "03:30 PM", "04:00 PM", "08:00 PM", "08:30 PM", "09:00 PM"] }],
+  "ortho": [{ name: "Dr. Vishal Sethiya", qual: "MBBS, D-Ortho", exp: "16+ yrs", avail: ["Mon–Sat: 1:00 PM – 2:00 PM"], slots: ["01:00 PM", "01:30 PM", "02:00 PM"] }],
+  "ent": [{ name: "Dr. Tripti Sengar", qual: "MBBS, DLO", exp: "16+ yrs", avail: ["Mon–Sat: 12:00 PM – 1:00 PM"], slots: ["12:00 PM", "12:30 PM", "01:00 PM"] }],
+  "neuro": [{ name: "Dr. SG Verma", qual: "MBBS, MS, MCH NeuroSurgery", exp: "12+ yrs", avail: ["By Appointment / On Call"], slots: ["09:00 AM", "10:00 AM", "11:00 AM", "12:00 PM", "01:00 PM", "02:00 PM", "03:00 PM", "04:00 PM", "05:00 PM", "06:00 PM"] }],
+  "uro": [{ name: "Dr. Manish Kumar", qual: "MBBS, MS, MCH Uro Surgery", exp: "14+ yrs", avail: ["By Appointment / On Call"], slots: ["09:00 AM", "10:00 AM", "11:00 AM", "12:00 PM", "01:00 PM", "02:00 PM", "03:00 PM", "04:00 PM", "05:00 PM", "06:00 PM"] }],
+  "plastic": [{ name: "Dr. Shushant Luthra", qual: "MBBS, MS, MCH Plastic Surgery", exp: "18+ yrs", avail: ["By Appointment / On Call"], slots: ["09:00 AM", "10:00 AM", "11:00 AM", "12:00 PM", "01:00 PM", "02:00 PM", "03:00 PM", "04:00 PM", "05:00 PM", "06:00 PM"] }],
+  "paed-surg": [{ name: "Dr. Rakesh Tripathi", qual: "MBBS, MS, MCH Pediatric Surgery", exp: "18+ yrs", avail: ["By Appointment / On Call"], slots: ["09:00 AM", "10:00 AM", "11:00 AM", "12:00 PM", "01:00 PM", "02:00 PM", "03:00 PM", "04:00 PM", "05:00 PM", "06:00 PM"] }],
+  "critical": [{ name: "Dedicated ICU Team", qual: "Multi-disciplinary Intensivists", exp: "24/7", avail: ["24 hours / 7 days"], slots: ["09:00 AM", "11:00 AM", "01:00 PM", "03:00 PM", "05:00 PM", "07:00 PM"] }],
 };
 
 const TIME_SLOTS = [
@@ -51,8 +50,6 @@ const TIME_SLOTS = [
   "04:00 PM", "05:00 PM", "06:00 PM", "06:30 PM",
   "07:00 PM", "07:30 PM", "08:00 PM", "08:30 PM",
 ];
-
-const STEPS = ["Department", "Doctor", "Date & Time", "Your Details", "Review"];
 
 /* ─── HELPERS ───────────────────────────────────────────────── */
 function minDateStr() {
@@ -70,35 +67,6 @@ function maxDateStr() {
 function formatDate(str: string) {
   if (!str) return "";
   return new Date(str).toLocaleDateString("en-IN", { weekday: "long", year: "numeric", month: "long", day: "numeric" });
-}
-
-/* ─── STEP INDICATOR ────────────────────────────────────────── */
-function StepBar({ current }: { current: number }) {
-  return (
-    <div className="flex items-center gap-0 w-full mb-10">
-      {STEPS.map((label, i) => {
-        const done = i < current;
-        const active = i === current;
-        return (
-          <React.Fragment key={label}>
-            <div className="flex flex-col items-center">
-              <div className={`w-9 h-9 rounded-full flex items-center justify-center text-sm font-bold border-2 transition-all duration-300 ${done ? "bg-primary border-primary text-white shadow-md shadow-primary/30"
-                  : active ? "bg-white border-primary text-primary shadow-md shadow-primary/20"
-                    : "bg-gray-100 border-gray-200 text-gray-400"
-                }`}>
-                {done ? <CheckCircle2 size={16} /> : i + 1}
-              </div>
-              <span className={`text-[10px] font-semibold mt-1.5 text-center leading-tight hidden sm:block ${active ? "text-primary" : done ? "text-primary/70" : "text-gray-400"
-                }`}>{label}</span>
-            </div>
-            {i < STEPS.length - 1 && (
-              <div className={`flex-1 h-0.5 mx-1 transition-all duration-500 ${i < current ? "bg-primary" : "bg-gray-200"}`} />
-            )}
-          </React.Fragment>
-        );
-      })}
-    </div>
-  );
 }
 
 /* ─── FORM STATE ────────────────────────────────────────────── */
@@ -124,48 +92,151 @@ const EMPTY: FormData = {
 
 /* ─── PAGE ──────────────────────────────────────────────────── */
 export default function BookAppointmentPage() {
-  const [step, setStep] = useState(0);
   const [form, setForm] = useState<FormData>(EMPTY);
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
   const [errors, setErrors] = useState<Partial<Record<keyof FormData, string>>>({});
+  const [touched, setTouched] = useState<Partial<Record<keyof FormData, boolean>>>({});
+  const [status, setStatus] = useState<{ type: "success" | "error" | null; message: string }>({ type: null, message: "" });
 
   // Reset doctor when dept changes
   useEffect(() => {
-    setForm(f => ({ ...f, doctorName: "", doctorQual: "" }));
+    if (form.deptId) {
+      setForm(f => ({ ...f, doctorName: "", doctorQual: "" }));
+    }
   }, [form.deptId]);
 
-  const set = (field: keyof FormData, val: string) => {
-    setForm(f => ({ ...f, [field]: val }));
-    setErrors(e => ({ ...e, [field]: "" }));
-  };
-
-  /* Validation per step */
-  const validate = () => {
-    const e: typeof errors = {};
-    if (step === 0 && !form.deptId) e.deptId = "Please select a department.";
-    if (step === 1 && !form.doctorName) e.doctorName = "Please select a doctor.";
-    if (step === 2) {
-      if (!form.date) e.date = "Please choose a date.";
-      if (!form.timeSlot) e.timeSlot = "Please choose a time slot.";
+  const validateField = (name: string, value: string) => {
+    let errorMsg = "";
+    if (name === "deptId" && !value) {
+      errorMsg = "Please select a department.";
+    } else if (name === "doctorName" && !value) {
+      errorMsg = "Please select a doctor.";
+    } else if (name === "date" && !value) {
+      errorMsg = "Please pick a preferred date.";
+    } else if (name === "timeSlot" && !value) {
+      errorMsg = "Please pick a preferred time slot.";
+    } else if (name === "name") {
+      if (!value.trim()) {
+        errorMsg = "Full name is required.";
+      } else if (value.trim().length < 3) {
+        errorMsg = "Name must be at least 3 characters.";
+      }
+    } else if (name === "phone") {
+      const cleanPhone = value.replace(/\D/g, "");
+      if (!cleanPhone) {
+        errorMsg = "Mobile number is required.";
+      } else if (cleanPhone.length !== 10) {
+        errorMsg = "Please enter a valid 10-digit mobile number.";
+      }
     }
-    if (step === 3) {
-      if (!form.name.trim()) e.name = "Full name is required.";
-      if (!/^\d{10}$/.test(form.phone.replace(/\s/g, ""))) e.phone = "Enter a valid 10-digit mobile number.";
+    return errorMsg;
+  };
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    let finalValue = value;
+
+    if (name === "phone") {
+      finalValue = value.replace(/[^0-9]/g, ""); // restrict to digits only
+      if (finalValue.length > 10) {
+        finalValue = finalValue.slice(0, 10);
+      }
     }
-    setErrors(e);
-    return Object.keys(e).length === 0;
+
+    setForm(f => ({ ...f, [name]: finalValue }));
+    if (touched[name as keyof FormData]) {
+      const errorMsg = validateField(name, finalValue);
+      setErrors(errs => ({ ...errs, [name]: errorMsg }));
+    }
   };
 
-  const next = () => { if (validate()) setStep(s => s + 1); };
-  const back = () => setStep(s => s - 1);
-
-  const submit = () => {
-    setLoading(true);
-    setTimeout(() => { setLoading(false); setSubmitted(true); }, 1800);
+  const handleBlur = (e: React.FocusEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setTouched(t => ({ ...t, [name]: true }));
+    const errorMsg = validateField(name, value);
+    setErrors(errs => ({ ...errs, [name]: errorMsg }));
   };
 
-  const dept = DEPARTMENTS.find(d => d.id === form.deptId);
+  const selectDepartment = (id: string, label: string) => {
+    setForm(f => ({ ...f, deptId: id, deptLabel: label, doctorName: "", doctorQual: "" }));
+    setErrors(errs => ({ ...errs, deptId: "", doctorName: "" }));
+    setTouched(t => ({ ...t, deptId: true }));
+  };
+
+  const selectDoctor = (name: string, qual: string) => {
+    setForm(f => ({ ...f, doctorName: name, doctorQual: qual }));
+    setErrors(errs => ({ ...errs, doctorName: "" }));
+    setTouched(t => ({ ...t, doctorName: true }));
+  };
+
+  const selectTimeSlot = (slot: string) => {
+    setForm(f => ({ ...f, timeSlot: slot }));
+    setErrors(errs => ({ ...errs, timeSlot: "" }));
+    setTouched(t => ({ ...t, timeSlot: true }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setStatus({ type: null, message: "" });
+
+    // Mark all fields as touched
+    const allTouched: typeof touched = {
+      deptId: true,
+      doctorName: true,
+      date: true,
+      timeSlot: true,
+      name: true,
+      phone: true,
+    };
+    setTouched(allTouched);
+
+    // Validate all fields
+    const newErrors: Partial<Record<keyof FormData, string>> = {};
+    Object.keys(allTouched).forEach((key) => {
+      const val = form[key as keyof FormData] || "";
+      const errorMsg = validateField(key, val);
+      if (errorMsg) {
+        newErrors[key as keyof FormData] = errorMsg;
+      }
+    });
+
+    setErrors(newErrors);
+
+    if (Object.keys(newErrors).length === 0) {
+      setLoading(true);
+      try {
+        const res = await fetch("/api/appointment", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(form)
+        });
+        const data = await res.json();
+        if (res.ok) {
+          setSubmitted(true);
+          window.scrollTo({ top: 0, behavior: "instant" });
+        } else {
+          setStatus({ type: "error", message: data.error || "Failed to submit booking request. Please check details." });
+        }
+      } catch (err) {
+        console.error("Booking dispatch error:", err);
+        setStatus({
+          type: "error",
+          message: "Unable to submit booking request due to a mail server configuration issue. Please contact us directly at info@lakshyahospital.com or call +91 93356 05848."
+        });
+      } finally {
+        setLoading(false);
+      }
+    } else {
+      // Scroll to the first error
+      const firstErrorKey = Object.keys(newErrors)[0];
+      const element = document.getElementsByName(firstErrorKey)[0] || document.getElementById(firstErrorKey);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth", block: "center" });
+      }
+    }
+  };
+
   const doctors = form.deptId ? (DOCTORS[form.deptId] ?? []) : [];
   const selDoc = doctors.find(d => d.name === form.doctorName);
 
@@ -176,37 +247,38 @@ export default function BookAppointmentPage() {
         <Header />
         <main className="min-h-screen bg-gray-50 flex items-center justify-center px-4 py-20">
           <div className="max-w-lg w-full text-center">
-            <div className="w-24 h-24 rounded-full bg-green-100 flex items-center justify-center mx-auto mb-6 animate-[bounce_.6s_ease]">
-              <CheckCircle2 size={48} className="text-green-500" />
+            <div className="w-20 h-20 rounded-full bg-emerald-50 text-emerald-500 border border-emerald-100 flex items-center justify-center mx-auto mb-6 animate-in zoom-in-50 duration-300">
+              <CheckCircle2 size={40} />
             </div>
-            <h1 className="text-3xl font-bold text-gray-900 mb-3" style={{ fontFamily: "var(--font-display)" }}>
-              Appointment Requested!
+            <h1 className="text-3xl font-bold text-slate-900 mb-3 font-display">
+              Request Submitted!
             </h1>
-            <p className="text-gray-500 mb-8 leading-relaxed">
-              Thank you, <strong className="text-gray-800">{form.name}</strong>. We have received your request and will confirm your appointment via call within <strong className="text-primary">2 hours</strong> during business hours.
+            <p className="text-slate-500 mb-8 leading-relaxed text-sm">
+              Thank you, <strong className="text-slate-800">{form.name}</strong>. We have received your request and will call you back within <strong className="text-primary">2 hours</strong> during clinic hours to confirm your final consultation slot.
             </p>
 
             {/* Summary card */}
-            <div className="bg-white rounded-3xl border border-gray-100 shadow-md p-6 text-left mb-8 space-y-3">
+            <div className="bg-white rounded-3xl border border-slate-100 shadow-md p-6 text-left mb-8 space-y-4">
+              <h4 className="text-xs font-bold text-slate-400 uppercase tracking-widest border-b border-slate-100 pb-2">Booking Summary</h4>
               {[
                 { label: "Department", value: form.deptLabel },
                 { label: "Doctor", value: form.doctorName },
                 { label: "Date", value: formatDate(form.date) },
-                { label: "Time", value: form.timeSlot },
-                { label: "Visit Type", value: form.visitType === "in-person" ? "In-Person Visit" : "Teleconsult (Phone/Video)" },
+                { label: "Time Slot", value: form.timeSlot },
+                { label: "Visit Type", value: form.visitType === "in-person" ? "In-Person Visit" : "Teleconsult" },
               ].map(({ label, value }) => (
                 <div key={label} className="flex justify-between text-sm gap-4">
-                  <span className="text-gray-400 font-medium shrink-0">{label}</span>
-                  <span className="font-semibold text-gray-800 text-right">{value}</span>
+                  <span className="text-slate-400 font-medium shrink-0">{label}</span>
+                  <span className="font-semibold text-slate-800 text-right">{value}</span>
                 </div>
               ))}
             </div>
 
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
-              <a href="tel:+919335605848" className="flex items-center justify-center gap-2 px-6 py-3 rounded-full border-2 border-primary text-primary font-semibold text-sm hover:bg-primary hover:text-white transition-all">
-                <Phone size={15} /> Call to Confirm
+              <a href="tel:+919335605848" className="flex items-center justify-center gap-2 px-6 py-3.5 rounded-full border border-primary text-primary font-semibold text-xs uppercase tracking-wider hover:bg-primary hover:text-white transition-all">
+                <Phone size={13} /> Call to Confirm
               </a>
-              <Link href="/" className="px-6 py-3 rounded-full bg-primary text-white font-semibold text-sm hover:bg-primary-hover transition-all shadow-md shadow-primary/25">
+              <Link href="/" className="px-6 py-3.5 rounded-full bg-primary text-white font-semibold text-xs uppercase tracking-wider hover:bg-primary-hover transition-all shadow-md shadow-primary/25">
                 Back to Home
               </Link>
             </div>
@@ -220,35 +292,34 @@ export default function BookAppointmentPage() {
   return (
     <>
       <Header />
-      <main className="min-h-screen bg-gray-50">
+      <main className="min-h-screen bg-slate-50/50">
 
         {/* ── Hero Banner ── */}
-        <div className="bg-primary pt-24 pb-16 text-white relative overflow-hidden">
-          <div className="absolute inset-0 pointer-events-none">
-            <div className="absolute top-0 left-0 w-80 h-80 bg-white/10 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2" />
-            <div className="absolute bottom-0 right-0 w-80 h-80 bg-white/10 rounded-full blur-3xl translate-x-1/2 translate-y-1/2" />
-            <div className="absolute inset-0 opacity-10" style={{ backgroundImage: "radial-gradient(circle, white 1px, transparent 1px)", backgroundSize: "28px 28px" }} />
+        <div className="bg-gradient-to-br from-slate-950 via-indigo-950 to-slate-900 pt-28 pb-16 text-white relative overflow-hidden">
+          <div className="absolute inset-0 pointer-events-none opacity-20">
+            <div className="absolute top-0 left-0 w-80 h-80 bg-primary/20 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2" />
+            <div className="absolute bottom-0 right-0 w-80 h-80 bg-primary/20 rounded-full blur-3xl translate-x-1/2 translate-y-1/2" />
           </div>
           <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm border border-white/30 rounded-full px-4 py-2 mb-5 text-sm font-semibold">
-              <CalendarHeart size={15} />
-              Book Your Appointment Online
-            </div>
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4" style={{ fontFamily: "var(--font-display)" }}>
-              Schedule a Consultation
+            <span className="inline-flex items-center gap-1.5 bg-white/10 backdrop-blur-md border border-white/20 rounded-full px-4.5 py-1.5 mb-5 text-xs font-bold text-secondary">
+              <CalendarHeart size={13} />
+              Book Appointment
+            </span>
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 font-display">
+              Schedule Your Consultation
             </h1>
-            <p className="text-white/80 max-w-xl mx-auto text-base leading-relaxed">
-              Choose your specialist, pick a convenient time, and let us take care of the rest. Confirmation within 2 hours.
+            <p className="text-slate-400 max-w-xl mx-auto text-sm sm:text-base leading-relaxed">
+              No complex steps. Just pick your department, select a doctor, choose your preferred day, and enter your name to book.
             </p>
             {/* Quick stats */}
             <div className="flex flex-wrap justify-center gap-6 mt-8">
               {[
-                { icon: Clock, text: "Confirmed within 2 hrs" },
-                { icon: Award, text: "11 Super-Specialists" },
+                { icon: Clock, text: "Confirmation in 2 Hrs" },
+                { icon: Award, text: "Super-Specialists" },
                 { icon: MapPin, text: "Kidwai Nagar, Kanpur" },
               ].map(({ icon: Icon, text }) => (
-                <div key={text} className="flex items-center gap-2 text-sm text-white/80">
-                  <Icon size={14} className="text-secondary" /> {text}
+                <div key={text} className="flex items-center gap-2 text-xs text-slate-300 font-bold uppercase tracking-wider bg-white/5 border border-white/10 px-3.5 py-2 rounded-xl">
+                  <Icon size={12} className="text-secondary" /> {text}
                 </div>
               ))}
             </div>
@@ -256,285 +327,390 @@ export default function BookAppointmentPage() {
         </div>
 
         {/* ── Main Form Area ── */}
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-          <div className="grid lg:grid-cols-[1fr_300px] gap-6 lg:gap-8 items-start">
+        <div className="max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-8 py-12">
+          <div className="grid lg:grid-cols-12 gap-8 items-stretch">
 
             {/* FORM CARD */}
-            <div className="bg-white rounded-3xl shadow-xl border border-gray-100 p-5 sm:p-7 lg:p-10">
-              <StepBar current={step} />
-
-              {/* ── STEP 0: Department ── */}
-              {step === 0 && (
-                <div>
-                  <h2 className="text-xl font-bold text-gray-900 mb-1">Select Department</h2>
-                  <p className="text-gray-500 text-sm mb-6">Which area of care are you looking for?</p>
-                  {errors.deptId && <p className="text-red-500 text-xs mb-3 flex items-center gap-1"><AlertCircle size={12} />{errors.deptId}</p>}
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                    {DEPARTMENTS.map(({ id, label, icon: Icon, color, bg, border }) => {
-                      const active = form.deptId === id;
-                      return (
-                        <button key={id} onClick={() => { set("deptId", id); set("deptLabel", label); }}
-                          className={`flex items-center gap-3 p-4 rounded-2xl border-2 text-left transition-all duration-200 group ${active ? `${border} ${bg} shadow-md` : "border-gray-100 bg-gray-50 hover:border-gray-200 hover:bg-white"
-                            }`}
-                        >
-                          <div className={`w-10 h-10 rounded-xl flex items-center justify-center shrink-0 ${bg} border ${border}`}>
-                            <Icon size={18} className={color} />
-                          </div>
-                          <span className={`font-semibold text-sm leading-snug ${active ? "text-gray-900" : "text-gray-700"}`}>{label}</span>
-                          {active && <CheckCircle2 size={16} className="text-primary ml-auto shrink-0" />}
-                        </button>
-                      );
-                    })}
+            <div className="lg:col-span-8 bg-white rounded-[36px] shadow-xl border border-slate-100 p-6 sm:p-10 relative overflow-hidden flex flex-col">
+              {/* Cinematic Full-Page Loader Overlay */}
+              {loading && (
+                <div className="fixed inset-0 bg-slate-950/95 backdrop-blur-md z-[9999] flex flex-col items-center justify-center animate-in fade-in duration-200">
+                  <div className="w-48 h-48 rounded-2xl overflow-hidden flex items-center justify-center bg-slate-900 border border-white/5 shadow-2xl">
+                    <video
+                      src="/Lakshya_Hospital_logo_reveal.mp4"
+                      autoPlay
+                      muted
+                      loop
+                      playsInline
+                      className="w-full h-full object-cover"
+                    />
                   </div>
+                  <p className="text-xs font-bold text-white mt-5 tracking-widest uppercase animate-pulse">Requesting Slot...</p>
+                  <p className="text-[10px] text-slate-400 mt-1">Booking clinical consultation desk...</p>
                 </div>
               )}
 
-              {/* ── STEP 1: Doctor ── */}
-              {step === 1 && (
-                <div>
-                  <h2 className="text-xl font-bold text-gray-900 mb-1">Choose Your Doctor</h2>
-                  <p className="text-gray-500 text-sm mb-6">
-                    Available specialists in <span className="font-semibold text-primary">{form.deptLabel}</span>
-                  </p>
-                  {errors.doctorName && <p className="text-red-500 text-xs mb-3 flex items-center gap-1"><AlertCircle size={12} />{errors.doctorName}</p>}
-                  <div className="flex flex-col gap-4">
-                    {doctors.map((doc) => {
-                      const active = form.doctorName === doc.name;
-                      return (
-                        <button key={doc.name} onClick={() => { set("doctorName", doc.name); set("doctorQual", doc.qual); }}
-                          className={`p-5 rounded-2xl border-2 text-left transition-all duration-200 ${active ? "border-primary bg-blue-50 shadow-md" : "border-gray-100 bg-gray-50 hover:border-gray-200 hover:bg-white"
-                            }`}
-                        >
-                          <div className="flex items-start justify-between gap-4">
-                            <div className="flex items-center gap-4">
-                              <div className={`w-12 h-12 rounded-2xl flex items-center justify-center shrink-0 font-bold text-sm text-white ${active ? "bg-primary" : "bg-gray-300"
-                                }`}>
-                                {doc.name.split(" ").map(w => w[0]).slice(1, 3).join("")}
-                              </div>
-                              <div>
-                                <div className="font-bold text-gray-900">{doc.name}</div>
-                                <div className="text-xs text-gray-500 mt-0.5">{doc.qual}</div>
-                                <div className="text-xs text-amber-600 font-semibold mt-1 flex items-center gap-1">
-                                  <Award size={10} /> {doc.exp} Experience
-                                </div>
-                              </div>
-                            </div>
-                            {active && <CheckCircle2 size={18} className="text-primary shrink-0 mt-1" />}
-                          </div>
-                          <div className="mt-3 pt-3 border-t border-gray-100">
-                            <p className="text-[11px] text-gray-400 font-semibold uppercase tracking-wider mb-1.5">Availability</p>
-                            {doc.avail.map(a => (
-                              <div key={a} className="flex items-center gap-1.5 text-xs text-gray-600 font-medium">
-                                <Clock size={10} className="text-secondary shrink-0" /> {a}
-                              </div>
-                            ))}
-                          </div>
-                        </button>
-                      );
-                    })}
+              <Link
+                href="/"
+                className="inline-flex items-center gap-1.5 text-xs font-bold text-slate-500 hover:text-primary transition-colors mb-6 group cursor-pointer"
+              >
+                <ArrowLeft size={13} className="group-hover:-translate-x-0.5 transition-transform" />
+                <span>Back to Home</span>
+              </Link>
+
+              <div className="border-b border-slate-100 pb-5 mb-8">
+                <h2 className="text-2xl font-bold text-slate-900 font-display">Appointment Form</h2>
+                <p className="text-slate-400 text-sm mt-1">Please fill in the options below to schedule a time slot.</p>
+              </div>
+
+              <form onSubmit={handleSubmit} noValidate className="space-y-8 text-left flex-1 flex flex-col">
+
+                {/* ── SECTION 1: Choose Care ── */}
+                <div className="space-y-5">
+                  <div className="flex items-center gap-2 border-b border-slate-100 pb-2">
+                    <span className="w-6 h-6 rounded-full bg-primary/10 text-primary flex items-center justify-center text-xs font-bold font-display">1</span>
+                    <h3 className="text-sm font-bold text-slate-800 uppercase tracking-wider">Select Specialty Department</h3>
                   </div>
-                </div>
-              )}
 
-              {/* ── STEP 2: Date & Time ── */}
-              {step === 2 && (
-                <div>
-                  <h2 className="text-xl font-bold text-gray-900 mb-1">Pick a Date & Time</h2>
-                  <p className="text-gray-500 text-sm mb-6">Choose your preferred appointment slot.</p>
-
-                  {/* Visit Type toggle */}
-                  <div className="flex gap-3 mb-6">
-                    {(["in-person", "teleconsult"] as const).map(type => (
-                      <button key={type} onClick={() => set("visitType", type)}
-                        className={`flex-1 py-3 rounded-xl text-sm font-semibold border-2 transition-all ${form.visitType === type
-                            ? "border-primary bg-blue-50 text-primary"
-                            : "border-gray-200 bg-gray-50 text-gray-500 hover:border-gray-300"
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                    {/* Department Dropdown */}
+                    <div className="space-y-1.5">
+                      <label className="text-xs font-bold text-slate-600">Select Department *</label>
+                      <select
+                        name="deptId"
+                        id="deptId"
+                        value={form.deptId}
+                        onChange={(e) => {
+                          const dept = DEPARTMENTS.find(d => d.id === e.target.value);
+                          selectDepartment(e.target.value, dept ? dept.label : "");
+                        }}
+                        onBlur={handleBlur}
+                        className={`w-full px-4 py-3.5 rounded-xl border text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all bg-slate-50 focus:bg-white cursor-pointer ${errors.deptId && touched.deptId ? "border-red-500" : "border-slate-200"
                           }`}
                       >
-                        {type === "in-person" ? "🏥 In-Person Visit" : "📱 Teleconsult"}
-                      </button>
-                    ))}
+                        <option value="">-- Choose Department --</option>
+                        {DEPARTMENTS.map(d => (
+                          <option key={d.id} value={d.id}>{d.label}</option>
+                        ))}
+                      </select>
+                      {errors.deptId && touched.deptId && (
+                        <p className="text-red-500 text-xs mt-1.5 flex items-center gap-1"><AlertCircle size={12} /> {errors.deptId}</p>
+                      )}
+                    </div>
+
+                    {/* Doctor Dropdown */}
+                    <div className="space-y-1.5">
+                      <label className="text-xs font-bold text-slate-600">Choose Specialist Doctor *</label>
+                      <select
+                        name="doctorName"
+                        id="doctorName"
+                        value={form.doctorName}
+                        onChange={(e) => {
+                          const doc = doctors.find(d => d.name === e.target.value);
+                          selectDoctor(e.target.value, doc ? doc.qual : "");
+                        }}
+                        onBlur={handleBlur}
+                        disabled={!form.deptId}
+                        className={`w-full px-4 py-3.5 rounded-xl border text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all bg-slate-50 focus:bg-white disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer ${errors.doctorName && touched.doctorName ? "border-red-500" : "border-slate-200"
+                          }`}
+                      >
+                        <option value="">
+                          {!form.deptId ? "Select department first" : "-- Choose Doctor --"}
+                        </option>
+                        {doctors.map(doc => (
+                          <option key={doc.name} value={doc.name}>
+                            {doc.name} ({doc.qual})
+                          </option>
+                        ))}
+                      </select>
+                      {errors.doctorName && touched.doctorName && (
+                        <p className="text-red-500 text-xs mt-1.5 flex items-center gap-1"><AlertCircle size={12} /> {errors.doctorName}</p>
+                      )}
+                    </div>
                   </div>
 
-                  {/* Date picker */}
-                  <div className="mb-6">
-                    <label className="text-sm font-semibold text-gray-700 block mb-2">Preferred Date *</label>
-                    <input type="date" value={form.date} min={minDateStr()} max={maxDateStr()}
-                      onChange={e => set("date", e.target.value)}
-                      className={`w-full px-4 py-3 rounded-xl border text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all ${errors.date ? "border-red-400 bg-red-50" : "border-gray-200 bg-gray-50 focus:bg-white"
-                        }`}
-                    />
-                    {errors.date && <p className="text-red-500 text-xs mt-1 flex items-center gap-1"><AlertCircle size={11} />{errors.date}</p>}
-                    {form.date && <p className="text-primary text-xs mt-1 font-medium">{formatDate(form.date)}</p>}
+                  {/* Doctor Availability details block */}
+                  {form.doctorName && selDoc && (
+                    <div className="bg-indigo-50/50 border border-indigo-100 rounded-2xl p-4 flex flex-col gap-2 animate-in fade-in duration-200">
+                      <div className="flex items-center gap-2">
+                        <Award size={14} className="text-primary" />
+                        <span className="text-xs font-bold text-slate-800">About {selDoc.name} ({selDoc.qual})</span>
+                        <span className="text-[10px] bg-primary/10 text-primary px-2 py-0.5 rounded-full font-bold uppercase tracking-wider ml-auto">{selDoc.exp} Experience</span>
+                      </div>
+                      <div className="pt-2 border-t border-indigo-100/50 flex flex-col gap-1.5">
+                        <span className="text-[10px] text-slate-400 font-bold uppercase tracking-wider">Weekly Availability Timings:</span>
+                        {selDoc.avail.map(a => (
+                          <div key={a} className="flex items-center gap-1.5 text-xs text-slate-700 font-medium">
+                            <Clock size={11} className="text-secondary shrink-0" /> {a}
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                </div>
+
+                {/* ── SECTION 2: Preferred Schedule ── */}
+                <div className="space-y-5 pt-2">
+                  <div className="flex items-center gap-2 border-b border-slate-100 pb-2">
+                    <span className="w-6 h-6 rounded-full bg-primary/10 text-primary flex items-center justify-center text-xs font-bold font-display">2</span>
+                    <h3 className="text-sm font-bold text-slate-800 uppercase tracking-wider">Select Preferred Schedule</h3>
                   </div>
 
-                  {/* Time slots */}
-                  <div>
-                    <label className="text-sm font-semibold text-gray-700 block mb-2">Preferred Time *</label>
-                    {errors.timeSlot && <p className="text-red-500 text-xs mb-2 flex items-center gap-1"><AlertCircle size={11} />{errors.timeSlot}</p>}
-                    <div className="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-5 gap-2">
-                      {TIME_SLOTS.map(slot => (
-                        <button key={slot} onClick={() => set("timeSlot", slot)}
-                          className={`py-2 px-1 rounded-xl text-xs font-semibold border-2 transition-all ${form.timeSlot === slot
-                              ? "border-primary bg-primary text-white shadow-md shadow-primary/25"
-                              : "border-gray-100 bg-gray-50 text-gray-600 hover:border-primary/40 hover:text-primary"
+                  {/* Visit Type Toggle */}
+                  <div className="space-y-1.5">
+                    <label className="text-xs font-bold text-slate-600 block">Consultation Type</label>
+                    <div className="grid grid-cols-2 gap-4">
+                      {(["in-person", "teleconsult"] as const).map(type => (
+                        <button
+                          key={type}
+                          type="button"
+                          onClick={() => setForm(f => ({ ...f, visitType: type }))}
+                          className={`py-3 px-4 rounded-xl text-sm font-bold border transition-all ${form.visitType === type
+                              ? "border-primary bg-blue-50/80 text-primary shadow-sm"
+                              : "border-slate-200 bg-slate-50 text-slate-500 hover:border-slate-300"
                             }`}
                         >
-                          {slot}
+                          {type === "in-person" ? "🏥 In-Person Hospital Visit" : "📱 Phone/Video Teleconsult"}
                         </button>
                       ))}
                     </div>
                   </div>
+
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                    {/* Preferred Date */}
+                    <div className="space-y-1.5">
+                      <label className="text-xs font-bold text-slate-600 block">Choose Date *</label>
+                      <div
+                        className="relative cursor-pointer"
+                        onClick={(e) => {
+                          const input = e.currentTarget.querySelector('input');
+                          if (input) {
+                            try { input.showPicker(); } catch (err) { }
+                          }
+                        }}
+                      >
+                        <CalendarHeart size={14} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none" />
+                        <input
+                          type="date"
+                          name="date"
+                          id="date"
+                          value={form.date}
+                          min={minDateStr()}
+                          max={maxDateStr()}
+                          onChange={handleChange}
+                          onBlur={handleBlur}
+                          onClick={(e) => {
+                            e.stopPropagation(); // prevent double click
+                            try { e.currentTarget.showPicker(); } catch (err) { }
+                          }}
+                          className={`w-full pl-10 pr-4 py-3.5 rounded-xl border text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all bg-slate-50 focus:bg-white cursor-pointer [&::-webkit-calendar-picker-indicator]:cursor-pointer ${errors.date && touched.date ? "border-red-500" : "border-slate-200"
+                            }`}
+                        />
+                      </div>
+                      {errors.date && touched.date ? (
+                        <p className="text-red-500 text-xs mt-1.5 flex items-center gap-1"><AlertCircle size={12} /> {errors.date}</p>
+                      ) : (
+                        form.date && <p className="text-primary text-xs mt-1 font-semibold">{formatDate(form.date)}</p>
+                      )}
+                    </div>
+
+                    {/* Preferred Time */}
+                    <div className="space-y-1.5">
+                      <label className="text-xs font-bold text-slate-600 block">Select Time Slot *</label>
+                      <div className="border border-slate-200 rounded-xl bg-slate-50 p-3 max-h-[160px] overflow-y-auto grid grid-cols-3 gap-2">
+                        {form.doctorName && selDoc ? (
+                          (selDoc.slots || []).map(slot => {
+                            const active = form.timeSlot === slot;
+                            return (
+                              <button
+                                key={slot}
+                                type="button"
+                                onClick={() => selectTimeSlot(slot)}
+                                className={`py-2 px-1.5 rounded-lg text-xs font-bold border transition-all ${active
+                                    ? "border-primary bg-primary text-white shadow-md shadow-primary/25"
+                                    : "border-slate-200 bg-white text-slate-600 hover:border-primary/40 hover:text-primary"
+                                  }`}
+                              >
+                                {slot}
+                              </button>
+                            );
+                          })
+                        ) : (
+                          <div className="col-span-3 text-center py-6 text-xs font-semibold text-slate-400">
+                            Please select a doctor to view slots.
+                          </div>
+                        )}
+                      </div>
+                      {errors.timeSlot && touched.timeSlot && (
+                        <p className="text-red-500 text-xs mt-1.5 flex items-center gap-1"><AlertCircle size={12} /> {errors.timeSlot}</p>
+                      )}
+                    </div>
+                  </div>
                 </div>
-              )}
 
-              {/* ── STEP 3: Personal Details ── */}
-              {step === 3 && (
-                <div>
-                  <h2 className="text-xl font-bold text-gray-900 mb-1">Your Details</h2>
-                  <p className="text-gray-500 text-sm mb-6">We'll use these to confirm your appointment.</p>
-                  <div className="space-y-4">
-                    {/* Name */}
-                    <div>
-                      <label className="text-sm font-semibold text-gray-700 block mb-1.5">Full Name *</label>
+                {/* ── SECTION 3: Patient Info ── */}
+                <div className="space-y-5 pt-2">
+                  <div className="flex items-center gap-2 border-b border-slate-100 pb-2">
+                    <span className="w-6 h-6 rounded-full bg-primary/10 text-primary flex items-center justify-center text-xs font-bold font-display">3</span>
+                    <h3 className="text-sm font-bold text-slate-800 uppercase tracking-wider">Patient Details</h3>
+                  </div>
+
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                    {/* Patient Full Name */}
+                    <div className="space-y-1.5">
+                      <label className="text-xs font-bold text-slate-600">Full Name *</label>
                       <div className="relative">
-                        <User size={15} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none" />
-                        <input type="text" value={form.name} onChange={e => set("name", e.target.value)}
-                          placeholder="Your full name"
-                          className={`w-full pl-10 pr-4 py-3 rounded-xl border text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all ${errors.name ? "border-red-400 bg-red-50" : "border-gray-200 bg-gray-50 focus:bg-white"}`}
+                        <User size={14} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400" />
+                        <input
+                          type="text"
+                          name="name"
+                          id="name"
+                          value={form.name}
+                          onChange={handleChange}
+                          onBlur={handleBlur}
+                          placeholder="Enter patient's name"
+                          className={`w-full pl-10 pr-4 py-3.5 rounded-xl border text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all bg-slate-50 focus:bg-white ${errors.name && touched.name ? "border-red-500" : "border-slate-200"
+                            }`}
                         />
                       </div>
-                      {errors.name && <p className="text-red-500 text-xs mt-1 flex items-center gap-1"><AlertCircle size={11} />{errors.name}</p>}
+                      {errors.name && touched.name && (
+                        <p className="text-red-500 text-xs mt-1.5 flex items-center gap-1"><AlertCircle size={12} /> {errors.name}</p>
+                      )}
                     </div>
 
-                    {/* Phone */}
-                    <div>
-                      <label className="text-sm font-semibold text-gray-700 block mb-1.5">Mobile Number *</label>
+                    {/* Mobile Number */}
+                    <div className="space-y-1.5">
+                      <label className="text-xs font-bold text-slate-600">Mobile Number *</label>
                       <div className="relative">
-                        <Phone size={15} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none" />
-                        <input type="tel" value={form.phone} onChange={e => set("phone", e.target.value)}
-                          placeholder="+91 XXXXX XXXXX"
-                          className={`w-full pl-10 pr-4 py-3 rounded-xl border text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all ${errors.phone ? "border-red-400 bg-red-50" : "border-gray-200 bg-gray-50 focus:bg-white"}`}
+                        <Phone size={14} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400" />
+                        <input
+                          type="tel"
+                          name="phone"
+                          id="phone"
+                          value={form.phone}
+                          onChange={handleChange}
+                          onBlur={handleBlur}
+                          placeholder="10-digit mobile number"
+                          className={`w-full pl-10 pr-4 py-3.5 rounded-xl border text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all bg-slate-50 focus:bg-white ${errors.phone && touched.phone ? "border-red-500" : "border-slate-200"
+                            }`}
                         />
                       </div>
-                      {errors.phone && <p className="text-red-500 text-xs mt-1 flex items-center gap-1"><AlertCircle size={11} />{errors.phone}</p>}
+                      {errors.phone && touched.phone && (
+                        <p className="text-red-500 text-xs mt-1.5 flex items-center gap-1"><AlertCircle size={12} /> {errors.phone}</p>
+                      )}
                     </div>
+                  </div>
 
-                    {/* Email */}
-                    <div>
-                      <label className="text-sm font-semibold text-gray-700 block mb-1.5">Email Address <span className="text-gray-400 font-normal">(optional)</span></label>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                    {/* Email address */}
+                    <div className="space-y-1.5">
+                      <label className="text-xs font-bold text-slate-600">Email Address <span className="text-slate-400 font-normal">(Optional)</span></label>
                       <div className="relative">
-                        <Mail size={15} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none" />
-                        <input type="email" value={form.email} onChange={e => set("email", e.target.value)}
-                          placeholder="you@example.com"
-                          className="w-full pl-10 pr-4 py-3 rounded-xl border border-gray-200 bg-gray-50 focus:bg-white text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all"
+                        <Mail size={14} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400" />
+                        <input
+                          type="email"
+                          name="email"
+                          id="email"
+                          value={form.email}
+                          onChange={handleChange}
+                          placeholder="patient@example.com"
+                          className="w-full pl-10 pr-4 py-3.5 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all"
                         />
                       </div>
                     </div>
 
-                    {/* Reason */}
-                    <div>
-                      <label className="text-sm font-semibold text-gray-700 block mb-1.5">Reason / Symptoms <span className="text-gray-400 font-normal">(optional)</span></label>
+                    {/* Symptoms/Reason */}
+                    <div className="space-y-1.5">
+                      <label className="text-xs font-bold text-slate-600">Brief Symptoms <span className="text-slate-400 font-normal">(Optional)</span></label>
                       <div className="relative">
-                        <MessageSquare size={15} className="absolute left-3.5 top-3.5 text-gray-400 pointer-events-none" />
-                        <textarea value={form.reason} onChange={e => set("reason", e.target.value)}
-                          rows={3} placeholder="Briefly describe your concern or symptoms…"
-                          className="w-full pl-10 pr-4 py-3 rounded-xl border border-gray-200 bg-gray-50 focus:bg-white text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all resize-none"
+                        <MessageSquare size={14} className="absolute left-3.5 top-4 text-slate-400" />
+                        <textarea
+                          name="reason"
+                          id="reason"
+                          value={form.reason}
+                          onChange={handleChange}
+                          rows={1}
+                          placeholder="e.g. child vaccination, general fever, stomach pain"
+                          className="w-full pl-10 pr-4 py-3.5 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all resize-none"
                         />
                       </div>
                     </div>
                   </div>
                 </div>
-              )}
 
-              {/* ── STEP 4: Review ── */}
-              {step === 4 && (
-                <div>
-                  <h2 className="text-xl font-bold text-gray-900 mb-1">Review & Confirm</h2>
-                  <p className="text-gray-500 text-sm mb-6">Please verify your details before submitting.</p>
+                {/* Submit Action */}
+                <div className="pt-6 border-t border-slate-100 flex flex-col gap-3">
+                  {status.message && (
+                    <div className={`p-4 rounded-2xl text-xs font-bold animate-in fade-in duration-200 ${status.type === "error" ? "bg-red-50 text-red-600 border border-red-100" : "bg-emerald-50 text-emerald-600 border border-emerald-100"
+                      }`}>
+                      <p className="flex items-center gap-1.5">
+                        <AlertCircle size={13} className="shrink-0" />
+                        {status.message}
+                      </p>
+                    </div>
+                  )}
 
-                  <div className="bg-gray-50 rounded-2xl border border-gray-100 divide-y divide-gray-100 mb-6">
-                    {[
-                      { label: "Department", value: form.deptLabel, icon: Stethoscope },
-                      { label: "Doctor", value: form.doctorName, icon: Award },
-                      { label: "Date", value: formatDate(form.date), icon: CalendarHeart },
-                      { label: "Time", value: form.timeSlot, icon: Clock },
-                      { label: "Visit Type", value: form.visitType === "in-person" ? "In-Person Visit" : "Teleconsult (Phone/Video)", icon: MapPin },
-                      { label: "Patient Name", value: form.name, icon: User },
-                      { label: "Mobile", value: form.phone, icon: Phone },
-                      ...(form.email ? [{ label: "Email", value: form.email, icon: Mail }] : []),
-                      ...(form.reason ? [{ label: "Reason", value: form.reason, icon: MessageSquare }] : []),
-                    ].map(({ label, value, icon: Icon }) => (
-                      <div key={label} className="flex items-start gap-3 p-4">
-                        <div className="w-7 h-7 rounded-lg bg-primary/10 flex items-center justify-center shrink-0 mt-0.5">
-                          <Icon size={13} className="text-primary" />
-                        </div>
-                        <div className="flex-1 min-w-0">
-                          <p className="text-xs text-gray-400 font-semibold uppercase tracking-wider">{label}</p>
-                          <p className="text-sm font-semibold text-gray-800 mt-0.5 break-words">{value}</p>
-                        </div>
-                      </div>
-                    ))}
+                  <div className="flex gap-3">
+                    <button type="button" onClick={() => window.history.back()} className="px-6 py-4 rounded-2xl border border-slate-200 font-bold text-xs uppercase tracking-wider text-slate-600 hover:bg-slate-50 transition-all">Back</button>
+                    <button
+                      type="submit"
+                      className="flex-1 bg-primary hover:bg-primary-hover text-white py-4 rounded-2xl font-bold text-xs uppercase tracking-wider shadow-lg shadow-primary/25 hover:-translate-y-0.5 transition-all flex items-center justify-center gap-2 cursor-pointer"
+                    >
+                      <CalendarHeart size={16} /> Confirm Consultation Request
+                    </button>
                   </div>
 
-                  <div className="flex items-start gap-2 p-3 rounded-xl bg-blue-50 border border-blue-100 text-xs text-blue-700 mb-6">
-                    <AlertCircle size={13} className="shrink-0 mt-0.5" />
-                    Our team will call you at <strong>{form.phone}</strong> within 2 hours to confirm your appointment slot.
+                  <div className="flex items-start gap-2 p-3.5 rounded-2xl bg-blue-50 border border-blue-100 text-xs text-blue-700">
+                    <AlertCircle size={14} className="shrink-0 mt-0.5" />
+                    <span>Our customer desk will verify and call you back at <strong>{form.phone || "[your mobile number]"}</strong> within 2 hours to confirm your slot appointment.</span>
                   </div>
                 </div>
-              )}
 
-              {/* ── NAV BUTTONS ── */}
-              <div className="flex items-center justify-between mt-8 pt-6 border-t border-gray-100">
-                {step > 0 ? (
-                  <button onClick={back}
-                    className="flex items-center gap-2 px-5 py-2.5 rounded-full border-2 border-gray-200 text-gray-600 font-semibold text-sm hover:border-gray-300 hover:bg-gray-50 transition-all"
-                  >
-                    <ChevronLeft size={15} /> Back
-                  </button>
-                ) : (
-                  <div />
-                )}
-
-                {step < 4 ? (
-                  <button onClick={next}
-                    className="flex items-center gap-2 px-7 py-2.5 rounded-full bg-primary hover:bg-primary-hover text-white font-semibold text-sm shadow-md shadow-primary/25 transition-all hover:-translate-y-0.5"
-                  >
-                    Continue <ChevronRight size={15} />
-                  </button>
-                ) : (
-                  <button onClick={submit} disabled={loading}
-                    className="flex items-center gap-2 px-7 py-2.5 rounded-full bg-primary hover:bg-primary-hover text-white font-bold text-sm shadow-md shadow-primary/25 transition-all hover:-translate-y-0.5 disabled:opacity-70 disabled:cursor-wait"
-                  >
-                    {loading ? (
-                      <><span className="w-4 h-4 border-2 border-white/40 border-t-white rounded-full animate-spin" /> Submitting…</>
-                    ) : (
-                      <><CalendarHeart size={16} /> Confirm Appointment</>
-                    )}
-                  </button>
-                )}
-              </div>
+              </form>
             </div>
 
             {/* SIDEBAR — shown below form on mobile, sticky on desktop */}
-            <div className="space-y-4 lg:sticky lg:top-28 order-last lg:order-none">
+            <div className="lg:col-span-4 space-y-6 flex flex-col justify-start">
 
               {/* Emergency */}
-              <div className="bg-red-50 border border-red-100 rounded-2xl p-5">
+              <div className="bg-red-50 border border-red-100 rounded-[32px] p-6 shadow-sm">
                 <div className="flex items-center gap-2 mb-2">
-                  <div className="w-2 h-2 rounded-full bg-red-500 animate-pulse" />
-                  <span className="text-xs font-bold text-red-600 uppercase tracking-wider">Emergency?</span>
+                  <div className="w-2.5 h-2.5 rounded-full bg-red-500 animate-pulse" />
+                  <span className="text-xs font-bold text-red-600 uppercase tracking-wider">Emergency Center?</span>
                 </div>
-                <p className="text-sm text-gray-700 mb-3">For urgent care, call us directly. We are available 24/7.</p>
-                <a href="tel:+919335605848" className="flex items-center justify-center gap-2 w-full py-2.5 rounded-xl bg-red-600 hover:bg-red-700 text-white font-bold text-sm transition-colors">
+                <h4 className="text-sm font-bold text-slate-800 mb-1">Direct Hospital Hotline</h4>
+                <p className="text-xs text-slate-500 mb-4 leading-relaxed">For extreme emergency, cardiac arrest, infant critical distress, or ambulance, call directly. Available 24/7.</p>
+                <a href="tel:+919335605848" className="flex items-center justify-center gap-2 w-full py-3 rounded-2xl bg-red-600 hover:bg-red-700 text-white font-bold text-sm transition-colors shadow-md shadow-red-200">
                   <Phone size={14} /> +91 93356 05848
                 </a>
               </div>
 
+              {/* WhatsApp Booking Card */}
+              <div className="bg-emerald-50/50 border border-emerald-100 rounded-[32px] p-6 shadow-sm flex flex-col gap-4 animate-in fade-in duration-300">
+                <div className="flex items-center gap-2">
+                  <div className="w-8 h-8 rounded-full bg-emerald-500 text-white flex items-center justify-center shadow-sm">
+                    <svg viewBox="0 0 24 24" className="w-4.5 h-4.5 fill-current" fill="currentColor">
+                      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.335-1.662c1.746.953 3.71 1.458 5.704 1.459h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
+                    </svg>
+                  </div>
+                  <span className="text-xs font-bold text-emerald-850 uppercase tracking-wider">Fast Booking</span>
+                </div>
+                <h4 className="text-sm font-bold text-slate-800 -mt-1">Direct WhatsApp Booking</h4>
+                <p className="text-xs text-slate-500 leading-relaxed">Prefer chatting on WhatsApp? Message our hospital desk directly to schedule your appointment request instantly.</p>
+                <a
+                  href="https://wa.me/919335605848?text=Hello%20Lakshya%20Hospital,%20I%20would%20like%20to%20book%20an%20appointment."
+                  target="_blank"
+                  rel="noreferrer"
+                  className="flex items-center justify-center gap-2 w-full py-3 rounded-2xl bg-emerald-500 hover:bg-emerald-600 text-white font-bold text-sm transition-colors shadow-md shadow-emerald-100 cursor-pointer"
+                >
+                  Chat on WhatsApp
+                </a>
+              </div>
+
               {/* Why book with us */}
-              <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-5">
-                <h3 className="font-bold text-gray-900 text-sm mb-4">Why Book With Us?</h3>
-                <div className="space-y-3">
+              <div className="bg-white rounded-[32px] border border-slate-100 shadow-sm p-6">
+                <h3 className="font-bold text-slate-900 text-sm mb-4 border-b border-slate-100 pb-2">Why Book With Us?</h3>
+                <div className="space-y-4">
                   {[
                     { text: "Confirmed within 2 hours", icon: Clock },
                     { text: "11 Super-Specialists available", icon: Award },
@@ -543,29 +719,29 @@ export default function BookAppointmentPage() {
                     { text: "In-person & Teleconsult options", icon: CalendarHeart },
                   ].map(({ text, icon: Icon }) => (
                     <div key={text} className="flex items-center gap-3">
-                      <div className="w-7 h-7 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
-                        <Icon size={12} className="text-primary" />
+                      <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
+                        <Icon size={13} className="text-primary" />
                       </div>
-                      <span className="text-xs text-gray-600 font-medium">{text}</span>
+                      <span className="text-xs text-slate-600 font-semibold">{text}</span>
                     </div>
                   ))}
                 </div>
               </div>
 
               {/* Location */}
-              <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-5">
-                <h3 className="font-bold text-gray-900 text-sm mb-3 flex items-center gap-2">
-                  <MapPin size={14} className="text-primary" /> Visit Us
+              <div className="bg-white rounded-[32px] border border-slate-100 shadow-sm p-6">
+                <h3 className="font-bold text-slate-900 text-sm mb-3 flex items-center gap-2 border-b border-slate-100 pb-2">
+                  <MapPin size={14} className="text-primary" /> Clinic Campus Location
                 </h3>
-                <p className="text-xs text-gray-500 leading-relaxed">
+                <p className="text-xs text-slate-500 leading-relaxed">
                   128/1006, in front of Telephone Exchange,<br />
                   Y Block, Ghari Purva, Kidwai Nagar,<br />
                   Kanpur, UP – 208011
                 </p>
                 <a href="https://maps.google.com/?q=Lakshya+Hospital+Kanpur" target="_blank" rel="noreferrer"
-                  className="mt-3 text-xs font-semibold text-primary hover:underline flex items-center gap-1"
+                  className="mt-3 text-xs font-bold text-primary hover:underline flex items-center gap-1"
                 >
-                  Get Directions →
+                  Get Directions <ArrowRight className="w-3.5 h-3.5" />
                 </a>
               </div>
 

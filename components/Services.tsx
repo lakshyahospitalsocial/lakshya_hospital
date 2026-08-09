@@ -52,7 +52,7 @@ export default function Services() {
     <section id="services" className="py-8 md:py-16 bg-white relative">
       <div className="absolute inset-0 bg-gradient-to-b from-gray-50/80 to-white pointer-events-none"></div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
 
         <div className="text-center max-w-2xl mx-auto mb-6 md:mb-10">
           <p className="text-secondary font-bold tracking-widest text-xs uppercase mb-3">What We Provide</p>

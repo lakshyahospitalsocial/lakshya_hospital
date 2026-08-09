@@ -35,7 +35,7 @@ export default function AboutPage() {
           <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-secondary/5 rounded-full blur-3xl translate-x-1/3 translate-y-1/3" />
         </div>
 
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="relative z-10 max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
 
             {/* Left Content Column */}
@@ -54,7 +54,7 @@ export default function AboutPage() {
               </p>
 
               <p className="text-slate-650 leading-relaxed text-sm sm:text-base font-medium max-w-2xl">
-                From a vision to serve better to a multi-speciality hospital, our journey is built on compassionate care, skilled specialists, and modern treatment. Guided by Dr. Rohit Agrawal, we provide premium medical services to Kidwai Nagar and Kanpur.
+                Founded in 2013 by Dr. Rohit Agarwal, a renowned pediatrician, Lakshya Hospital is one of Kanpur’s leading healthcare facilities. Over 13 years, it has grown into a 30-bed facility, offering advanced tertiary and quaternary care, supported by super-specialists, cutting-edge technology, and state-of-the-art infrastructure. Guided by its mission to deliver world-class yet affordable care, Lakshya Hospital has been at the forefront of the most advanced medical specialties and treatment programs, including general medicine, general surgery, obstetrics & gynecology, pediatrics, orthopedics, ENT care, neurosurgery, spine surgery, urosurgery, plastic surgery, pediatric surgery, and critical care.
               </p>
 
               {/* Action Buttons */}
@@ -187,7 +187,7 @@ export default function AboutPage() {
 
       {/* Leadership & Directors Vision Section (NEW Improvement) */}
       <section className="py-20 bg-slate-50/50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-2xl mx-auto mb-16">
             <span className="text-xs font-bold text-secondary tracking-widest uppercase">Hospital Leadership</span>
             <h2 className="text-3xl font-extrabold text-slate-900 mt-2 font-display">A Message From Our Directors</h2>
@@ -197,50 +197,70 @@ export default function AboutPage() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-10">
+          <div className="grid lg:grid-cols-2 gap-8">
             {/* Dr. Rohit Agrawal */}
-            <div className="bg-white rounded-3xl p-6.5 border border-slate-100 shadow-sm hover:shadow-md transition-shadow relative overflow-hidden flex flex-col justify-between">
-              <div className="space-y-4">
-                <div className="flex items-center gap-4">
-                  <div className="w-14 h-14 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center text-white text-xl font-bold font-display shadow-sm">
-                    RA
-                  </div>
+            <div className="bg-white rounded-[32px] p-6 sm:p-8 border border-slate-100 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col md:flex-row gap-6 items-start">
+              <div className="w-24 h-24 md:w-32 md:h-32 shrink-0 rounded-2xl overflow-hidden border-2 border-primary/10 shadow-sm bg-slate-50 relative">
+                <img
+                  src="/dr_rohit_lakshya_director.png"
+                  alt="Dr. Rohit Agrawal"
+                  className="w-full h-full object-cover object-top"
+                />
+              </div>
+              <div className="flex-1 flex flex-col justify-between h-full">
+                <div className="space-y-4">
                   <div>
-                    <h3 className="text-lg font-bold text-slate-900 leading-snug">Dr. Rohit Agrawal</h3>
-                    <p className="text-xs font-bold text-primary">Director &amp; Senior Pediatrician</p>
-                    <p className="text-[10px] text-slate-400 mt-0.5">MBBS, MD (Pediatrics) • 16+ Years Exp</p>
+                    <h3 className="text-xl font-bold text-slate-900 leading-snug">Dr. Rohit Agrawal</h3>
+                    <p className="text-xs font-extrabold text-primary uppercase tracking-wider mt-0.5">Founding Director &amp; Senior Pediatrician</p>
+                    <p className="text-[10px] text-slate-400 font-semibold mt-0.5">MBBS, MD (Pediatrics) • 16+ Years Clinical Experience</p>
+                  </div>
+
+                  {/* Message Quote */}
+                  <div className="relative">
+                    <span className="absolute -top-3.5 -left-2 text-6xl text-primary/10 font-serif leading-none">“</span>
+                    <p className="text-slate-600 text-sm leading-relaxed italic relative z-10 pl-3">
+                      For over 13 years, our mission at Lakshya Hospital has been to bridge the gap between world-class medical innovation and empathetic care. Healthcare is not just about treatment; it is about building lifelong relationships of trust. We are deeply committed to providing the highest standards of pediatric, critical care, and multi-speciality clinical excellence to every family in Kanpur.
+                    </p>
                   </div>
                 </div>
-                <p className="text-slate-650 text-sm italic leading-relaxed pt-2">
-                  "Our goal since founding Lakshya Hospital in 2013 has always been simple: to create a healthcare sanctuary for families in Kanpur. We combine advanced diagnostic facilities with pediatric, gynecological, and surgical disciplines so that patients receive dedicated, compassionate care close to home."
-                </p>
-              </div>
-              <div className="border-t border-slate-100 pt-4.5 mt-6 flex items-center gap-2 text-xs font-bold text-slate-500">
-                <CheckCircle2 className="w-4.5 h-4.5 text-secondary" />
-                <span>Founding Director</span>
+
+                <div className="border-t border-slate-100 pt-4 mt-6 flex items-center gap-2 text-xs font-bold text-slate-500">
+                  <CheckCircle2 className="w-4 h-4 text-secondary" />
+                  <span>Founding Director</span>
+                </div>
               </div>
             </div>
 
             {/* Dr. Tripti Mishra */}
-            <div className="bg-white rounded-3xl p-6.5 border border-slate-100 shadow-sm hover:shadow-md transition-shadow relative overflow-hidden flex flex-col justify-between">
-              <div className="space-y-4">
-                <div className="flex items-center gap-4">
-                  <div className="w-14 h-14 bg-gradient-to-br from-pink-500 to-rose-600 rounded-2xl flex items-center justify-center text-white text-xl font-bold font-display shadow-sm">
-                    TM
-                  </div>
+            <div className="bg-white rounded-[32px] p-6 sm:p-8 border border-slate-100 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col md:flex-row gap-6 items-start">
+              <div className="w-24 h-24 md:w-32 md:h-32 shrink-0 rounded-2xl overflow-hidden border-2 border-primary/10 shadow-sm bg-slate-50 relative">
+                <img
+                  src="/dr_tripti_founder.png"
+                  alt="Dr. Tripti Mishra"
+                  className="w-full h-full object-cover object-top"
+                />
+              </div>
+              <div className="flex-1 flex flex-col justify-between h-full">
+                <div className="space-y-4">
                   <div>
-                    <h3 className="text-lg font-bold text-slate-900 leading-snug">Dr. Tripti Mishra</h3>
-                    <p className="text-xs font-bold text-primary">Director &amp; Senior OB/GYN</p>
-                    <p className="text-[10px] text-slate-400 mt-0.5">MBBS, MS (Obstetrics &amp; Gynecology) • 16+ Years Exp</p>
+                    <h3 className="text-xl font-bold text-slate-900 leading-snug">Dr. Tripti Mishra</h3>
+                    <p className="text-xs font-extrabold text-primary uppercase tracking-wider mt-0.5">Executive Director &amp; Senior OB/GYN</p>
+                    <p className="text-[10px] text-slate-400 font-semibold mt-0.5">MBBS, MS (Obstetrics &amp; Gynecology) • 16+ Years Clinical Experience</p>
+                  </div>
+
+                  {/* Message Quote */}
+                  <div className="relative">
+                    <span className="absolute -top-3.5 -left-2 text-6xl text-primary/10 font-serif leading-none">“</span>
+                    <p className="text-slate-600 text-sm leading-relaxed italic relative z-10 pl-3">
+                      True clinical leadership lies in treating patients with absolute dignity and clinical rigor. At Lakshya Hospital, we have created a dedicated ecosystem for maternal health, high-risk pregnancies, and neonatal emergencies. Our state-of-the-art ICU, NICU, and modular surgical theaters represent our promise of safety and excellence to the community we serve.
+                    </p>
                   </div>
                 </div>
-                <p className="text-slate-650 text-sm italic leading-relaxed pt-2">
-                  "Compassionate and comprehensive women's healthcare is core to our mission. By establishing fully equipped critical care wards, high-risk pregnancy units, and modern laparoscopic capabilities, we ensure our moms and female patients are treated with the highest medical safety standards in Kanpur."
-                </p>
-              </div>
-              <div className="border-t border-slate-100 pt-4.5 mt-6 flex items-center gap-2 text-xs font-bold text-slate-500">
-                <CheckCircle2 className="w-4.5 h-4.5 text-secondary" />
-                <span>Executive Director</span>
+
+                <div className="border-t border-slate-100 pt-4 mt-6 flex items-center gap-2 text-xs font-bold text-slate-500">
+                  <CheckCircle2 className="w-4 h-4 text-secondary" />
+                  <span>Executive Director</span>
+                </div>
               </div>
             </div>
           </div>
@@ -249,7 +269,7 @@ export default function AboutPage() {
 
       {/* Hospital Virtual Tour / Video Section (RESTRUCTURED / MOVED) */}
       <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-12 gap-12 items-center">
 
             {/* Left Content info */}
@@ -291,11 +311,10 @@ export default function AboutPage() {
                 />
 
                 <div
-                  className={`absolute inset-0 flex items-center justify-center bg-black/20 transition-opacity duration-300 ${
-                    isPlaying
+                  className={`absolute inset-0 flex items-center justify-center bg-black/20 transition-opacity duration-300 ${isPlaying
                       ? 'opacity-0 group-hover:opacity-100 pointer-events-none group-hover:pointer-events-auto'
                       : 'opacity-100 pointer-events-auto'
-                  }`}
+                    }`}
                 >
                   <button
                     onClick={handlePlay}
@@ -359,7 +378,7 @@ export default function AboutPage() {
 
       {/* Accreditations & Empanelments Showcase (NEW Improvement) */}
       <section className="py-20 bg-white border-t border-slate-100">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-12 gap-12 items-center">
 
             {/* Left side text */}
