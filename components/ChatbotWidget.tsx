@@ -596,3 +596,4 @@ export default function ChatbotWidget() {
     </>
   );
 }
+// No UI impact change - placeholder for push
