@@ -81,6 +81,7 @@ export default function About() {
               className="w-full h-full object-cover"
               src="/Lakshya_Website_Intro.mp4"
               controls
+              preload="none"
               onPlay={() => setIsPlaying(true)}
               onPause={() => setIsPlaying(false)}
               onEnded={() => setIsPlaying(false)}
