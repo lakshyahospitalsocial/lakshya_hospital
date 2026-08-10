@@ -74,15 +74,15 @@ export default function CinematicLoader() {
             <div className="absolute top-[30%] left-[30%] w-[350px] h-[350px] bg-primary/10 rounded-full blur-[120px] animate-pulse" />
           </div>
 
-          {/* Centered Logo Reveal Video Player */}
+          {/* Centered Logo Reveal Video Player in a Circle */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.96 }}
+            initial={{ opacity: 0, scale: 0.92 }}
             animate={{ 
               opacity: 1, 
               scale: 1,
               transition: { duration: 0.6, ease: "easeOut" }
             }}
-            className="w-full max-w-4xl max-h-[80vh] px-4 flex items-center justify-center z-10"
+            className="w-60 h-60 sm:w-72 sm:h-72 rounded-full overflow-hidden flex items-center justify-center z-10 border-2 border-white/10 shadow-[0_0_35px_rgba(255,255,255,0.12)] bg-white relative"
           >
             <video
               src="/Lakshya_Hospital_logo_reveal.mp4"
@@ -90,7 +90,7 @@ export default function CinematicLoader() {
               muted
               playsInline
               preload="auto"
-              className="w-full h-full object-contain rounded-2xl"
+              className="w-full h-full object-cover"
             />
           </motion.div>
 
@@ -108,7 +108,7 @@ export default function CinematicLoader() {
               <span className="w-1.5 h-1.5 rounded-full bg-white animate-bounce [animation-delay:-0.15s]" />
               <span className="w-1.5 h-1.5 rounded-full bg-white animate-bounce" />
             </div>
-            <p className="text-[9px] font-bold text-white tracking-[0.2em] uppercase opacity-75">
+            <p className="text-[9px] font-bold text-white tracking-[0.2em] uppercase">
               Loading Experience
             </p>
           </motion.div>

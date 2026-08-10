@@ -435,7 +435,7 @@ export default function ServicesPage() {
                   <p className="text-[10px] mt-1 max-w-[180px] leading-tight">Name image <code className="bg-slate-200/50 px-1 rounded font-bold">hospital-icu.jpg</code> in <code className="bg-slate-200/50 px-1 rounded font-bold">/public</code> to display here.</p>
                 </div>
                 <img
-                  src="/icu.jpeg"
+                  src="/Icu.jpeg"
                   alt="Lakshya Hospital ICU Infrastructure"
                   className="w-full h-full object-cover relative z-10 transition-transform duration-500 group-hover:scale-102"
                   onError={(e) => {

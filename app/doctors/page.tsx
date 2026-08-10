@@ -46,7 +46,7 @@ const doctorsList: Doctor[] = [
     rating: 4.9,
     reviewsCount: 184,
     languages: ["Hindi", "English"],
-    education: "MD Pediatrics, GSVM Medical College, Kanpur",
+    education: "MD Pediatrics, LLRM Medical College, Meerut",
     clinicalFocus: ["Neonatal ICU (NICU) Care", "Pediatric Emergencies", "Asthma & Allergy", "Child Growth & Vaccination"],
     empanelments: ["Ayushman Bharat", "DDUS", "Star Health", "HDFC Ergo"],
     avail: [
@@ -70,7 +70,7 @@ const doctorsList: Doctor[] = [
     rating: 4.9,
     reviewsCount: 162,
     languages: ["Hindi", "English"],
-    education: "MS OB/GYN, BRD Medical College, Gorakhpur",
+    education: "MS OB/GYN, LLRM Medical College, Meerut",
     clinicalFocus: ["High-Risk Pregnancy Care", "Laparoscopic Gynecology", "Infertility Management", "PCOD & Menopause Care"],
     empanelments: ["Ayushman Bharat", "DDUS", "Niva Bupa", "Care Health"],
     avail: [
@@ -606,10 +606,12 @@ export default function FindDoctorPage() {
                       </div>
 
                       {/* Education / Qualifications */}
-                      <div>
-                        <p className="text-[10px] text-slate-400 font-bold uppercase tracking-wider mb-1">Education</p>
-                        <p className="text-xs font-semibold text-slate-700 line-clamp-1">{doctor.education}</p>
-                      </div>
+                      {(doctor.name === "Dr. Rohit Agrawal" || doctor.name === "Dr. Tripti Mishra") && (
+                        <div>
+                          <p className="text-[10px] text-slate-400 font-bold uppercase tracking-wider mb-1">Education</p>
+                          <p className="text-xs font-semibold text-slate-700 line-clamp-1">{doctor.education}</p>
+                        </div>
+                      )}
 
                       {/* Accepted Schemes Info (Ayushman / DDUS) */}
                       <div>
@@ -778,7 +780,7 @@ export default function FindDoctorPage() {
                     <div className="flex gap-2 w-auto">
                       <button
                         onClick={() => setSelectedDoctor(doctor)}
-                        className="bg-slate-100 hover:bg-slate-200 text-slate-700 px-4 py-2.5 rounded-xl text-xs font-bold transition-colors cursor-pointer border border-slate-200/50 shrink-0"
+                        className="hidden sm:block bg-slate-100 hover:bg-slate-200 text-slate-700 px-4 py-2.5 rounded-xl text-xs font-bold transition-colors cursor-pointer border border-slate-200/50 shrink-0"
                       >
                         Profile Details
                       </button>
@@ -978,7 +980,9 @@ export default function FindDoctorPage() {
                   </h4>
                   <div className="bg-slate-50 border border-slate-200/60 rounded-2xl p-4.5">
                     <p className="text-sm font-bold text-slate-800">{selectedDoctor.qual}</p>
-                    <p className="text-xs text-slate-500 font-medium mt-1.5">{selectedDoctor.education}</p>
+                    {(selectedDoctor.name === "Dr. Rohit Agrawal" || selectedDoctor.name === "Dr. Tripti Mishra") && (
+                      <p className="text-xs text-slate-500 font-medium mt-1.5">{selectedDoctor.education}</p>
+                    )}
                   </div>
                 </div>
 

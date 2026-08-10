@@ -1,6 +1,6 @@
 "use client"
 import React, { useRef, useState, useEffect } from 'react';
-import { Shield, Microscope, Users, Heart, Check, PlayCircle, PauseCircle, CheckCircle2, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Shield, Microscope, Users, Heart, Check, Play, Pause, CheckCircle2, ChevronLeft, ChevronRight } from 'lucide-react';
 
 const TRUST_SLIDES = [
   {
@@ -14,7 +14,7 @@ const TRUST_SLIDES = [
     caption: "Lakshya Hospital Exterior Facade"
   },
   {
-    src: "/icu.jpeg",
+    src: "/Icu.jpeg",
     alt: "Intensive Care Unit (ICU)",
     caption: "Advanced ICU Critical Care Facility"
   },
@@ -35,6 +35,20 @@ export default function About() {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isPlaying, setIsPlaying] = useState(false);
   const [activeSlide, setActiveSlide] = useState(0);
+  const [videoSrc, setVideoSrc] = useState("/Lakshya_Website_Intro.mp4");
+
+  useEffect(() => {
+    const checkMobile = () => {
+      if (window.innerWidth < 768) {
+        setVideoSrc("/lakshya_website_intro_mobile.mp4");
+      } else {
+        setVideoSrc("/Lakshya_Website_Intro.mp4");
+      }
+    };
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -75,11 +89,11 @@ export default function About() {
         <div className="grid lg:grid-cols-2 gap-10 items-center">
 
           {/* Left Image Area */}
-          <div className="relative h-[380px] w-full rounded-3xl overflow-hidden shadow-xl group">
+          <div className="relative h-[255px] sm:h-[320px] md:h-[380px] w-full rounded-3xl overflow-hidden shadow-xl group">
             <video
               ref={videoRef}
               className="w-full h-full object-cover"
-              src="/Lakshya_Website_Intro.mp4"
+              src={videoSrc}
               controls
               onPlay={() => setIsPlaying(true)}
               onPause={() => setIsPlaying(false)}
@@ -88,16 +102,20 @@ export default function About() {
 
             <div
               className={`absolute inset-0 flex items-center justify-center bg-black/20 transition-opacity duration-300 ${isPlaying
-                ? 'opacity-0 group-hover:opacity-100 pointer-events-none group-hover:pointer-events-auto'
+                ? 'opacity-0 pointer-events-none'
                 : 'opacity-100 pointer-events-auto'
                 }`}
             >
               <button
                 onClick={handlePlay}
                 aria-label={isPlaying ? "Pause Video" : "Play Video"}
-                className="w-16 h-16 bg-secondary text-white rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform cursor-pointer"
+                className="w-16 h-16 bg-secondary hover:bg-secondary/95 text-white rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform cursor-pointer"
               >
-                {isPlaying ? <PauseCircle className="w-10 h-10" /> : <PlayCircle className="w-10 h-10" />}
+                {isPlaying ? (
+                  <Pause className="w-8 h-8 fill-current" />
+                ) : (
+                  <Play className="w-8 h-8 fill-current translate-x-0.5" />
+                )}
               </button>
             </div>
           </div>

@@ -1,9 +1,9 @@
 "use client";
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import {
-  Shield, Microscope, Users, Heart, CheckCircle2, PlayCircle, PauseCircle, Clock,
+  Shield, Microscope, Users, Heart, CheckCircle2, Play, Pause, Clock,
   Calendar, Check, Smile, Award, Building2, ShieldCheck, MapPin,
   ChevronRight, HeartHandshake, Stethoscope
 } from 'lucide-react';
@@ -12,6 +12,20 @@ import Link from 'next/link';
 export default function AboutPage() {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isPlaying, setIsPlaying] = useState(false);
+  const [videoSrc, setVideoSrc] = useState("/Lakshya_Website_Intro.mp4");
+
+  useEffect(() => {
+    const checkMobile = () => {
+      if (window.innerWidth < 768) {
+        setVideoSrc("/lakshya_website_intro_mobile.mp4");
+      } else {
+        setVideoSrc("/Lakshya_Website_Intro.mp4");
+      }
+    };
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
 
   const handlePlay = () => {
     if (videoRef.current) {
@@ -125,7 +139,7 @@ export default function AboutPage() {
 
                 {/* Main image tag */}
                 <img
-                  src="/lakshya_hospital.png"
+                  src="/Lakshya_Hospital.png"
                   alt="Lakshya Hospital Kanpur Facade"
                   className="w-full h-full object-cover relative z-10 transition-transform duration-500 group-hover:scale-[1.02]"
                   onError={(e) => {
@@ -299,11 +313,11 @@ export default function AboutPage() {
 
             {/* Right Video Container */}
             <div className="lg:col-span-7">
-              <div className="relative h-[360px] sm:h-[400px] w-full rounded-3xl overflow-hidden shadow-xl border-4 border-slate-100 bg-slate-900 group">
+              <div className="relative h-[255px] sm:h-[320px] md:h-[420px] lg:h-[450px] w-full rounded-3xl overflow-hidden shadow-xl border-4 border-slate-100 bg-slate-900 group">
                 <video
                   ref={videoRef}
                   className="w-full h-full object-cover"
-                  src="/Lakshya_Website_Intro.mp4"
+                  src={videoSrc}
                   controls
                   onPlay={() => setIsPlaying(true)}
                   onPause={() => setIsPlaying(false)}
@@ -312,7 +326,7 @@ export default function AboutPage() {
 
                 <div
                   className={`absolute inset-0 flex items-center justify-center bg-black/20 transition-opacity duration-300 ${isPlaying
-                    ? 'opacity-0 group-hover:opacity-100 pointer-events-none group-hover:pointer-events-auto'
+                    ? 'opacity-0 pointer-events-none'
                     : 'opacity-100 pointer-events-auto'
                     }`}
                 >
@@ -321,7 +335,11 @@ export default function AboutPage() {
                     aria-label={isPlaying ? "Pause Video" : "Play Video"}
                     className="w-16 h-16 bg-secondary hover:bg-secondary/95 text-white rounded-full flex items-center justify-center shadow-xl hover:scale-110 transition-transform cursor-pointer"
                   >
-                    {isPlaying ? <PauseCircle className="w-10 h-10" /> : <PlayCircle className="w-10 h-10" />}
+                    {isPlaying ? (
+                      <Pause className="w-8 h-8 fill-current" />
+                    ) : (
+                      <Play className="w-8 h-8 fill-current translate-x-0.5" />
+                    )}
                   </button>
                 </div>
               </div>

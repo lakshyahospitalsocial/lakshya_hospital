@@ -109,10 +109,10 @@ export default function Doctors() {
                 </div>
 
                 <Link
-                  href="/doctors"
+                  href="/book-appointment"
                   className="w-full flex items-center justify-center gap-2 text-primary hover:bg-primary hover:text-white border border-primary/30 py-2.5 rounded-xl text-sm font-semibold transition-all group-hover:bg-primary group-hover:text-white"
                 >
-                  View Profile <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  Book Appointment <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </Link>
               </div>
             </div>

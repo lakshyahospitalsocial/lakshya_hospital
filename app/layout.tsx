@@ -62,6 +62,7 @@ export const metadata: Metadata = {
 };
 
 import ChatbotWidget from "../components/ChatbotWidget";
+import CinematicLoader from "../components/CinematicLoader";
 
 export default function RootLayout({
   children,
@@ -71,6 +72,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${dmSans.variable} ${playfair.variable} h-full antialiased`}>
       <body className="min-h-full flex flex-col font-sans text-foreground bg-background">
+        <CinematicLoader />
         {children}
         <ChatbotWidget />
       </body>
