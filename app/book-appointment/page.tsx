@@ -222,7 +222,7 @@ export default function BookAppointmentPage() {
         console.error("Booking dispatch error:", err);
         setStatus({
           type: "error",
-          message: "Unable to submit booking request due to a mail server configuration issue. Please contact us directly at info@lakshyahospital.com or call +91 93356 05848."
+          message: "Unable to submit booking request due to a mail server configuration issue. Please contact us directly at lakshyahospitalsocial@gmail.com or call +91 93356 05848."
         });
       } finally {
         setLoading(false);

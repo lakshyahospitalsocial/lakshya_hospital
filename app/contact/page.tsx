@@ -104,7 +104,7 @@ export default function ContactPage() {
         } else {
           setStatus({
             type: 'error',
-            message: 'Unable to send message due to a mail server configuration issue. Please contact us directly at info@lakshyahospital.com or call +91 93356 05848.'
+            message: 'Unable to send message due to a mail server configuration issue. Please contact us directly at lakshyahospitalsocial@gmail.com or call +91 93356 05848.'
           });
         }
       }
@@ -112,7 +112,7 @@ export default function ContactPage() {
       console.error(err);
       setStatus({
         type: 'error',
-        message: 'A network error occurred. Please check your internet connection and try again, or contact us at info@lakshyahospital.com.'
+        message: 'A network error occurred. Please check your internet connection and try again, or contact us at lakshyahospitalsocial@gmail.com.'
       });
     } finally {
       setLoading(false);
@@ -227,7 +227,7 @@ export default function ContactPage() {
 
                 {/* Mail – middle-left */}
                 <a
-                  href="mailto:info@lakshyahospital.com"
+                  href="mailto:lakshyahospitalsocial@gmail.com"
                   className="contact-float-3 absolute left-1 top-1/2 -translate-y-1/2 bg-white p-3 rounded-2xl shadow-lg border border-slate-100 text-purple-500 hover:scale-110 hover:rotate-12 transition-all duration-300 cursor-pointer"
                 >
                   <Mail className="w-5 h-5" />
@@ -300,13 +300,13 @@ export default function ContactPage() {
           </a>
 
           {/* Email */}
-          <a href="mailto:info@lakshyahospital.com" className="flex items-center gap-4 px-6 py-4 hover:bg-slate-50/60 transition-colors group">
+          <a href="mailto:lakshyahospitalsocial@gmail.com" className="flex items-center gap-4 px-6 py-4 hover:bg-slate-50/60 transition-colors group">
             <div className="w-11 h-11 rounded-2xl bg-indigo-50 text-indigo-600 flex items-center justify-center shrink-0 border border-indigo-100 group-hover:scale-110 transition-transform duration-300">
               <Mail className="w-5 h-5" />
             </div>
             <div className="text-left">
               <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Email Us</p>
-              <p className="text-sm font-bold text-slate-800 group-hover:text-primary transition-colors">info@lakshyahospital.com</p>
+              <p className="text-sm font-bold text-slate-800 group-hover:text-primary transition-colors">lakshyahospitalsocial@gmail.com</p>
               <p className="text-[10px] text-slate-400 mt-0.5">We&#39;ll respond promptly</p>
             </div>
           </a>

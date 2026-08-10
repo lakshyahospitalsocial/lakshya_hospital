@@ -36,7 +36,7 @@ export async function POST(request: Request) {
     const smtpPort = process.env.SMTP_PORT;
     const smtpUser = process.env.SMTP_USER;
     const smtpPass = process.env.SMTP_PASSWORD;
-    const toEmail = process.env.CONTACT_EMAIL || "info@lakshyahospital.com";
+    const toEmail = process.env.CONTACT_EMAIL || "lakshyahospitalsocial@gmail.com";
 
     // Resilient fallback if SMTP is not configured yet
     if (!smtpHost || !smtpUser || !smtpPass) {
@@ -128,7 +128,7 @@ export async function POST(request: Request) {
               <p style="margin: 0; font-size: 12px; color: #9ca3af; font-weight: 600;">LAKSHYA HOSPITAL KANPUR</p>
               <p style="margin: 4px 0 0 0; font-size: 11px; color: #9ca3af; line-height: 1.5;">
                 Kidwai Nagar, Kanpur, Uttar Pradesh, India<br/>
-                24/7 Helpline: +91 93356 05848 | <a href="mailto:info@lakshyahospital.com" style="color: #6b7280; text-decoration: underline;">info@lakshyahospital.com</a>
+                24/7 Helpline: +91 93356 05848 | <a href="mailto:lakshyahospitalsocial@gmail.com" style="color: #6b7280; text-decoration: underline;">lakshyahospitalsocial@gmail.com</a>
               </p>
             </div>
 

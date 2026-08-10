@@ -24,7 +24,7 @@ export async function POST(request: Request) {
     const smtpPort = process.env.SMTP_PORT;
     const smtpUser = process.env.SMTP_USER;
     const smtpPass = process.env.SMTP_PASSWORD;
-    const toEmail = process.env.CONTACT_EMAIL || "info@lakshyahospital.com";
+    const toEmail = process.env.CONTACT_EMAIL || "lakshyahospitalsocial@gmail.com";
 
     // Sandbox Fallback
     if (!smtpHost || !smtpUser || !smtpPass) {

@@ -134,7 +134,7 @@ const SECTIONS = [
       },
       {
         subtitle: 'Grievance Redressal',
-        body: 'If you have concerns about how your data is handled, please contact our Grievance Officer at info@lakshyahospital.com. We aim to resolve all complaints within 30 days.',
+        body: 'If you have concerns about how your data is handled, please contact our Grievance Officer at lakshyahospitalsocial@gmail.com. We aim to resolve all complaints within 30 days.',
       },
     ],
   },
@@ -309,7 +309,7 @@ export default function PrivacyPolicyPage() {
                 </p>
                 <div className="grid sm:grid-cols-2 gap-4">
                   {[
-                    { icon: Mail, label: 'Email', value: 'info@lakshyahospital.com', href: 'mailto:info@lakshyahospital.com' },
+                    { icon: Mail, label: 'Email', value: 'lakshyahospitalsocial@gmail.com', href: 'mailto:lakshyahospitalsocial@gmail.com' },
                     { icon: Phone, label: 'Phone', value: '+91 93356 05848', href: 'tel:+919335605848' },
                   ].map(({ icon: Icon, label, value, href }) => (
                     <a key={label} href={href}

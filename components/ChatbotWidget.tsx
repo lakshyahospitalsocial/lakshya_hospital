@@ -129,7 +129,7 @@ export default function ChatbotWidget() {
       }
 
       if (lower.includes("contact") || lower.includes("phone") || lower.includes("call") || lower.includes("helpline") || lower.includes("number")) {
-        addBotMessage("Our 24/7 Helpline is +91 93356 05848. You can also reach our hospital desk via email at info@lakshyahospital.com.");
+        addBotMessage("Our 24/7 Helpline is +91 93356 05848. You can also reach our hospital desk via email at lakshyahospitalsocial@gmail.com.");
         return;
       }
 

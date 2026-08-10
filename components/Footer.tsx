@@ -206,12 +206,12 @@ export default function Footer() {
               </li>
 
               <li>
-                <a href="mailto:info@lakshyahospital.com" className="flex items-center gap-3 group justify-center md:justify-start">
+                <a href="mailto:lakshyahospitalsocial@gmail.com" className="flex items-center gap-3 group justify-center md:justify-start">
                   <div className="w-8 h-8 rounded-lg bg-blue-50 border border-blue-200 flex items-center justify-center shrink-0 group-hover:bg-blue-500 transition-colors">
                     <Mail className="w-4 h-4 text-blue-500 group-hover:text-white transition-colors" />
                   </div>
                   <span className="text-sm text-gray-500 group-hover:text-primary transition-colors break-all">
-                    info@lakshyahospital.com
+                    lakshyahospitalsocial@gmail.com
                   </span>
                 </a>
               </li>
