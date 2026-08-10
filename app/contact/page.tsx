@@ -91,7 +91,16 @@ export default function ContactPage() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),
       });
-      const data = await res.json();
+
+      let data: any = {};
+      const text = await res.text();
+      try {
+        data = JSON.parse(text);
+      } catch (e) {
+        console.error('Failed to parse response as JSON:', text);
+        throw new Error(`Server returned status ${res.status}: ${text.slice(0, 150)}`);
+      }
+
       if (res.ok) {
         setFormData({ name: '', phone: '', email: '', message: '' });
         setTouched({});
@@ -99,20 +108,13 @@ export default function ContactPage() {
         setStatus({ type: null, message: '' });
         setIsSuccessModalOpen(true);
       } else {
-        if (res.status === 400) {
-          setStatus({ type: 'error', message: data.error || 'Invalid details provided.' });
-        } else {
-          setStatus({
-            type: 'error',
-            message: 'Unable to send message due to a mail server configuration issue. Please contact us directly at lakshyahospitalsocial@gmail.com or call +91 93356 05848.'
-          });
-        }
+        setStatus({ type: 'error', message: data.error || `Error ${res.status}: Failed to submit request.` });
       }
-    } catch (err) {
+    } catch (err: any) {
       console.error(err);
       setStatus({
         type: 'error',
-        message: 'A network error occurred. Please check your internet connection and try again, or contact us at lakshyahospitalsocial@gmail.com.'
+        message: `Error: ${err.message || err}. Please check details, or contact us directly at lakshyahospitalsocial@gmail.com.`
       });
     } finally {
       setLoading(false);

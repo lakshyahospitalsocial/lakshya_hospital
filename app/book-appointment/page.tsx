@@ -211,18 +211,27 @@ export default function BookAppointmentPage() {
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(form)
         });
-        const data = await res.json();
+
+        let data: any = {};
+        const text = await res.text();
+        try {
+          data = JSON.parse(text);
+        } catch (e) {
+          console.error("Failed to parse response as JSON:", text);
+          throw new Error(`Server returned status ${res.status}: ${text.slice(0, 150)}`);
+        }
+
         if (res.ok) {
           setSubmitted(true);
           window.scrollTo({ top: 0, behavior: "instant" });
         } else {
-          setStatus({ type: "error", message: data.error || "Failed to submit booking request. Please check details." });
+          setStatus({ type: "error", message: data.error || `Error ${res.status}: Failed to submit booking request.` });
         }
-      } catch (err) {
+      } catch (err: any) {
         console.error("Booking dispatch error:", err);
         setStatus({
           type: "error",
-          message: "Unable to submit booking request due to a mail server configuration issue. Please contact us directly at lakshyahospitalsocial@gmail.com or call +91 93356 05848."
+          message: `Error: ${err.message || err}. Please try again, or contact us directly at lakshyahospitalsocial@gmail.com.`
         });
       } finally {
         setLoading(false);
