@@ -1,3 +1,4 @@
+// Web App Manifest Configuration for Production Launch
 import { MetadataRoute } from 'next';
 
 export default function manifest(): MetadataRoute.Manifest {
