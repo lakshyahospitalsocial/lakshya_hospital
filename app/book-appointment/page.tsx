@@ -98,6 +98,13 @@ export default function BookAppointmentPage() {
   const [errors, setErrors] = useState<Partial<Record<keyof FormData, string>>>({});
   const [touched, setTouched] = useState<Partial<Record<keyof FormData, boolean>>>({});
   const [status, setStatus] = useState<{ type: "success" | "error" | null; message: string }>({ type: null, message: "" });
+  const [minDate, setMinDate] = useState("");
+  const [maxDate, setMaxDate] = useState("");
+
+  useEffect(() => {
+    setMinDate(minDateStr());
+    setMaxDate(maxDateStr());
+  }, []);
 
   // Reset doctor when dept changes
   useEffect(() => {
@@ -504,8 +511,8 @@ export default function BookAppointmentPage() {
                           name="date"
                           id="date"
                           value={form.date}
-                          min={minDateStr()}
-                          max={maxDateStr()}
+                          min={minDate}
+                          max={maxDate}
                           onChange={handleChange}
                           onBlur={handleBlur}
                           onClick={(e) => {
