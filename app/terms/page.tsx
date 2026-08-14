@@ -22,7 +22,7 @@ const SECTIONS = [
     content: [
       {
         subtitle: 'Agreement to Terms',
-        body: 'By accessing or using the Lakshya Hospital website (lakshyahospital.com), mobile-friendly interface, or any online service we provide — including the appointment booking system — you agree to be bound by these Terms & Conditions and our Privacy Policy. If you do not agree with any part of these terms, please do not use our website or services.',
+        body: 'By accessing or using the Lakshya Hospital website (lakshyahospital.co.in), mobile-friendly interface, or any online service we provide — including the appointment booking system — you agree to be bound by these Terms & Conditions and our Privacy Policy. If you do not agree with any part of these terms, please do not use our website or services.',
       },
       {
         subtitle: 'Eligibility',
@@ -265,7 +265,7 @@ export default function TermsPage() {
                   These Terms & Conditions ("Terms") govern your use of the website and online services operated by <strong className="text-gray-900">Lakshya Hospital</strong>, located at 128/1006, Y Block, Ghari Purva, Kidwai Nagar, Kanpur, Uttar Pradesh – 208011.
                 </p>
                 <p>
-                  These Terms apply to all visitors, users, and patients who access our website at <strong className="text-gray-900">lakshyahospital.com</strong> — whether for browsing information, booking appointments, or reading our health articles.
+                  These Terms apply to all visitors, users, and patients who access our website at <strong className="text-gray-900">lakshyahospital.co.in</strong> — whether for browsing information, booking appointments, or reading our health articles.
                 </p>
                 <p>
                   For information about how we handle your personal and medical data, please refer to our <Link href="/privacy-policy" className="text-primary font-semibold hover:underline">Privacy Policy</Link>.

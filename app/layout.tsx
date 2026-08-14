@@ -16,7 +16,7 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://lakshyahospital.com'),
+  metadataBase: new URL('https://www.lakshyahospital.co.in'),
   title: {
     default: 'Lakshya Hospital | Multi Super-Speciality Hospital in Kanpur',
     template: '%s | Lakshya Hospital Kanpur',
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_IN',
-    url: 'https://lakshyahospital.com',
+    url: 'https://www.lakshyahospital.co.in',
     siteName: 'Lakshya Hospital',
     title: 'Lakshya Hospital | Multi Super-Speciality Hospital in Kanpur',
     description: 'World-class healthcare close to home. 11 super-specialists, 12 departments, 24/7 emergency care. Empanelled under Ayushman Bharat.',

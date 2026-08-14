@@ -238,7 +238,7 @@ export default function PrivacyPolicyPage() {
               </div>
               <div className="text-gray-600 text-sm leading-relaxed space-y-3">
                 <p>
-                  This Privacy Policy describes how <strong className="text-gray-900">Lakshya Hospital</strong> ("we", "us", "our"), located at 128/1006, Y Block, Kidwai Nagar, Kanpur, Uttar Pradesh – 208011, collects, uses, discloses, and safeguards information you provide when you visit our website (<strong className="text-gray-900">lakshyahospital.com</strong>), use our online appointment booking system, or contact us.
+                  This Privacy Policy describes how <strong className="text-gray-900">Lakshya Hospital</strong> ("we", "us", "our"), located at 128/1006, Y Block, Kidwai Nagar, Kanpur, Uttar Pradesh – 208011, collects, uses, discloses, and safeguards information you provide when you visit our website (<strong className="text-gray-900">lakshyahospital.co.in</strong>), use our online appointment booking system, or contact us.
                 </p>
                 <p>
                   This policy applies to all information collected through our website, booking forms, contact forms, and any related healthcare services. By using our website, you consent to the practices described in this policy.

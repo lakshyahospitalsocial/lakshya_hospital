@@ -3,12 +3,12 @@ import { MetadataRoute } from 'next';
 export const dynamic = 'force-static';
 /**
  * Lakshya Hospital — robots.txt
- * Automatically served at: https://lakshyahospital.com/robots.txt
+ * Automatically served at: https://www.lakshyahospital.co.in/robots.txt
  *
  * Allows all search engine crawlers and points them to the sitemap.
  */
 
-const BASE_URL = 'https://lakshyahospital.com';
+const BASE_URL = 'https://www.lakshyahospital.co.in';
 
 export default function robots(): MetadataRoute.Robots {
   return {

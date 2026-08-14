@@ -3,7 +3,7 @@ import { MetadataRoute } from 'next';
 export const dynamic = 'force-static';
 /**
  * Lakshya Hospital — Dynamic Sitemap
- * Automatically served at: https://lakshyahospital.com/sitemap.xml
+ * Automatically served at: https://www.lakshyahospital.co.in/sitemap.xml
  *
  * Priority guide:
  *  1.0  → Homepage
@@ -13,7 +13,7 @@ export const dynamic = 'force-static';
  *  0.5  → Legal / utility pages (Privacy Policy)
  */
 
-const BASE_URL = 'https://lakshyahospital.com';
+const BASE_URL = 'https://www.lakshyahospital.co.in';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
