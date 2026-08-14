@@ -1,4 +1,4 @@
-// Web App Manifest Configuration for Production Launch
+// Web App Manifest Configuration for Production Launch - Redeploy Trigger
 import { MetadataRoute } from 'next';
 
 export default function manifest(): MetadataRoute.Manifest {
