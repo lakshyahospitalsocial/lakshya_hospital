@@ -2,6 +2,7 @@
 import React from 'react';
 import { CalendarHeart, PhoneCall, ShieldCheck, Users, Activity, Stethoscope, Baby, HeartHandshake, Sparkles } from 'lucide-react';
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default function Hero() {
   return (
@@ -11,10 +12,12 @@ export default function Hero() {
     >
       {/* Background image — DESKTOP ONLY (100% untouched) */}
       <div className="absolute inset-0 z-0 hidden lg:block">
-        <img
+        <Image
           src="/lakshya-foundee.png"
           alt="Lakshya Hospital Background"
-          className="w-full h-full object-cover object-right"
+          fill
+          priority
+          className="object-cover object-right"
         />
       </div>
 
@@ -118,10 +121,12 @@ export default function Hero() {
 
         {/* Featured Doctor Image Card with Animated Healthcare Sector Icons */}
         <div className="mt-6 mb-5 relative rounded-[28px] overflow-hidden shadow-2xl border-4 border-white bg-slate-900 group h-80 sm:h-96">
-          <img
+          <Image
             src="/lakshya_foundee_mobile.png"
             alt="Dr. Rohit Agrawal & Dr. Tripti Mishra - Lakshya Hospital"
-            className="w-full h-full object-cover object-bottom transition-transform duration-700 group-hover:scale-105"
+            fill
+            priority
+            className="object-cover object-bottom transition-transform duration-700 group-hover:scale-105"
           />
 
           {/* Vignette Overlay */}

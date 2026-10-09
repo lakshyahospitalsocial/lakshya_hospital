@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Phone, CalendarHeart, Menu, X } from 'lucide-react';
+import Image from 'next/image';
 
 export default function Header() {
   const pathname = usePathname();
@@ -34,9 +35,12 @@ export default function Header() {
 
             {/* Logo */}
             <Link href="/" className="flex items-center shrink-0">
-              <img
+              <Image
                 src="/logo.png"
                 alt="Lakshya Hospital Logo"
+                width={64}
+                height={64}
+                priority
                 className="h-14 sm:h-16 w-auto object-contain -ml-4 -mr-3"
               />
               <div className="flex flex-col">

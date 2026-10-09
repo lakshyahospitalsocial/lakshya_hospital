@@ -66,6 +66,103 @@ const PREVIEW_ARTICLES = [
       <h2>Empanelled for Ayushman & State Schemes</h2>
       <p>We believe in accessibility. We are fully empanelled for the Ayushman Bharat PM-JAY scheme and state government DDUP schemes, accepting cashless insurances for patients in Kidwai Nagar, Barra, Naubasta, and Kanpur.</p>
     `
+  },
+  {
+    id: 3,
+    category: "Paediatrics",
+    catColor: "text-green-600",
+    catBg: "bg-green-50",
+    catBorder: "border-green-100",
+    Icon: Baby,
+    title: "Your Child's Health & Immunization Checklist: A Pediatrician's Roadmap",
+    excerpt: "Childhood immunizations and developmental tracking are key to robust growth. Get evidence-based checkup guidelines from Kanpur's renowned pediatrician Dr. Rohit Agarwal.",
+    author: "Dr. Rohit Agarwal",
+    authorRole: "Founder & Child Specialist",
+    date: "June 5, 2026",
+    readTime: "8 min read",
+    tag: "Essential",
+    image: "https://images.unsplash.com/photo-1584515933487-779824d29309?w=1200&q=80",
+    content: `
+      <h2>Comprehensive Child Care & Development</h2>
+      <p>Vaccination is critical to protect your child from life-threatening diseases. Under the supervision of renowned pediatrician Dr. Rohit Agarwal at Lakshya Hospital in South Kanpur, we offer pediatric care programs and child immunization schedules in line with IAP guidelines, serving families across Barra, Naubasta, and Kidwai Nagar.</p>
+      <h2>Key Childhood Milestones to Watch</h2>
+      <ul>
+        <li><strong>Physical Growth:</strong> Regular weight and height tracking to ensure appropriate development.</li>
+        <li><strong>Immunization Timelines:</strong> Keeping on track with essential vaccine doses during the first 2 years.</li>
+        <li><strong>Cognitive Milestones:</strong> Tracking speech, social, and motor development relative to age benchmarks.</li>
+      </ul>
+    `,
+  },
+  {
+    id: 4,
+    category: "Gynaecology",
+    catColor: "text-pink-600",
+    catBg: "bg-pink-50",
+    catBorder: "border-pink-100",
+    Icon: Heart,
+    title: "10 Reasons to See a Gynecologist | When Should You Visit?",
+    excerpt: "Dr. Tripti Mishra explains 10 important situations when women and girls should consult a gynecologist.",
+    author: "Dr. Tripti Mishra",
+    authorRole: "Obstetrician & Gynecologist",
+    date: "July 18, 2026",
+    readTime: "5 min read",
+    tag: "Women's Health",
+    image: "https://images.unsplash.com/photo-1518152006812-edab29b069ac?w=1200&q=80",
+    content: `
+      <h2>When Should You Consult a Gynecologist?</h2>
+      <p>In this guide, Dr. Tripti Mishra, Obstetrician & Gynecologist at Lakshya Hospital, Kanpur, explains 10 important situations when women and girls should consult a gynecologist.</p>
+      
+      <h2>10 Reasons to Consider a Check-Up</h2>
+      <ul>
+        <li>Periods start before the age of 9 or have not started by the age of 16</li>
+        <li>Periods are irregular — occurring less than 21 days or more than 35 days apart, or lasting unusually long</li>
+        <li>You experience very heavy bleeding or pass large blood clots during periods</li>
+        <li>Period pain is severe enough to affect your daily routine</li>
+        <li>You experience pain or difficulty during intimacy</li>
+        <li>Vaginal discharge has an unusual colour, strong smell, itching or irritation</li>
+        <li>You are planning a pregnancy and want a pre-pregnancy health check-up</li>
+        <li>You have been trying to conceive for 1 year if under 30, or for 6 months if over 30</li>
+        <li>You are pregnant and need regular gynecological check-ups to monitor your health and the baby's growth</li>
+        <li>You want a routine gynecological check-up even when you have no obvious symptoms</li>
+      </ul>
+
+      <h2>The Importance of Regular Check-Ups</h2>
+      <p>Dr. Tripti also explains why regular gynecological check-ups can be important for monitoring women's health, including appropriate screening such as Pap smear, breast examination and other investigations when recommended by your doctor. If you have any concerning symptoms or questions about your reproductive health, consult a qualified gynecologist.</p>
+    `,
+  },
+  {
+    id: 5,
+    category: "Paediatrics",
+    catColor: "text-green-600",
+    catBg: "bg-green-50",
+    catBorder: "border-green-100",
+    Icon: Baby,
+    title: "How to Boost Child Immunity Naturally | 7 Tips",
+    excerpt: "Dr. Rohit Agarwal shares 7 important tips to build healthy daily habits to prevent cold and cough.",
+    author: "Dr. Rohit Agarwal",
+    authorRole: "Child Specialist & Director",
+    date: "July 20, 2026",
+    readTime: "6 min read",
+    tag: "Child Health",
+    image: "https://images.unsplash.com/photo-1584515933487-779824d29309?w=1200&q=80",
+    content: `
+      <h2>Building Your Child's Immunity</h2>
+      <p>Does your child frequently suffer from cough, cold or infections? In this guide, Dr. Rohit Agarwal shares 7 important tips that can help parents build healthy daily habits for their children.</p>
+      
+      <h2>7 Tips to Prevent Cold & Cough</h2>
+      <ul>
+        <li><strong>Balanced Diet:</strong> Fruits and vegetables are important in a child's diet. Vitamin C-rich foods boost immunity.</li>
+        <li><strong>Protein & Iron-Rich Foods:</strong> Foods such as eggs, paneer, dal, and ragi contribute to a child's growth and nutrition.</li>
+        <li><strong>Outdoor Play & Sunlight:</strong> Physical activity, outdoor play, and appropriate sunlight exposure are vital for children's health.</li>
+        <li><strong>Proper Sleep Routine:</strong> A regular and consistent sleep schedule is important for well-being.</li>
+        <li><strong>Hydration:</strong> Children need adequate fluids. Water and healthy food choices should be preferred over packaged drinks.</li>
+        <li><strong>Medical Advice:</strong> Parents should avoid giving medicines or antibiotics to children without consulting a pediatrician.</li>
+        <li><strong>Gut Health:</strong> The importance of fiber, probiotic foods such as curd, and maintaining a healthy bowel routine cannot be overstated.</li>
+      </ul>
+
+      <h2>Consistency is Key</h2>
+      <p>Nutrition, sleep, physical activity, hydration, hygiene, and gut health should all be considered together when supporting a child's overall health. Remember, immunity-supporting healthy habits are built over time, not overnight. Consistency is key. If your child frequently gets sick, consult a pediatrician for appropriate medical advice.</p>
+    `,
   }
 ];
 
@@ -81,7 +178,7 @@ const PREVIEW_VIDEOS = [
     excerpt: "Dr. Rohit Agarwal, premier pediatrician in Kidwai Nagar, South Kanpur, shares evidence-based newborn child care tips. Learn about wake windows and preventing day-night confusion near Barra and Naubasta.",
     author: "Dr. Rohit Agarwal",
     authorRole: "Director & Child Specialist",
-    youtubeId: "https://youtu.be/yRtVL-XbWZc", // PASTE YOUR YOUTUBE URL OR ID HERE!
+    youtubeId: "https://www.youtube.com/watch?v=yRtVL-XbWZc",
     tag: "Parenting Guide",
   },
   {
@@ -94,7 +191,7 @@ const PREVIEW_VIDEOS = [
     excerpt: "Dr. Tripti Mishra, leading gynae and pregnancy delivery specialist near Barra and Naubasta, debunks the most common myths expecting mothers hear from relatives in Kanpur.",
     author: "Dr. Tripti Mishra",
     authorRole: "Senior Gynecologist",
-    youtubeId: "https://youtu.be/QNa7juOSI28", // PASTE YOUR YOUTUBE URL OR ID HERE!
+    youtubeId: "https://www.youtube.com/watch?v=QNa7juOSI28",
     tag: "Trending",
   },
   {
@@ -161,6 +258,45 @@ const PREVIEW_VIDEOS = [
     authorRole: "Director & Child Specialist",
     youtubeId: "https://www.youtube.com/watch?v=RvkBOXafK8w",
     tag: "Parenting Guide",
+  },
+  {
+    id: 8,
+    category: "Paediatrics",
+    catColor: "text-green-600",
+    catBg: "bg-green-50",
+    catBorder: "border-green-100",
+    title: "Understanding Baby Milestones",
+    excerpt: "Learn what to expect in the first year of your baby's development, including physical and cognitive milestones.",
+    author: "Dr. Rohit Agarwal",
+    authorRole: "Director & Child Specialist",
+    youtubeId: "https://www.youtube.com/watch?v=4vG6Fl1PhJ8",
+    tag: "New Video",
+  },
+  {
+    id: 9,
+    category: "Paediatrics",
+    catColor: "text-green-600",
+    catBg: "bg-green-50",
+    catBorder: "border-green-100",
+    title: "How to Boost Child Immunity Naturally | 7 Tips",
+    excerpt: "Dr. Rohit Agarwal shares 7 important tips that can help parents build healthy daily habits for their children to boost immunity.",
+    author: "Dr. Rohit Agarwal",
+    authorRole: "Child Specialist & Director",
+    youtubeId: "https://www.youtube.com/watch?v=WKKyCIh7d3I",
+    tag: "Child Health",
+  },
+  {
+    id: 10,
+    category: "Gynaecology",
+    catColor: "text-pink-600",
+    catBg: "bg-pink-50",
+    catBorder: "border-pink-100",
+    title: "10 Reasons to See a Gynecologist | When Should You Visit?",
+    excerpt: "Dr. Tripti Mishra explains 10 important situations when women and girls should consult a gynecologist, including irregular periods and pregnancy planning.",
+    author: "Dr. Tripti Mishra",
+    authorRole: "Obstetrician & Gynecologist",
+    youtubeId: "https://www.youtube.com/watch?v=hkd20ywHTKs",
+    tag: "Women's Health",
   },
 ];
 
@@ -365,35 +501,35 @@ export default function HealthLibrary() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
 
             {/* 1. Left Video */}
-            {renderVideoCard(PREVIEW_VIDEOS[0])}
+            {renderVideoCard(PREVIEW_VIDEOS[8])}
 
             {/* 2. Middle Left Article */}
             <div
-              onClick={() => setSelectedArticle(PREVIEW_ARTICLES[0])}
+              onClick={() => setSelectedArticle(PREVIEW_ARTICLES[4])}
               className="group bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-lg transition-all duration-300 cursor-pointer overflow-hidden flex flex-col h-full"
             >
               <div className="relative h-48 overflow-hidden">
-                <img src={PREVIEW_ARTICLES[0].image} alt={PREVIEW_ARTICLES[0].title} className="w-full h-full object-cover group-hover:scale-[1.04] transition-transform duration-500" />
+                <img src={PREVIEW_ARTICLES[4].image} alt={PREVIEW_ARTICLES[4].title} className="w-full h-full object-cover group-hover:scale-[1.04] transition-transform duration-500" />
                 <div className="absolute top-3 left-3">
-                  <span className={`px-2.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider border ${PREVIEW_ARTICLES[0].catBg} ${PREVIEW_ARTICLES[0].catColor} ${PREVIEW_ARTICLES[0].catBorder}`}>
-                    {PREVIEW_ARTICLES[0].category}
+                  <span className={`px-2.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider border ${PREVIEW_ARTICLES[4].catBg} ${PREVIEW_ARTICLES[4].catColor} ${PREVIEW_ARTICLES[4].catBorder}`}>
+                    {PREVIEW_ARTICLES[4].category}
                   </span>
                 </div>
               </div>
               <div className="p-5 flex flex-col flex-grow gap-3">
                 <h3 className="font-bold text-gray-900 leading-snug text-[15px]" style={{ fontFamily: "var(--font-display, serif)" }}>
-                  {PREVIEW_ARTICLES[0].title}
+                  {PREVIEW_ARTICLES[4].title}
                 </h3>
                 <p className="text-gray-500 text-xs leading-relaxed flex-grow line-clamp-2">
-                  {PREVIEW_ARTICLES[0].excerpt}
+                  {PREVIEW_ARTICLES[4].excerpt}
                 </p>
                 <div className="flex items-center justify-between pt-3 border-t border-gray-50 mt-1">
                   <div className="text-[11px] text-gray-400">
                     <p className="font-bold text-gray-800 flex items-center gap-1 mb-0.5">
-                      <User size={10} /> {PREVIEW_ARTICLES[0].author}
+                      <User size={10} /> {PREVIEW_ARTICLES[4].author}
                     </p>
                     <p className="flex items-center gap-1">
-                      <Clock size={9} /> {PREVIEW_ARTICLES[0].readTime}
+                      <Clock size={9} /> {PREVIEW_ARTICLES[4].readTime}
                     </p>
                   </div>
                   <span className="flex items-center gap-1 text-primary text-[11px] font-bold group-hover:gap-2 transition-all">
@@ -404,35 +540,35 @@ export default function HealthLibrary() {
             </div>
 
             {/* 3. Middle Right Video */}
-            {renderVideoCard(PREVIEW_VIDEOS[1])}
+            {renderVideoCard(PREVIEW_VIDEOS[9])}
 
             {/* 4. Right Article */}
             <div
-              onClick={() => setSelectedArticle(PREVIEW_ARTICLES[1])}
+              onClick={() => setSelectedArticle(PREVIEW_ARTICLES[3])}
               className="group bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-lg transition-all duration-300 cursor-pointer overflow-hidden flex flex-col h-full"
             >
               <div className="relative h-48 overflow-hidden">
-                <img src={PREVIEW_ARTICLES[1].image} alt={PREVIEW_ARTICLES[1].title} className="w-full h-full object-cover group-hover:scale-[1.04] transition-transform duration-500" />
+                <img src={PREVIEW_ARTICLES[3].image} alt={PREVIEW_ARTICLES[3].title} className="w-full h-full object-cover group-hover:scale-[1.04] transition-transform duration-500" />
                 <div className="absolute top-3 left-3">
-                  <span className={`px-2.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider border ${PREVIEW_ARTICLES[1].catBg} ${PREVIEW_ARTICLES[1].catColor} ${PREVIEW_ARTICLES[1].catBorder}`}>
-                    {PREVIEW_ARTICLES[1].category}
+                  <span className={`px-2.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider border ${PREVIEW_ARTICLES[3].catBg} ${PREVIEW_ARTICLES[3].catColor} ${PREVIEW_ARTICLES[3].catBorder}`}>
+                    {PREVIEW_ARTICLES[3].category}
                   </span>
                 </div>
               </div>
               <div className="p-5 flex flex-col flex-grow gap-3">
                 <h3 className="font-bold text-gray-900 leading-snug text-[15px]" style={{ fontFamily: "var(--font-display, serif)" }}>
-                  {PREVIEW_ARTICLES[1].title}
+                  {PREVIEW_ARTICLES[3].title}
                 </h3>
                 <p className="text-gray-500 text-xs leading-relaxed flex-grow line-clamp-2">
-                  {PREVIEW_ARTICLES[1].excerpt}
+                  {PREVIEW_ARTICLES[3].excerpt}
                 </p>
                 <div className="flex items-center justify-between pt-3 border-t border-gray-50 mt-1">
                   <div className="text-[11px] text-gray-400">
                     <p className="font-bold text-gray-800 flex items-center gap-1 mb-0.5">
-                      <User size={10} /> {PREVIEW_ARTICLES[1].author}
+                      <User size={10} /> {PREVIEW_ARTICLES[3].author}
                     </p>
                     <p className="flex items-center gap-1">
-                      <Clock size={9} /> {PREVIEW_ARTICLES[1].readTime}
+                      <Clock size={9} /> {PREVIEW_ARTICLES[3].readTime}
                     </p>
                   </div>
                   <span className="flex items-center gap-1 text-primary text-[11px] font-bold group-hover:gap-2 transition-all">

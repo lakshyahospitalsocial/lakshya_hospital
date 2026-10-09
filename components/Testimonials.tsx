@@ -4,6 +4,27 @@ import { Star, ChevronLeft, ChevronRight, Heart, Quote, PlayCircle, X } from 'lu
 
 const reviews = [
   {
+    name: "Nusrat",
+    tag: "Pediatric Patient Family",
+    review: "Our newborn developed breathing problems and a severe infection after birth. After consulting multiple doctors and hospitals, we were advised to bring our baby to Lakshya Hospital. They provided the critical care and treatment our baby desperately needed.",
+    rating: 5,
+    youtubeId: "https://www.youtube.com/shorts/FqTE9pkcscw",
+  },
+  {
+    name: "Mr. Santosh Kumar",
+    tag: "Dyspnea Patient",
+    review: "In this patient testimonial, Mr. Santosh Kumar shares his experience related to dyspnea (breathing difficulty) and his healthcare journey at Lakshya Hospital, Kanpur.",
+    rating: 5,
+    youtubeId: "https://www.youtube.com/shorts/vpJHfcZDPX0",
+  },
+  {
+    name: "Praveen Singh Kushwaha",
+    tag: "Patient Family",
+    review: "In this heartfelt patient testimonial, Praveen Singh Kushwaha and his family share their perspective on the care, support and overall experience they received during their treatment from the hospital team.",
+    rating: 5,
+    youtubeId: "https://www.youtube.com/shorts/ifaHz_LjusU",
+  },
+  {
     name: "Bilal & Family",
     tag: "Maternity Patient",
     review: "Recovering after delivery doesn't always have to take weeks. With the right medical care and support under Dr. Tripti Mishra at Lakshya Hospital, my wife was able to recover comfortably within just 4 days after delivery.",

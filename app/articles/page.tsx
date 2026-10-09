@@ -23,6 +23,115 @@ const CATEGORIES = [
 ];
 
 const CONTENT = [
+  // --- NEWEST CONTENT ---
+  {
+    id: "a6",
+    type: "article" as const,
+    category: "Gynaecology",
+    catColor: "text-pink-600", catBg: "bg-pink-50", catBorder: "border-pink-100", iconBg: "bg-pink-100",
+    Icon: Heart, iconColor: "text-pink-500",
+    title: "10 Reasons to See a Gynecologist | When Should You Visit?",
+    excerpt: "Dr. Tripti Mishra explains 10 important situations when women and girls should consult a gynecologist.",
+    author: "Dr. Tripti Mishra", authorRole: "Obstetrician & Gynecologist",
+    date: "July 18, 2026", readTime: "5 min read", tag: "Women's Health", featured: false,
+    image: "https://images.unsplash.com/photo-1518152006812-edab29b069ac?w=1200&q=80",
+    content: `
+      <h2>When Should You Consult a Gynecologist?</h2>
+      <p>In this guide, Dr. Tripti Mishra, Obstetrician & Gynecologist at Lakshya Hospital, Kanpur, explains 10 important situations when women and girls should consult a gynecologist.</p>
+      
+      <h2>10 Reasons to Consider a Check-Up</h2>
+      <ul>
+        <li>Periods start before the age of 9 or have not started by the age of 16</li>
+        <li>Periods are irregular — occurring less than 21 days or more than 35 days apart, or lasting unusually long</li>
+        <li>You experience very heavy bleeding or pass large blood clots during periods</li>
+        <li>Period pain is severe enough to affect your daily routine</li>
+        <li>You experience pain or difficulty during intimacy</li>
+        <li>Vaginal discharge has an unusual colour, strong smell, itching or irritation</li>
+        <li>You are planning a pregnancy and want a pre-pregnancy health check-up</li>
+        <li>You have been trying to conceive for 1 year if under 30, or for 6 months if over 30</li>
+        <li>You are pregnant and need regular gynecological check-ups to monitor your health and the baby's growth</li>
+        <li>You want a routine gynecological check-up even when you have no obvious symptoms</li>
+      </ul>
+
+      <h2>The Importance of Regular Check-Ups</h2>
+      <p>Dr. Tripti also explains why regular gynecological check-ups can be important for monitoring women's health, including appropriate screening such as Pap smear, breast examination and other investigations when recommended by your doctor. If you have any concerning symptoms or questions about your reproductive health, consult a qualified gynecologist.</p>
+    `,
+  },
+  {
+    id: "a7",
+    type: "article" as const,
+    category: "Paediatrics",
+    catColor: "text-green-600", catBg: "bg-green-50", catBorder: "border-green-100", iconBg: "bg-green-100",
+    Icon: Baby, iconColor: "text-green-500",
+    title: "How to Boost Child Immunity Naturally | 7 Tips",
+    excerpt: "Dr. Rohit Agarwal shares 7 important tips that can help parents build healthy daily habits to prevent cold and cough.",
+    author: "Dr. Rohit Agarwal", authorRole: "Child Specialist & Director",
+    date: "July 20, 2026", readTime: "6 min read", tag: "Child Health", featured: false,
+    image: "https://images.unsplash.com/photo-1584515933487-779824d29309?w=1200&q=80",
+    content: `
+      <h2>Building Your Child's Immunity</h2>
+      <p>Does your child frequently suffer from cough, cold or infections? In this guide, Dr. Rohit Agarwal shares 7 important tips that can help parents build healthy daily habits for their children.</p>
+      
+      <h2>7 Tips to Prevent Cold & Cough</h2>
+      <ul>
+        <li><strong>Balanced Diet:</strong> Fruits and vegetables are important in a child's diet. Vitamin C-rich foods boost immunity.</li>
+        <li><strong>Protein & Iron-Rich Foods:</strong> Foods such as eggs, paneer, dal, and ragi contribute to a child's growth and nutrition.</li>
+        <li><strong>Outdoor Play & Sunlight:</strong> Physical activity, outdoor play, and appropriate sunlight exposure are vital for children's health.</li>
+        <li><strong>Proper Sleep Routine:</strong> A regular and consistent sleep schedule is important for well-being.</li>
+        <li><strong>Hydration:</strong> Children need adequate fluids. Water and healthy food choices should be preferred over packaged drinks.</li>
+        <li><strong>Medical Advice:</strong> Parents should avoid giving medicines or antibiotics to children without consulting a pediatrician.</li>
+        <li><strong>Gut Health:</strong> The importance of fiber, probiotic foods such as curd, and maintaining a healthy bowel routine cannot be overstated.</li>
+      </ul>
+
+      <h2>Consistency is Key</h2>
+      <p>Nutrition, sleep, physical activity, hydration, hygiene, and gut health should all be considered together when supporting a child's overall health. Remember, immunity-supporting healthy habits are built over time, not overnight. Consistency is key. If your child frequently gets sick, consult a pediatrician for appropriate medical advice.</p>
+    `,
+  },
+  {
+    id: "v10",
+    type: "video" as const,
+    category: "Videos",
+    subCategory: "Gynaecology",
+    catColor: "text-pink-600", catBg: "bg-pink-50", catBorder: "border-pink-100",
+    title: "10 Reasons to See a Gynecologist | When Should You Visit?",
+    excerpt: "Dr. Tripti Mishra explains 10 important situations when women and girls should consult a gynecologist, including irregular periods and pregnancy planning.",
+    author: "Dr. Tripti Mishra",
+    authorRole: "Obstetrician & Gynecologist",
+    youtubeId: "https://www.youtube.com/watch?v=hkd20ywHTKs",
+    tag: "Women's Health",
+    date: "July 18, 2026",
+    readTime: "8 min watch"
+  },
+  {
+    id: "v9",
+    type: "video" as const,
+    category: "Videos",
+    subCategory: "Paediatrics",
+    catColor: "text-green-600", catBg: "bg-green-50", catBorder: "border-green-100",
+    title: "How to Boost Child Immunity Naturally | 7 Tips",
+    excerpt: "Dr. Rohit Agarwal shares 7 important tips that can help parents build healthy daily habits for their children to boost immunity.",
+    author: "Dr. Rohit Agarwal",
+    authorRole: "Child Specialist & Director",
+    youtubeId: "https://www.youtube.com/watch?v=WKKyCIh7d3I",
+    tag: "Child Health",
+    date: "July 20, 2026",
+    readTime: "6 min watch"
+  },
+  {
+    id: "v8",
+    type: "video" as const,
+    category: "Videos",
+    subCategory: "Paediatrics",
+    catColor: "text-green-600", catBg: "bg-green-50", catBorder: "border-green-100",
+    title: "Understanding Baby Milestones",
+    excerpt: "Learn what to expect in the first year of your baby's development, including physical and cognitive milestones.",
+    author: "Dr. Rohit Agarwal",
+    authorRole: "Director & Child Specialist",
+    youtubeId: "https://www.youtube.com/watch?v=4vG6Fl1PhJ8",
+    tag: "New Video",
+    date: "July 12, 2026",
+    readTime: "10 min watch"
+  },
   // --- VIDEOS ---
   {
     id: "v1",
@@ -129,6 +238,7 @@ const CONTENT = [
     date: "July 8, 2026",
     readTime: "18 min watch"
   },
+
 
   // --- ARTICLES ---
   {
@@ -625,14 +735,14 @@ export default function ArticlesPage() {
 
                   {/* Video Thumbnail */}
                   <a
-                    href="https://youtu.be/yRtVL-XbWZc"
+                    href="https://www.youtube.com/watch?v=WKKyCIh7d3I"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="block relative group aspect-video overflow-hidden"
                   >
                     <img
-                      src="https://img.youtube.com/vi/yRtVL-XbWZc/maxresdefault.jpg"
-                      alt="Newborn Sleep Tips"
+                      src="https://img.youtube.com/vi/WKKyCIh7d3I/maxresdefault.jpg"
+                      alt="How to Boost Child Immunity Naturally"
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     />
 
@@ -663,12 +773,11 @@ export default function ArticlesPage() {
                     </div>
 
                     <h3 className="text-xl font-bold text-white mt-4 font-display">
-                      Newborn Sleep Tips for Parents
+                      How to Boost Child Immunity Naturally
                     </h3>
 
                     <p className="text-slate-400 text-xs mt-3 leading-relaxed">
-                      Expert advice from Dr. Rohit Agarwal on newborn sleep patterns,
-                      feeding schedules and healthy sleep habits for newborn babies.
+                      Dr. Rohit Agarwal shares 7 important tips that can help parents build healthy daily habits to prevent cold and cough.
                     </p>
 
                     <div className="flex items-center justify-between mt-6 pt-5 border-t border-slate-800">
@@ -679,12 +788,12 @@ export default function ArticlesPage() {
                         </p>
 
                         <p className="text-[10px] font-bold uppercase tracking-wider text-slate-500 mt-0.5">
-                          Pediatric Specialist
+                          Child Specialist & Director
                         </p>
                       </div>
 
                       <a
-                        href="https://youtu.be/yRtVL-XbWZc"
+                        href="https://www.youtube.com/watch?v=WKKyCIh7d3I"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="text-cyan-400 font-bold text-xs hover:underline flex items-center gap-1"

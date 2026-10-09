@@ -406,7 +406,7 @@ export default function ContactPage() {
                 </div>
 
                 <div className="space-y-1.5">
-                  <label className="text-xs font-bold text-slate-600">Email Address</label>
+                  <label className="text-xs font-bold text-slate-605">Email Address</label>
                   <input
                     type="email"
                     placeholder="john@example.com"
@@ -425,7 +425,7 @@ export default function ContactPage() {
                 </div>
 
                 <div className="space-y-1.5">
-                  <label className="text-xs font-bold text-slate-600">How can we help?</label>
+                  <label className="text-xs font-bold text-slate-605">How can we help?</label>
                   <textarea
                     rows={4}
                     placeholder="Describe your inquiry…"
