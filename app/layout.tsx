@@ -63,6 +63,8 @@ export const metadata: Metadata = {
 
 import ChatbotWidget from "../components/ChatbotWidget";
 import CinematicLoader from "../components/CinematicLoader";
+import CookieConsent from "../components/CookieConsent";
+import GoogleAnalytics from "../components/GoogleAnalytics";
 
 export default function RootLayout({
   children,
@@ -72,9 +74,11 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${dmSans.variable} ${playfair.variable} h-full antialiased`}>
       <body className="min-h-full flex flex-col font-sans text-foreground bg-background">
+        <GoogleAnalytics />
         <CinematicLoader />
         {children}
         <ChatbotWidget />
+        <CookieConsent />
       </body>
     </html>
   );
